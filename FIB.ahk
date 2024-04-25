@@ -1,175 +1,175 @@
-﻿IM = Assets\icon.ico
+﻿IM = assets\icon.ico
 IfExist, %IM%
 Menu, Tray, Icon, %IM%
 ;return
 
 SetWorkingDir %A_ScriptDir%
 
-IfnotExist, %A_ScriptDir%\Assets
+IfnotExist, %A_ScriptDir%\assets
 {
-FileCreateDir, %A_ScriptDir%\Assets
+FileCreateDir, %A_ScriptDir%\assets
 }
 
 ;======================================================================================================================Бейджик
-IniRead, otdel, Assets/Settings.ini, USER, otdel
-IniRead, sid, Assets/Settings.ini, USER, sid
-IniRead, place, Assets/Settings.ini, USER, place
-IniRead, type, Assets/Settings.ini, USER, type
+IniRead, otdel, assets/Settings.ini, USER, otdel
+IniRead, sid, assets/Settings.ini, USER, sid
+IniRead, place, assets/Settings.ini, USER, place
+IniRead, type, assets/Settings.ini, USER, type
 
 if type=ERROR
     {
-    IniWrite, бейджик, Assets/Settings.ini, USER, type
+    IniWrite, бейджик, assets/Settings.ini, USER, type
 Reload
 }
 
 if place=ERROR
     {
-    IniWrite, поясе, Assets/Settings.ini, USER, place
+    IniWrite, поясе, assets/Settings.ini, USER, place
 Reload
 }
 
 if otdel=ERROR
     {
-    IniWrite, Ваш отдел, Assets/Settings.ini, USER, otdel
+    IniWrite, Ваш отдел, assets/Settings.ini, USER, otdel
 Reload
 }
 
 if sid=ERROR
     {
-    IniWrite, Ваш статик, Assets/Settings.ini, USER, sid
+    IniWrite, Ваш статик, assets/Settings.ini, USER, sid
 Reload
 }
 ;======================================================================================================================Кнопки
 
-IniRead, Key1, Assets/Settings.ini, USER, Key1, % A_Space
+IniRead, Key1, assets/Settings.ini, USER, Key1, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey1, off, UseErrorLevel
 Hotkey, % PrKey1 := Key1, Key1, on, UseErrorLevel
-IniWrite, %Key1%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key1
+IniWrite, %Key1%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key1
 
-IniRead, Key2, Assets/Settings.ini, USER, Key2, % A_Space
+IniRead, Key2, assets/Settings.ini, USER, Key2, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey2, off, UseErrorLevel
 Hotkey, % PrKey2 := Key2, Key2, on, UseErrorLevel
-IniWrite, %Key2%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key2
+IniWrite, %Key2%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key2
 
-IniRead, Key3, Assets/Settings.ini, USER, Key3, % A_Space
+IniRead, Key3, assets/Settings.ini, USER, Key3, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey3, off, UseErrorLevel
 Hotkey, % PrKey3 := Key3, Key3, on, UseErrorLevel
-IniWrite, %Key3%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key3
+IniWrite, %Key3%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key3
 
-IniRead, Key4, Assets/Settings.ini, USER, Key4, % A_Space
+IniRead, Key4, assets/Settings.ini, USER, Key4, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey4, off, UseErrorLevel
 Hotkey, % PrKey4 := Key4, Key4, on, UseErrorLevel
-IniWrite, %Key4%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key4
+IniWrite, %Key4%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key4
 
-IniRead, Key5, Assets/Settings.ini, USER, Key5, % A_Space
+IniRead, Key5, assets/Settings.ini, USER, Key5, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey5, off, UseErrorLevel
 Hotkey, % PrKey5 := Key5, Key5, on, UseErrorLevel
-IniWrite, %Key5%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key5
+IniWrite, %Key5%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key5
 
-IniRead, Key6, Assets/Settings.ini, USER, Key6, % A_Space
+IniRead, Key6, assets/Settings.ini, USER, Key6, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey6, off, UseErrorLevel
 Hotkey, % PrKey6 := Key6, Key6, on, UseErrorLevel
-IniWrite, %Key6%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key6
+IniWrite, %Key6%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key6
 
-IniRead, Key7, Assets/Settings.ini, USER, Key7, % A_Space
+IniRead, Key7, assets/Settings.ini, USER, Key7, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey7, off, UseErrorLevel
 Hotkey, % PrKey7 := Key7, Key7, on, UseErrorLevel
-IniWrite, %Key7%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key7
+IniWrite, %Key7%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key7
 
-IniRead, Key8, Assets/Settings.ini, USER, Key8, % A_Space
+IniRead, Key8, assets/Settings.ini, USER, Key8, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey8, off, UseErrorLevel
 Hotkey, % PrKey8 := Key8, Key8, on, UseErrorLevel
-IniWrite, %Key8%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key8
+IniWrite, %Key8%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key8
 
-IniRead, Key9, Assets/Settings.ini, USER, Key9, % A_Space
+IniRead, Key9, assets/Settings.ini, USER, Key9, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey9, off, UseErrorLevel
 Hotkey, % PrKey9 := Key9, Key9, on, UseErrorLevel
-IniWrite, %Key9%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key9
+IniWrite, %Key9%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key9
 
-IniRead, Key10, Assets/Settings.ini, USER, Key10, % A_Space
+IniRead, Key10, assets/Settings.ini, USER, Key10, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey10, off, UseErrorLevel
 Hotkey, % PrKey10 := Key10, Key10, on, UseErrorLevel
-IniWrite, %Key10%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key10
+IniWrite, %Key10%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key10
 
-IniRead, Key16, Assets/Settings.ini, USER, Key16, % A_Space
+IniRead, Key16, assets/Settings.ini, USER, Key16, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey16, off, UseErrorLevel
 Hotkey, % PrKey16 := Key16, Key16, on, UseErrorLevel
-IniWrite, %Key16%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key16
+IniWrite, %Key16%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key16
 
-IniRead, Key17, Assets/Settings.ini, USER, Key17, % A_Space
+IniRead, Key17, assets/Settings.ini, USER, Key17, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey17, off, UseErrorLevel
 Hotkey, % PrKey17 := Key17, Key17, on, UseErrorLevel
-IniWrite, %Key17%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key17
+IniWrite, %Key17%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key17
 
-IniRead, Key18, Assets/Settings.ini, USER, Key18, % A_Space
+IniRead, Key18, assets/Settings.ini, USER, Key18, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey18, off, UseErrorLevel
 Hotkey, % PrKey18 := Key18, Key18, on, UseErrorLevel
-IniWrite, %Key18%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key18
+IniWrite, %Key18%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key18
 
-IniRead, Key19, Assets/Settings.ini, USER, Key19, % A_Space
+IniRead, Key19, assets/Settings.ini, USER, Key19, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey19, off, UseErrorLevel
 Hotkey, % PrKey19 := Key19, Key19, on, UseErrorLevel
-IniWrite, %Key19%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key19
+IniWrite, %Key19%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key19
 
-IniRead, Key20, Assets/Settings.ini, USER, Key20, % A_Space
+IniRead, Key20, assets/Settings.ini, USER, Key20, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey20, off, UseErrorLevel
 Hotkey, % PrKey20 := Key20, Key20, on, UseErrorLevel
-IniWrite, %Key20%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key20
+IniWrite, %Key20%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key20
 
-IniRead, Key21, Assets/Settings.ini, USER, Key21, % A_Space
+IniRead, Key21, assets/Settings.ini, USER, Key21, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey21, off, UseErrorLevel
 Hotkey, % PrKey21 := Key21, Key21, on, UseErrorLevel
-IniWrite, %Key21%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key21
+IniWrite, %Key21%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key21
 
-IniRead, Key22, Assets/Settings.ini, USER, Key22, % A_Space
+IniRead, Key22, assets/Settings.ini, USER, Key22, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey22, off, UseErrorLevel
 Hotkey, % PrKey22 := Key22, Key22, on, UseErrorLevel
-IniWrite, %Key22%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key22
+IniWrite, %Key22%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key22
 
-IniRead, Key23, Assets/Settings.ini, USER, Key23, % A_Space
+IniRead, Key23, assets/Settings.ini, USER, Key23, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey23, off, UseErrorLevel
 Hotkey, % PrKey23 := Key23, Key23, on, UseErrorLevel
-IniWrite, %Key23%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key23
+IniWrite, %Key23%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key23
 
-IniRead, Key24, Assets/Settings.ini, USER, Key24, % A_Space
+IniRead, Key24, assets/Settings.ini, USER, Key24, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey24, off, UseErrorLevel
 Hotkey, % PrKey24 := Key24, Key24, on, UseErrorLevel
-IniWrite, %Key24%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key24
+IniWrite, %Key24%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key24
 
-IniRead, Key25, Assets/Settings.ini, USER, Key25, % A_Space
+IniRead, Key25, assets/Settings.ini, USER, Key25, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey25, off, UseErrorLevel
 Hotkey, % PrKey25 := Key25, Key25, on, UseErrorLevel
-IniWrite, %Key25%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key25
+IniWrite, %Key25%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key25
 
-IniRead, Key31, Assets/Settings.ini, USER, Key31, % A_Space
+IniRead, Key31, assets/Settings.ini, USER, Key31, % A_Space
 Gui, Submit, NoHide
 Hotkey, % PrKey31, off, UseErrorLevel
 Hotkey, % PrKey31 := Key31, Key31, on, UseErrorLevel
-IniWrite, %Key31%, %A_ScriptDir%\ Assets\Settings.ini, Hotkey, Key31
+IniWrite, %Key31%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key31
 
 ;=================================================================================== гендер
-IniRead, Radio1, Assets/Settings.ini, User, Gender1
-IniRead, Radio2, Assets/Settings.ini, User, Gender2
+IniRead, Radio1, assets/Settings.ini, User, Gender1
+IniRead, Radio2, assets/Settings.ini, User, Gender2
 if (Radio1 = "ERROR")
 {
     if (Radio2 = "ERROR")
@@ -192,10 +192,10 @@ gender = а
 
 ;======================================================================================================================Основное GUI
 
-Gui, Add, Picture, x-1 y-1 w1081 h490 , Assets\back.png
+Gui, Add, Picture, x-1 y-1 w1081 h490 , assets\back.png
 Gui, Font, S20 CWhite, Calibri
 Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, FIBHelper | Не забудь включить БОДИ-КАМЕРУ и ЗАПИСЬ
-Gui, Add, Picture, x915 y15 w120 h120 +BackgroundTrans, Assets\logo.png
+Gui, Add, Picture, x915 y15 w120 h120 +BackgroundTrans, assets\logo.png
 Gui, Font, S10 CWhite, Calibri
 Gui, Add, Text, x900 y440 w250 h30 +BackgroundTrans, от Maxim и Veronika Art
 Gui, Add, Text, x900 y455 w250 h30 +BackgroundTrans, для друзей и NSB
@@ -287,36 +287,36 @@ return
 
 Save:
 Gui, submit, NoHide
-IniWrite, %type%, Assets/Settings.ini, USER, type
-IniWrite, %place%, Assets/Settings.ini, USER, place
-IniWrite, %otdel%, Assets/Settings.ini, USER, otdel
-IniWrite, %sid%, Assets/Settings.ini, USER, sid
-IniWrite, %Key1%, Assets/Settings.ini, USER, Key1
-IniWrite, %Key2%, Assets/Settings.ini, USER, Key2
-IniWrite, %Key3%, Assets/Settings.ini, USER, Key3
-IniWrite, %Key4%, Assets/Settings.ini, USER, Key4
-IniWrite, %Key5%, Assets/Settings.ini, USER, Key5
-IniWrite, %Key6%, Assets/Settings.ini, USER, Key6
-IniWrite, %Key7%, Assets/Settings.ini, USER, Key7
-IniWrite, %Key8%, Assets/Settings.ini, USER, Key8
-IniWrite, %Key9%, Assets/Settings.ini, USER, Key9
-IniWrite, %Key10%, Assets/Settings.ini, USER, Key10
+IniWrite, %type%, assets/Settings.ini, USER, type
+IniWrite, %place%, assets/Settings.ini, USER, place
+IniWrite, %otdel%, assets/Settings.ini, USER, otdel
+IniWrite, %sid%, assets/Settings.ini, USER, sid
+IniWrite, %Key1%, assets/Settings.ini, USER, Key1
+IniWrite, %Key2%, assets/Settings.ini, USER, Key2
+IniWrite, %Key3%, assets/Settings.ini, USER, Key3
+IniWrite, %Key4%, assets/Settings.ini, USER, Key4
+IniWrite, %Key5%, assets/Settings.ini, USER, Key5
+IniWrite, %Key6%, assets/Settings.ini, USER, Key6
+IniWrite, %Key7%, assets/Settings.ini, USER, Key7
+IniWrite, %Key8%, assets/Settings.ini, USER, Key8
+IniWrite, %Key9%, assets/Settings.ini, USER, Key9
+IniWrite, %Key10%, assets/Settings.ini, USER, Key10
 
-IniWrite, %Key16%, Assets/Settings.ini, USER, Key16
-IniWrite, %Key17%, Assets/Settings.ini, USER, Key17
-IniWrite, %Key18%, Assets/Settings.ini, USER, Key18
-IniWrite, %Key19%, Assets/Settings.ini, USER, Key19
-IniWrite, %Key20%, Assets/Settings.ini, USER, Key20
-IniWrite, %Key21%, Assets/Settings.ini, USER, Key21
-IniWrite, %Key22%, Assets/Settings.ini, USER, Key22
-IniWrite, %Key23%, Assets/Settings.ini, USER, Key23
-IniWrite, %Key24%, Assets/Settings.ini, USER, Key24
-IniWrite, %Key25%, Assets/Settings.ini, USER, Key25
+IniWrite, %Key16%, assets/Settings.ini, USER, Key16
+IniWrite, %Key17%, assets/Settings.ini, USER, Key17
+IniWrite, %Key18%, assets/Settings.ini, USER, Key18
+IniWrite, %Key19%, assets/Settings.ini, USER, Key19
+IniWrite, %Key20%, assets/Settings.ini, USER, Key20
+IniWrite, %Key21%, assets/Settings.ini, USER, Key21
+IniWrite, %Key22%, assets/Settings.ini, USER, Key22
+IniWrite, %Key23%, assets/Settings.ini, USER, Key23
+IniWrite, %Key24%, assets/Settings.ini, USER, Key24
+IniWrite, %Key25%, assets/Settings.ini, USER, Key25
 
-IniWrite, %Key31%, Assets/Settings.ini, USER, Key31
+IniWrite, %Key31%, assets/Settings.ini, USER, Key31
 
-IniWrite, %Radio1%, Assets/Settings.ini, USER, Gender1
-IniWrite, %Radio2%, Assets/Settings.ini, USER, Gender2
+IniWrite, %Radio1%, assets/Settings.ini, USER, Gender1
+IniWrite, %Radio2%, assets/Settings.ini, USER, Gender2
 Reload
 return
 
@@ -414,7 +414,7 @@ Gui 2: Font, cFFFFFF
 
 ; FFDEAD - желный цвет
 ; 00FFFF - синий цвет
-gui 2: add, picture, h575 w961, Assets/help.png
+gui 2: add, picture, h575 w961, assets/help.png
 
                                                                                     
 
@@ -447,7 +447,7 @@ Gui 2: Font, cFFFFFF
 
 ; FFDEAD - желный цвет
 ; 00FFFF - синий цвет
-gui 2: add, picture, h284 w611, Assets/help2.png
+gui 2: add, picture, h284 w611, assets/help2.png
 
                                                                                     
 
@@ -481,7 +481,7 @@ Gui 2: Font, cFFFFFF
 
 ; FFDEAD - желный цвет
 ; 00FFFF - синий цвет
-gui 2: add, picture, w611 h332, Assets/help3.png
+gui 2: add, picture, w611 h332, assets/help3.png
 
                                                                                     
 
@@ -601,9 +601,9 @@ return
 
 Key16:
 SendMessage, 0x50,, 0x4190419,, A
-IniRead, otdel, Assets/Settings.ini, USER, otdel
-IniRead, sid, Assets/Settings.ini, USER, sid
-IniRead, place, Assets/Settings.ini, USER, place
+IniRead, otdel, assets/Settings.ini, USER, otdel
+IniRead, sid, assets/Settings.ini, USER, sid
+IniRead, place, assets/Settings.ini, USER, place
 
 SendInput, {T}
 sleep 200
