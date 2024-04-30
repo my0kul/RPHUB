@@ -193,12 +193,11 @@ gender = а
 ;======================================================================================================================Основное GUI
 Gui, Color, 191919
 Gui, Font, S20 CWhite, Calibri
-Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, FIBHub
+Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, PDHelper
 Gui, Add, Picture, x915 y15 w120 h120 +BackgroundTrans, assets\logo.png
 Gui, Font, S10 CWhite, Calibri
 Gui, Add, Text, x900 y440 w250 h30 +BackgroundTrans, от Maxim и Veronika Art
-Gui, Add, Text, x900 y455 w250 h30 +BackgroundTrans, для друзей и NSB
-Gui, Add, Text, x900 y470 w250 h30 +BackgroundTrans, v1.04 | 25.04.24
+Gui, Add, Text, x900 y455 w250 h30 +BackgroundTrans, v1.1 | 01.05.24
 Gui, Font, S15 CWhite, Calibri
 Gui, Add, Text, x130 y82 w500 h30 +BackgroundTrans, Боди-Камера
 Gui, Add, Text, x130 y122 w240 h30 +BackgroundTrans, Посадить в авто
@@ -250,7 +249,7 @@ Gui, Add, Hotkey, x472 y360 w95 h30 vKey23, %Key23%
 Gui, Add, Hotkey, x472 y400 w95 h30 vKey24, %Key24%
 Gui, Add, Hotkey, x472 y440 w95 h30 vKey25, %Key25%
 
-Gui, Show, w1080 h489, FIBHub
+Gui, Show, w1080 h489, PDHelper
 
 Gui, 3: -MaximizeBox
 Gui, 3: -SysMenu
@@ -606,7 +605,7 @@ IniRead, place, assets/Settings.ini, USER, place
 
 SendInput, {T}
 sleep 200
-SendInput, /do На %place% находится %type%: [FIB | %otdel% | %sid%]{Enter}.
+SendInput, /do На %place% находится %type%: [LSPD | %otdel% | %sid%]{Enter}.
 return
 
 Key17: 
