@@ -193,8 +193,8 @@ gender = а
 ;======================================================================================================================Основное GUI
 Gui, Color, 191919
 Gui, Font, S20 CWhite, Calibri
-Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, PDHelper
-Gui, Add, Picture, x915 y15 w120 h120 +BackgroundTrans, assets\logo.png
+Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, Бинды
+Gui, Add, Picture, x855 y-25 w220 h220 +BackgroundTrans, assets\logo.png
 Gui, Font, S10 CWhite, Calibri
 Gui, Add, Text, x900 y440 w250 h30 +BackgroundTrans, от Maxim и Veronika Art
 Gui, Add, Text, x900 y455 w250 h30 +BackgroundTrans, v1.1 | 01.05.24
@@ -249,7 +249,7 @@ Gui, Add, Hotkey, x472 y360 w95 h30 vKey23, %Key23%
 Gui, Add, Hotkey, x472 y400 w95 h30 vKey24, %Key24%
 Gui, Add, Hotkey, x472 y440 w95 h30 vKey25, %Key25%
 
-Gui, Show, w1080 h489, PDHelper
+Gui, Show, w1080 h489, RPHUB
 
 Gui, 3: -MaximizeBox
 Gui, 3: -SysMenu
