@@ -194,7 +194,7 @@ gender = а
 Gui, Color, 191919
 Gui, Font, S20 CWhite, Calibri
 Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, Бинды
-Gui, Add, Picture, x855 y-25 w220 h220 +BackgroundTrans, assets\logo.png
+Gui, Add, Picture, x885 y-5 w170 h170 +BackgroundTrans, assets\logo.png
 Gui, Font, S10 CWhite, Calibri
 Gui, Add, Text, x900 y440 w250 h30 +BackgroundTrans, от Maxim и Veronika Art
 Gui, Add, Text, x900 y455 w250 h30 +BackgroundTrans, v1.1 | 01.05.24
