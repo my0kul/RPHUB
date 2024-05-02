@@ -4,6 +4,27 @@ IfnotExist, %A_ScriptDir%\assets
 {
 FileCreateDir, %A_ScriptDir%\assets
 }
+;======================================================================================================================Подкачка файлов
+
+IfnotExist, %A_ScriptDir%\assets\help.png
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/1.14/Assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
+}
+
+IfnotExist, %A_ScriptDir%\assets\help2.png
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/1.14/Assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
+}
+
+IfnotExist, %A_ScriptDir%\assets\help3.png
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/1.14/Assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
+}
+
+IfnotExist, %A_ScriptDir%\assets\logo.png
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/1.14/Assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
+}
 
 ;======================================================================================================================Бейджик
 IniRead, otdel, assets/Settings.ini, USER, otdel
@@ -11,27 +32,32 @@ IniRead, sid, assets/Settings.ini, USER, sid
 IniRead, place, assets/Settings.ini, USER, place
 IniRead, type, assets/Settings.ini, USER, type
 
+smthwrong = 0
 if type=ERROR
     {
+	smthwrong = 1
     IniWrite, бейджик, assets/Settings.ini, USER, type
-Reload
 }
 
 if place=ERROR
     {
+	smthwrong = 1
     IniWrite, поясе, assets/Settings.ini, USER, place
-Reload
 }
 
 if otdel=ERROR
     {
+	smthwrong = 1
     IniWrite, Ваш отдел, assets/Settings.ini, USER, otdel
-Reload
 }
 
 if sid=ERROR
     {
+	smthwrong = 1
     IniWrite, Ваш статик, assets/Settings.ini, USER, sid
+}
+if smthwrong = 1
+{
 Reload
 }
 ;======================================================================================================================Кнопки
