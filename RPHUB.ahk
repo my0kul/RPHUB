@@ -1,4 +1,5 @@
-﻿SetWorkingDir %A_ScriptDir%
+﻿version = 1.15
+SetWorkingDir %A_ScriptDir%
 
 IfnotExist, %A_ScriptDir%\assets
 {
@@ -8,22 +9,22 @@ FileCreateDir, %A_ScriptDir%\assets
 
 IfnotExist, %A_ScriptDir%\assets\help.png
 {
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/1.14/Assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
 }
 
 IfnotExist, %A_ScriptDir%\assets\help2.png
 {
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/1.14/Assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
 }
 
 IfnotExist, %A_ScriptDir%\assets\help3.png
 {
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/1.14/Assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
 }
 
 IfnotExist, %A_ScriptDir%\assets\logo.png
 {
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/1.14/Assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
 }
 
 ;======================================================================================================================Бейджик
@@ -218,7 +219,7 @@ Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, Бинды
 Gui, Add, Picture, x885 y-5 w170 h170 +BackgroundTrans, assets\logo.png
 Gui, Font, S10 CWhite, Calibri
 Gui, Add, Text, x902 y440 w250 h30 +BackgroundTrans, by #110378 | San Diego
-Gui, Add, Text, x902 y455 w250 h30 +BackgroundTrans, v1.133 | 02.05.24
+Gui, Add, Text, x902 y455 w250 h30 +BackgroundTrans, v%version% | 02.05.24
 Gui, Font, S15 CWhite, Calibri
 
 Gui, Add, Text, x130 y82 w500 h30 +BackgroundTrans, Бейджик
