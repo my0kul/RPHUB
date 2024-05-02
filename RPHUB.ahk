@@ -191,8 +191,8 @@ Gui, Font, S20 CWhite, Calibri
 Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, Бинды
 Gui, Add, Picture, x885 y-5 w170 h170 +BackgroundTrans, assets\logo.png
 Gui, Font, S10 CWhite, Calibri
-Gui, Add, Text, x900 y440 w250 h30 +BackgroundTrans, от Maxim и Veronika Art
-Gui, Add, Text, x900 y455 w250 h30 +BackgroundTrans, v1.1 | 01.05.24
+Gui, Add, Text, x902 y440 w250 h30 +BackgroundTrans, by #110378 | San Diego
+Gui, Add, Text, x902 y455 w250 h30 +BackgroundTrans, v1.133 | 02.05.24
 Gui, Font, S15 CWhite, Calibri
 
 Gui, Add, Text, x130 y82 w500 h30 +BackgroundTrans, Бейджик
@@ -200,28 +200,29 @@ Gui, Add, Text, x130 y122 w240 h30 +BackgroundTrans, Памятка Общая
 Gui, Add, Text, x130 y162 w240 h30 +BackgroundTrans, Памятка Угонки
 Gui, Add, Text, x130 y202 w330 h30 +BackgroundTrans, Памятка установки личности
 Gui, Add, Text, x130 y242 w330 h30 +BackgroundTrans, ТЕН-КОДЫ
-Gui, Add, Text, x130 y282 w330 h30 +BackgroundTrans, Проверка на наркотики
-Gui, Add, Text, x130 y322 w330 h30 +BackgroundTrans, Весы для наркотиков
-Gui, Add, Text, x130 y362 w330 h30 +BackgroundTrans, .
-Gui, Add, Text, x130 y402 w330 h30 +BackgroundTrans, .
-Gui, Add, Text, x130 y442 w330 h30 +BackgroundTrans, .
+Gui, Add, Text, x130 y282 w330 h30 +BackgroundTrans, Информация о биндах и командах
+;=Gui, Add, Text, x130 y322 w330 h30 +BackgroundTrans, .
+;=Gui, Add, Text, x130 y362 w330 h30 +BackgroundTrans, .
+;=Gui, Add, Text, x130 y402 w330 h30 +BackgroundTrans, .
+;=Gui, Add, Text, x130 y442 w330 h30 +BackgroundTrans, .
 
-Gui, Add, Text, x580 y82 w500 h30 +BackgroundTrans,  .
-Gui, Add, Text, x580 y122 w240 h30 +BackgroundTrans, .
-Gui, Add, Text, x580 y162 w240 h30 +BackgroundTrans, .
-Gui, Add, Text, x580 y202 w330 h30 +BackgroundTrans, .
-Gui, Add, Text, x580 y242 w330 h30 +BackgroundTrans, .
-Gui, Add, Text, x580 y282 w330 h30 +BackgroundTrans, .
-Gui, Add, Text, x580 y322 w330 h30 +BackgroundTrans, .
-Gui, Add, Text, x580 y362 w330 h30 +BackgroundTrans, .
-Gui, Add, Text, x580 y402 w330 h30 +BackgroundTrans, .
-Gui, Add, Text, x580 y442 w330 h30 +BackgroundTrans, .
+;=Gui, Add, Text, x580 y82 w500 h30 +BackgroundTrans,  .
+;=Gui, Add, Text, x580 y122 w240 h30 +BackgroundTrans, .
+;=Gui, Add, Text, x580 y162 w240 h30 +BackgroundTrans, .
+;=Gui, Add, Text, x580 y202 w330 h30 +BackgroundTrans, .
+;=Gui, Add, Text, x580 y242 w330 h30 +BackgroundTrans, .
+;=Gui, Add, Text, x580 y282 w330 h30 +BackgroundTrans, .
+;=Gui, Add, Text, x580 y322 w330 h30 +BackgroundTrans, .
+;=Gui, Add, Text, x580 y362 w330 h30 +BackgroundTrans, .
+;=Gui, Add, Text, x580 y402 w330 h30 +BackgroundTrans, .
+;=Gui, Add, Text, x580 y442 w330 h30 +BackgroundTrans, .
 
 Gui, Font, S13 CBlack, Calibri
 
 Gui, Add, Button, x902 y149 w150 h30 gCommand, Команды
 Gui, Add, Button, x902 y209 w150 h30 gSettings, Настройки
 Gui, Add, Button, x902 y269 w150 h30 gSave, Сохранить
+Gui, Add, Button, x902 y409 w150 h30 gUpdate, Обновления
 
 ;==== Бейджик ==== 
 Gui, Add, Hotkey, x22 y80 w95 h30 vKey1, %Key1%
@@ -233,24 +234,23 @@ Gui, Add, Hotkey, x22 y160 w95 h30 vKey3, %Key3%
 Gui, Add, Hotkey, x22 y200 w95 h30 vKey4, %Key4%
 ;==== ТЕН-КОДЫ ==== 
 Gui, Add, Hotkey, x22 y240 w95 h30 vKey5, %Key5%
-;==== Проверка на нарко ==== 
 Gui, Add, Hotkey, x22 y280 w95 h30 vKey6, %Key6%
 
-Gui, Add, Hotkey, x22 y320 w95 h30 vKey7, %Key7%
-Gui, Add, Hotkey, x22 y360 w95 h30 vKey8, %Key8%
-Gui, Add, Hotkey, x22 y400 w95 h30 vKey9, %Key9%
-Gui, Add, Hotkey, x22 y440 w95 h30 vKey10, %Key10%
+;=Gui, Add, Hotkey, x22 y320 w95 h30 vKey7, %Key7%
+;=Gui, Add, Hotkey, x22 y360 w95 h30 vKey8, %Key8%
+;=Gui, Add, Hotkey, x22 y400 w95 h30 vKey9, %Key9%
+;=Gui, Add, Hotkey, x22 y440 w95 h30 vKey10, %Key10%
 
-Gui, Add, Hotkey, x472 y80 w95 h30 vKey11, %Key11%
-Gui, Add, Hotkey, x472 y120 w95 h30 vKey12, %Key12%
-Gui, Add, Hotkey, x472 y160 w95 h30 vKey13, %Key13%
-Gui, Add, Hotkey, x472 y200 w95 h30 vKey14, %Key14%
-Gui, Add, Hotkey, x472 y240 w95 h30 vKey15, %Key15%
-Gui, Add, Hotkey, x472 y280 w95 h30 vKey16, %Key16%
-Gui, Add, Hotkey, x472 y320 w95 h30 vKey17, %Key17%
-Gui, Add, Hotkey, x472 y360 w95 h30 vKey18, %Key18%
-Gui, Add, Hotkey, x472 y400 w95 h30 vKey19, %Key19%
-Gui, Add, Hotkey, x472 y440 w95 h30 vKey20, %Key20%
+;=Gui, Add, Hotkey, x472 y80 w95 h30 vKey11, %Key11%
+;=Gui, Add, Hotkey, x472 y120 w95 h30 vKey12, %Key12%
+;=Gui, Add, Hotkey, x472 y160 w95 h30 vKey13, %Key13%
+;=Gui, Add, Hotkey, x472 y200 w95 h30 vKey14, %Key14%
+;=Gui, Add, Hotkey, x472 y240 w95 h30 vKey15, %Key15%
+;=Gui, Add, Hotkey, x472 y280 w95 h30 vKey16, %Key16%
+;=Gui, Add, Hotkey, x472 y320 w95 h30 vKey17, %Key17%
+;=Gui, Add, Hotkey, x472 y360 w95 h30 vKey18, %Key18%
+;=Gui, Add, Hotkey, x472 y400 w95 h30 vKey19, %Key19%
+;=Gui, Add, Hotkey, x472 y440 w95 h30 vKey20, %Key20%
 
 Gui, Show, w1080 h489, RPHUB
 
@@ -279,11 +279,15 @@ GuiClose:
 ExitApp
 
 Command:
-MsgBox, 0, Команды, ===== Общие =====`n..адвокат - Вызов адвоката `n..прокурор - Вызов прокурора `n..запрос - Запрос АК и ДК `n..опз - ОПЗ в /do `n..миранда - Миранда `n===== Обращение ===== `n..все - Всем `n..пд - LSPD `n..сд - LSCSD `n..фиб - FIB `n..санг - SANG `n..емс - EMS `n..вн - Weazel News `n..гов - GOV
+MsgBox, 0, Команды, Для использования сокращённых команд, введите в чат указанную команду, а затем нажмите ПРОБЕЛ `n`n===== Общие =====`n..адвокат - Вызов адвоката `n..прокурор - Вызов прокурора `n..запрос - Запрос АК и ДК `n..опз - ОПЗ в /do `n..миранда - Миранда `n===== Обращение ===== `n..все - Всем `n..пд - LSPD `n..сд - LSCSD `n..фиб - FIB `n..санг - SANG `n..емс - EMS `n..вн - Weazel News `n..гов - GOV `n===== К-9 ===== `n..нарко - проверка вещества на наркотики `n..весы - проверка сколько вещества на весах
 return
 
 settings:
 Gui, 3: Show, w505 h60, Настройки
+return
+
+Update:
+Run, https://github.com/my0kul/RPHUB/releases ; update git
 return
 
 Save:
@@ -337,8 +341,8 @@ SendInput, /do На %place% находится %type%: [LSPD | %otdel% | %sid%]{
 return
 
 Key2: 
-State7:=!State7
-If state7
+State2:=!State2
+If state2
 {
 CustomColor2 = 	EEAA99 
 Gui 2: +LastFound +AlwaysOnTop -Caption +ToolWindow 
@@ -355,8 +359,8 @@ Gui 2: Destroy
 return
 
 Key3: 
-State8:=!State8
-If state8
+State3:=!State3
+If state3
 {
 CustomColor2 = 	EEAA99 
 Gui 2: +LastFound +AlwaysOnTop -Caption +ToolWindow 
@@ -373,8 +377,8 @@ Gui 2: Destroy
 return
 
 Key4: 
-State9:=!State9
-If state9
+State4:=!State4
+If state4
 {
 CustomColor2 = 	EEAA99 
 Gui 2: +LastFound +AlwaysOnTop -Caption +ToolWindow 
@@ -434,6 +438,53 @@ Gui 4: Destroy
 return
 
 Key6:
+State6:=!State6
+
+If state6
+{
+CustomColor1 = EEAA99
+Gui 5: +LastFound +AlwaysOnTop -Caption +ToolWindow
+Gui 5: Color, black
+Gui 5: Font, cWhite
+Gui 5: Font, s9
+Gui 5: Font, w1000
+Gui 5: Font,, MS sans serif
+
+Gui 5: Add, Text, c8FBC8F,[БИНДЫ]                 [ОТЫГРОВКИ]
+Gui 5: Add, Text,, [%key1%]    |          Бейджик
+Gui 5: Add, Text,, [%key2%]    |          Памятка общая
+Gui 5: Add, Text,, [%key3%]    |          Памятка угонки
+Gui 5: Add, Text,, [%key4%]    |          Памятка определение личности
+Gui 5: Add, Text,, [%key5%]    |          ТЕН-КОДЫ
+Gui 5: Add, Text,, [%key6%]    |          Отключить подсказку
+Gui 5: Add, Text, c8FBC8F,[КОМАНДЫ]
+Gui 5: Add, Text,, ..адвокат - Вызов адвоката
+Gui 5: Add, Text,, ..прокурор - Вызов прокурора
+Gui 5: Add, Text,, ..запросак - Работу по АК и ДК
+Gui 5: Add, Text,, ..запросфиб - Работу по 13.4 УК
+Gui 5: Add, Text,, ..миранда - (Только если фулл без звука)
+Gui 5: Add, Text,, ..опз - Проверка ОПЗ на госнике
+Gui 5: Add, Text,, ..нарко - Проверка вещества на наркотики
+Gui 5: Add, Text,, ..весы - Весы для наркотиков
+WinSet, TransColor, %CustomColor1% 200
+Gui 5: Show, x1 y1 w300 NoActivate, window.
+}
+Else
+
+Gui 5: Destroy
+return
+
+;======================================================================================================================Команды
+
+:?:..взятка::/do Имеется ли у собеседника аудио или видеозаписывающее устройство? ; ПАСХАЛКО
+:?:..адвокат::/dep to GOV: Требуется адвокат в допросную
+:?:..прокурор::/dep to GOV: Требуется прокурор в допросную
+:?:..запросак::/dep to LSPD/LSCSD: Разрешите работать по АК и ДК.
+:?:..запросфиб::/dep to FIB: Разрешите работать по 13.4 УК.
+:?:..миранда::Вы задержаны и имеете право хранить молчание. Всё, что вы скажете, может и будет использовано против Вас. Вы имеете право на один телефонный разговор до 2х минут и на одного адвоката. Если вы не можете оплатить услуги адвоката, он будет предоставлен вам государством бесплатно. Ваш адвокат имеет право присутствовать и представлять ваши интересы до и во время допроса. Вы имеете право на проведение скорого судебного разбирательства. Вы понимаете свои права?
+:?:..опз::/do Что написано на опознавательном знаке @?{left 1}
+
+:?:..нарко::
 SendMessage, 0x50,, 0x4190419,, A
 Sendinput, {t}
 sleep 200
@@ -465,7 +516,7 @@ Sendinput, /do Анализ показал содержание наркотич
 sleep 400
 return
 
-Key7:
+:?:..весы::
 SendMessage, 0x50,, 0x4190419,, A
 Sendinput, {t}
 sleep 200
@@ -481,145 +532,6 @@ Sendinput, /do Весы показали{space}{space}грамм.{left 7}
 sleep 400
 return
 
-Key11:
-SendMessage, 0x50,, 0x4190419,, A
-Sendinput, {t}
-sleep 200
-Sendinput, INWORK
-return
-
-Key12:
-SendMessage, 0x50,, 0x4190419,, A
-Sendinput, {t}
-sleep 200
-Sendinput, INWORK
-return
-
-Key13:
-SendMessage, 0x50,, 0x4190419,, A
-Sendinput, {t}
-sleep 200
-Sendinput, INWORK
-Return
-
-Key14:
-SendMessage, 0x50,, 0x4190419,, A
-Sendinput, {t}
-sleep 200
-Sendinput, INWORK
-Return
-
-Key15:
-SendMessage, 0x50,, 0x4190419,, A
-Sendinput, {t}
-sleep 200
-Sendinput, INWORK
-Return
-
-Key16:
-SendMessage, 0x50,, 0x4190419,, A
-Sendinput, {t}
-sleep 200
-Sendinput, INWORK
-Return
-
-;======================================================================================================================Команды
-
-:?:..взятка::/do Имеется ли у собеседника аудио или видеозаписывающее устройство?
-:?:..адвокат::/dep to GOV: Требуется адвокат в допросную
-:?:..прокурор::/dep to GOV: Требуется прокурор в допросную
-:?:..запрос::/dep to LSPD/LSCSD: Разрешите работать по АК и ДК.
-:?:..миранда::Вы задержаны и имеете право хранить молчание. Всё, что вы скажете, может и будет использовано против Вас. Вы имеете право на один телефонный разговор до 2х минут и на одного адвоката. Если вы не можете оплатить услуги адвоката, он будет предоставлен вам государством бесплатно. Ваш адвокат имеет право присутствовать и представлять ваши интересы до и во время допроса. Вы имеете право на проведение скорого судебного разбирательства. Вы понимаете свои права?
-:?:..опз::/do Что написано на опознавательном знаке @?{left 1}
-
-:?:,,волна1::--
-SendMessage, 0x50,, 0x4190419,, A
-Sendinput, {t}
-sleep 300
-Sendinput, /dep to all: Занята ли гос. волна на ?{left 1}
-sleep 500
-return
-
-:?:,,волна2::
-SendMessage, 0x50,, 0x4190419,, A
-Sendinput, {t}
-sleep 300
-Sendinput, /dep to all: Не услышав ответа занял гос. волну на .{left 1}
-sleep 500
-return
-
-:?:,,набор::
-SendMessage, 0x50,, 0x4190419,, A
-Sendinput, {t}
-sleep 300
-Sendinput, /dep to all: Занял гос. волну.{enter}
-sleep 500
-Sendinput, {t}
-sleep 300
-Sendinput, /gnews Приветствуем всех жителей штата. В данный момент в Goverment проходит набор на стажировку в USSS. Если вы считаете себя достойным данной должности то: Вам должно быть более 18 лет, не иметь судимостей, иметь лицензию Drive D. справки о состоянии физического и психического здоровья. Ждём вас в Goverme'e, с уважением руководство USSS.{enter}
-sleep 500
-Sendinput, {t}
-sleep 300
-Sendinput, /dep to all: Освободил гос. волну.{enter}
-sleep 500
-return
-
-:?:,,дб::
-Run, https://ru6.ragepanel.com/database ; Database
-return
-
-:?:,,реестрА::
-Run, https://docs.google.com/spreadsheets/d/1u3MNwsAHRSYK2iDlV7LOPOzqtt7w_S48RETnxOdiQaI/edit#gid=947314430 ; Реестр Адвокатов
-return
-
-:?:,,реестрО::
-Run, https://docs.google.com/spreadsheets/d/1WkR-1WuVheRWtkIzSv7sc9HOjRDbyM1UOqH1XVwx-KM/edit#gid=0 ; Реестр Оружия
-return
-
-:?:,,реестрК::
-Run, https://docs.google.com/spreadsheets/d/1EHJBlzwgvL3Jq-np419cm0Kc_Tau4WD7oqQzTbbYlF4/edit#gid=90682387 ; Реестр Канопли
-return
-
-:?:,,УК::
-Run, https://forum.majestic-rp.ru/threads/ugolovnyj-kodeks-shtata-san-andreas.752443/ ; УК
-return
-
-:?:,,ПК::
-Run, https://forum.majestic-rp.ru/threads/processualnyj-kodeks-shtata-san-andreas.752437/ ; ПК
-return
-
-:?:,,гостайна::
-Run, https://forum.majestic-rp.ru/threads/zakon-shtata-san-andreas-o-gosudarstvennoj-tajne.692515/ ; Гос. тайна
-return
-
-:?:,,неприкосновенность::
-Run, https://forum.majestic-rp.ru/threads/zakon-shtata-san-andreas-o-neprikosnovennosti-dolzhnostnyx-lic.777308/ ; Неприкосновенность
-return
-
-:?:,,оружие::
-Run, https://forum.majestic-rp.ru/threads/zakon-ob-oborote-oruzhija-i-gosudarstvennyx-specialnyx-sredstv-shtata.101300/ ; Оборот оружия
-return
-
-:?:,,ыефеу::
-Run, https://discord.com/channels/730046588298461236/953751230889459722 ; State-Rules
-return
-
-:?:,,с::/c
-:?:,,аи::/fb
-:?:,,а::/f
-:?:,,код::/mark
-:?:,,згдд::/pull
-:?:,,репорт::/report
-:?:,,и::/b
-:?:,,пэй::/pay
-:?:,,ц::/w
-:?:,,ьу::/me
-:?:,,вщ::/do
-:?:,,екн::/try
-
-:?:,,мут::/vmute
-:?:,,вызов::/accept
-
 :?:..все::/dep to all:
 :?:..пд::/dep to LSPD:
 :?:..сд::/dep to SD:
@@ -628,64 +540,3 @@ return
 :?:..емс::/dep to EMS:
 :?:..вн::/dep to WN:
 :?:..гов::/dep to GOV:
-
-:?:,,0::/mark code 0{enter}
-:?:..0::/mark code 0{enter}
-:?:,,1::/mark code 1{enter}
-:?:..1::/mark code 1{enter}
-:?:,,2::/mark 10-20{enter}
-:?:..2::/mark 10-20{enter}
-:?:,,3::/mark 10-33{enter}
-:?:..3::/mark 10-33{enter}
-:?:,,4::/mark 10-4{enter}
-:?:..4::/mark 10-4{enter}
-:?:,,5::/mark 10-24{enter}
-:?:..5::/mark 10-24{enter}
-:?:,,6::/mark 10-0{enter}
-:?:..6::/mark 10-0{enter}
-:?:,,7::/mark code 7{enter}
-:?:..7::/mark code 7{enter}
-
-:?:,,спавн::
-SendMessage, 0x50,, 0x4190419,, A
-Sendinput, {t}
-sleep 300
-Sendinput, /fb Запуск протокола респавна автопарка через 30 сек.{enter}
-sleep 1000
-Sendinput, {t}
-sleep 300
-Sendinput, /fb Запуск протокола респавна автопарка через 30 сек.{enter}
-sleep 10000
-Sendinput, {t}
-sleep 300
-Sendinput, /fb Запуск протокола респавна автопарка через 20 сек.{enter}
-sleep 1000
-Sendinput, {t}
-sleep 300
-Sendinput, /fb Запуск протокола респавна автопарка через 20 сек.{enter}
-sleep 10000
-Sendinput, {t}
-sleep 300
-Sendinput, /fb Запуск протокола респавна автопарка через 10 сек.{enter}
-sleep 1000
-Sendinput, {t}
-sleep 300
-Sendinput, /fb Запуск протокола респавна автопарка через 10 сек.{enter}
-sleep 10000
-Sendinput, {t}
-sleep 200
-Sendinput, /fb Респкар 3 секунды{enter}
-sleep 3000
-Sendinput, {t}
-sleep 200
-Sendinput, /fb Респкар 2 секунды{enter}
-sleep 2000
-Sendinput, {t}
-sleep 200
-Sendinput, /fb Респкар 1 секунда{enter}
-sleep 1000
-Sendinput, {t}
-sleep 300
-Sendinput, /spawncars{enter}
-sleep 500
-Return
