@@ -1,32 +1,20 @@
-﻿version = 1.15
+﻿version = 1.154
+IniRead, v, assets/Settings.ini, USER, v
+if v != version
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
+IniWrite, v, assets/Settings.ini, USER, v
+}
+
 SetWorkingDir %A_ScriptDir%
 
 IfnotExist, %A_ScriptDir%\assets
 {
 FileCreateDir, %A_ScriptDir%\assets
 }
-;======================================================================================================================Подкачка файлов
-
-IfnotExist, %A_ScriptDir%\assets\help.png
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
-}
-
-IfnotExist, %A_ScriptDir%\assets\help2.png
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
-}
-
-IfnotExist, %A_ScriptDir%\assets\help3.png
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
-}
-
-IfnotExist, %A_ScriptDir%\assets\logo.png
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
-}
-
 ;======================================================================================================================Бейджик
 IniRead, otdel, assets/Settings.ini, USER, otdel
 IniRead, sid, assets/Settings.ini, USER, sid
@@ -514,16 +502,24 @@ return
 :?:..запросак::/dep to LSPD/LSCSD: Разрешите работать по АК и ДК.
 :?:..запросфиб::/dep to FIB: Разрешите работать по 13.4 УК.
 :?:..юр::/dep to LSCSD: Разрешите нарушить юрисдикцию для комфотного патруля.
-:?:..миранда::Вы задержаны и имеете право хранить молчание. Всё, что вы скажете, может и будет использовано против Вас. Вы имеете право на один телефонный разговор до 2х минут и на одного адвоката. Если вы не можете оплатить услуги адвоката, он будет предоставлен вам государством бесплатно. Ваш адвокат имеет право присутствовать и представлять ваши интересы до и во время допроса. Вы имеете право на проведение скорого судебного разбирательства. Вы понимаете свои права?
+:?:..миранда::Вы задержаны и имеете право хранить молчание. Всё, что вы скажете, может и будет использовано против Вас. Вы имеете право на один телефонный разговор до 2х минут и на одного адвоката. Если вы не можете оплатить услуги адвоката, он будет предоставлен вам государством бесплатно. Ваш адвокат имеет право присутствовать и представлять ваши интересы до и во время допроса. Вы понимаете свои права?
 :?:..опз::/do Что написано на опознавательном знаке @?{left 1}
 :?:..запах::/do Имеются ли наркотические вещества у @?{left 1}
-:?:..сел::/me запрыгнул%gender% в автомобиль через открытое окно
-:?:..вылез::/me выпрыгнул%gender% из автомобиля через открытое окно
+:?:..сел::
+SendMessage, 0x50,, 0x4190419,, A
+sleep 200
+Sendinput, /me запрыгнул%gender% в автомобиль через открытое окно{enter}
+sleep 400
+return
+:?:..вылез::
+SendMessage, 0x50,, 0x4190419,, A
+sleep 200
+Sendinput, /me выпрыгнул%gender% из автомобиля через открытое окно{enter}
+sleep 400
+return
 
 :?:..нарко::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, {t}
-sleep 200
 Sendinput, /do На столе лежит сумка с мед. приборами.{enter}
 sleep 400
 Sendinput, {t}
@@ -554,8 +550,6 @@ return
 
 :?:..весы::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, {t}
-sleep 200
 Sendinput, /do Весы лежат на столе.{enter}
 sleep 400
 Sendinput, {t}
