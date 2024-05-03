@@ -6,7 +6,7 @@ URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/help.pn
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
-IniWrite, v, assets/Settings.ini, USER, v
+IniWrite, version, assets/Settings.ini, USER, v
 }
 
 SetWorkingDir %A_ScriptDir%
