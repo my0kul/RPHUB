@@ -1,13 +1,4 @@
-﻿version = 1.154
-IniRead, v, assets/Settings.ini, USER, v
-if v != version
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/%version%/Assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
-IniWrite, version, assets/Settings.ini, USER, v
-}
+﻿version := 1.155
 
 SetWorkingDir %A_ScriptDir%
 
@@ -16,6 +7,17 @@ IfnotExist, %A_ScriptDir%\assets
 FileCreateDir, %A_ScriptDir%\assets
 }
 ;======================================================================================================================Бейджик
+
+IniRead, v, assets/Settings.ini, USER, v
+if v != %version%
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
+IniWrite, %version%, assets/Settings.ini, USER, v
+}
+
 IniRead, otdel, assets/Settings.ini, USER, otdel
 IniRead, sid, assets/Settings.ini, USER, sid
 IniRead, place, assets/Settings.ini, USER, place
