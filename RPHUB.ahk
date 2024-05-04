@@ -1,4 +1,4 @@
-﻿version := 1.155
+﻿version := 1.156
 
 SetWorkingDir %A_ScriptDir%
 
@@ -203,13 +203,23 @@ gender = а
 ;===================================================================================
 
 ;======================================================================================================================Основное GUI
+;Gui 99: +LastFound +AlwaysOnTop -Caption +ToolWindow 
+;Gui 99: Color, black 
+;Gui 99: Font, s10
+;Gui 99: Font, w1000
+;Gui 99: Font, cFFFFFF
+;Gui 99: Add, Text, x20 y600 w250, RPHUB %version%
+;Gui 99: Add, Text, x20 y620 w250, [%key6%] - Помощь
+;WinSet, TransColor, 0
+;Gui 99: Show, x1 y1 NoActivate, window.
+
+
 Gui, Color, 191919
 Gui, Font, S20 CWhite, Calibri
 Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, Бинды
 Gui, Add, Picture, x885 y-5 w170 h170 +BackgroundTrans, assets\logo.png
 Gui, Font, S10 CWhite, Calibri
-Gui, Add, Text, x902 y440 w250 h30 +BackgroundTrans, by #110378 | San Diego
-Gui, Add, Text, x902 y455 w250 h30 +BackgroundTrans, v%version% | 02.05.24
+Gui, Add, Text, x902 y445 w250 h30 +BackgroundTrans, by #110378 | San Diego
 Gui, Font, S15 CWhite, Calibri
 
 Gui, Add, Text, x130 y82 w500 h30 +BackgroundTrans, Бейджик
@@ -269,7 +279,7 @@ Gui, Add, Hotkey, x22 y280 w95 h30 vKey6, %Key6%
 ;=Gui, Add, Hotkey, x472 y400 w95 h30 vKey19, %Key19%
 ;=Gui, Add, Hotkey, x472 y440 w95 h30 vKey20, %Key20%
 
-Gui, Show, w1080 h489, RPHUB
+Gui, Show, w1080 h489, RPHUB %version%
 
 Gui, 3: -MaximizeBox
 Gui, 3: -SysMenu
@@ -360,15 +370,14 @@ return
 Key2: 
 State2:=!State2
 If state2
-{
-CustomColor2 = 	EEAA99 
+{ 
 Gui 2: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 2: Color, black 
 Gui 2: Font, s10
 Gui 2: Font, w1000
 Gui 2: Font, cFFFFFF
 gui 2: add, picture, h575 w961, assets/help.png
-WinSet, TransColor, %CustomColor2% 1000
+WinSet, TransColor, 0 1000
 Gui 2: Show, x1 y1 NoActivate, window.
  }
 Else
@@ -379,14 +388,13 @@ Key3:
 State3:=!State3
 If state3
 {
-CustomColor2 = 	EEAA99 
 Gui 2: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 2: Color, black 
 Gui 2: Font, s10
 Gui 2: Font, w1000
 Gui 2: Font, cFFFFFF
 gui 2: add, picture, h284 w611, assets/help2.png                                                                              
-WinSet, TransColor, %CustomColor2% 1000
+WinSet, TransColor, 0 1000
 Gui 2: Show, x1 y1 NoActivate, window.
  }
 Else
@@ -397,7 +405,6 @@ Key4:
 State4:=!State4
 If state4
 {
-CustomColor2 = 	EEAA99 
 Gui 2: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 2: Color, black 
 Gui 2: Font, s10
@@ -405,7 +412,7 @@ Gui 2: Font, w1000
 Gui 2: Font, cFFFFFF
 gui 2: add, picture, w611 h332, assets/help3.png                                                                               
 
-WinSet, TransColor, %CustomColor2% 1000
+WinSet, TransColor, 0 1000
 Gui 2: Show, x1 y1 NoActivate, window.
  }
 Else
@@ -492,7 +499,6 @@ WinSet, TransColor, %CustomColor1% 200
 Gui 5: Show, x1 y1 w300 NoActivate, window.
 }
 Else
-
 Gui 5: Destroy
 return
 
