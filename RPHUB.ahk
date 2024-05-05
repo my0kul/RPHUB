@@ -1,4 +1,4 @@
-﻿version := 1.157
+﻿version := 1.158
 
 SetWorkingDir %A_ScriptDir%
 
@@ -16,6 +16,23 @@ URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help2.png?ra
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
 IniWrite, %version%, assets/Settings.ini, USER, v
+}
+
+IfnotExist, %A_ScriptDir%\assets\help.png
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
+}
+IfnotExist, %A_ScriptDir%\assets\help2.png
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
+}
+IfnotExist, %A_ScriptDir%\assets\help3.png
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
+}
+IfnotExist, %A_ScriptDir%\assets\logo.png
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
 }
 
 IniRead, otdel, assets/Settings.ini, USER, otdel
@@ -364,7 +381,7 @@ IniRead, place, assets/Settings.ini, USER, place
 
 SendInput, {T}
 sleep 200
-SendInput, /do На %place% находится %type%: [LSPD | %otdel% | %sid%]{Enter}.
+SendInput, /do На %place% находится %type%: [FIB | %otdel% | %sid%]{Enter}.
 return
 
 Key2: 
