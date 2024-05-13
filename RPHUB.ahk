@@ -1,4 +1,4 @@
-﻿version := 1.163
+﻿version := 1.165
 
 SetWorkingDir %A_ScriptDir%
 
@@ -522,17 +522,280 @@ return
 ;======================================================================================================================Команды
 
 ;MISC
-:?:..сп::/me включил музыку на колонке
+:?:..сп::
+SendMessage, 0x50,, 0x4190419,, A
+sleep 200
+Sendinput, /me включил%gender% музыку на колонке{enter}
+sleep 400
+return
+
+:?:..взятьсумку::
+SendMessage, 0x50,, 0x4190419,, A
+sleep 200
+Sendinput, /do В шкафчике лежит вместительная сумка и пачка зип-пакетов.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me открыл%gender% шкафчик{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me достал%gender% вместительную сумку и пачку зип-пакетов из шкафчика{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do На плече висит вместительная сумка.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Пачка зип-пакетов лежит в подсумке.{enter}
+sleep 400
+return
+
+:?:..рейдобыск::
+SendMessage, 0x50,, 0x4190419,, A
+sleep 200
+Sendinput, /do Сумка висит на плече.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me снял%gender% сумку с плеча и положил%gender% ее на пол{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me движением руки открыл%gender% сумку{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Сумка открыта.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me осмотрел%gender% склад{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me начал%gender% складывать в сумку все нелегальные предметы{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Сумка заполнена.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me движением руки повесил%gender% сумку на плече{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Сумка заполненная нелегалом висит на плече.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Зип-пакеты лежат в подсумке.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me движением руки достал%gender% зип-пакет из подсумка{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Зип-пакет в руке.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me открыл%gender% зип-пакет и начал%gender% складывать в него все мелкие нелегальные вещества{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Зип-пакет заполнен.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me движением руки закрыл%gender% зип-пакет и положил%gender% его в подсумок{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Заполненный зип-пакет в подсумке.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me движением руки достал%gender% еще один пустой зип-пакет из подсумка{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Зип-пакет в руке.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me открыл%gender% зип-пакет и начал%gender% складывать в него все мелкие нелегальные вещества{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Зип-пакет заполнен.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me движением руки закрыл%gender% зип-пакет и положил%gender% его в подсумок{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Заполненный нелегальными веществами зип-пакеты лежат в подсумке.{enter}
+sleep 400
+return
+
+:?:..положитьсумку::
+SendMessage, 0x50,, 0x4190419,, A
+sleep 200
+Sendinput, /do Сумка с нелегалом висит на плече.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me достал%gender% зип-пакеты из подсумка и положил%gender% их на полку{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Зип-пакеты на полке.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me снял%gender% сумку с плеча и положил%gender% ее на полку{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Сумка с нелегалом лежит на полке.{enter}
+sleep 400
+return
+
+:?:..взятьполиграф::
+SendMessage, 0x50,, 0x4190419,, A
+sleep 200
+Sendinput, /do В шкафчике находится ноутбук, измерительные устройства и полиграф для проведения допроса.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me открыл%gender% шкафчик, затем взял%gender% ноутбук, измерительные устройства и полиграф в руки{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, ЗАГОТОВКА{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, ЗАГОТОВКА{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, ЗАГОТОВКА{enter}
+sleep 400
+return
+
+:?:..подключитьполиграф::
+SendMessage, 0x50,, 0x4190419,, A
+sleep 200
+Sendinput, /do В руках агента ноутбук, полиграф и измерительные устройства для проведения допроса.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me поставил%gender% на стол ноутбук и подключил%gender% к нему с помощью проводов полиграф{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me открыл%gender% экран ноутбука, затем нажал%gender% кнопку включения и ввел%gender% пароль{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Вход успешен.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me включил%gender% специальную программу для работы с полиграфом{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me нажал%gender% на небольшую красную кнопочку на полиграфе{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Полиграф включен.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me надел%gender% на правую руку человека напротив датчик артериального давления и частоты пульса{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me надел%gender% на два пальца левой руки два датчика потоотделения{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me надел%gender% на человека опоясывающий грудь датчик глубины дыхания{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me подключил%gender% измерительные устройства к полиграфу при помощи проводов{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Полиграф готов к проведению измерений.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do На экране ноутбука начали рисоваться графики согласно полученным данным.{enter}
+sleep 400
+return
+
+:?:..отключитьполиграф::
+SendMessage, 0x50,, 0x4190419,, A
+sleep 200
+Sendinput, /me снял%gender% с правой руки человека напротив датчик давления и частоты пульса после чего положил%gender% его на стол{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me снял%gender% с пальцев левой руки человека датчики потоотделения и положил%gender% их на стол{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me снял%gender% с груди человека датчик глубины дыхания и положил%gender% его на стол{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do На столе лежат несколько датчиков, стоит включенный ноутбук, а также полиграф.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me нажал%gender% на кнопку выключения полиграфа и ноутбука{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Полиграф и ноутбук выключены.{enter}
+sleep 400
+return
+
 :?:..закрыто::/do Окна в автомобиле закрыты.
-;
+
+:?:.зштп::/ping{enter}
+
+:?:.ц::/w
 
 :?:.и::/b
+:?:.б::/b
+
 :?:.а::/f
+:?:.ф::/f
+
 :?:.аи::/fb
+:?:.фб::/fb
+
 :?:.с::/c
 :?:.си::/cb
+:?:.сб::/cb
+
 :?:.вуз::/dep
+:?:.деп::/dep
+
 :?:.кузщке::/report
+:?:.репорт::/report
+
 :?:.ьу::/me
 :?:.вщ::/do
 :?:.екн::/try
@@ -546,12 +809,14 @@ return
 :?:..миранда::Вы задержаны и имеете право хранить молчание. Всё, что вы скажете, может и будет использовано против Вас. Вы имеете право на один телефонный разговор до 2х минут и на одного адвоката. Если вы не можете оплатить услуги адвоката, он будет предоставлен вам государством бесплатно. Ваш адвокат имеет право присутствовать и представлять ваши интересы до и во время допроса. Вы понимаете свои права?
 :?:..опз::/do Что написано на опознавательном знаке @?{left 1}
 :?:..запах::/do Имеются ли наркотические вещества у @?{left 1}
+
 :?:..сел::
 SendMessage, 0x50,, 0x4190419,, A
 sleep 200
 Sendinput, /me запрыгнул%gender% в автомобиль через открытое окно{enter}
 sleep 400
 return
+
 :?:..вылез::
 SendMessage, 0x50,, 0x4190419,, A
 sleep 200
@@ -603,8 +868,12 @@ Sendinput, /do Весы показали{space}{space}грамм.{left 7}
 sleep 400
 return
 
-:?:..все::/dep to all:
-:?:..пд::/dep to LSPD:
+:?:..7::/mark CODE-7
+:?:..4::/mark CODE-4
+:?:..0::/mark CODE-0
+
+:?:..все::/dep to ALL:
+:?:..пд::/dep to LSPD:--
 :?:..сд::/dep to SD:
 :?:..фиб::/dep to FIB:
 :?:..санг::/dep to SANG:
