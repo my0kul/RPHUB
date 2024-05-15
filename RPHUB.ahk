@@ -1,4 +1,4 @@
-﻿version := 1.165
+﻿version := 1.166
 
 SetWorkingDir %A_ScriptDir%
 
@@ -674,18 +674,6 @@ sleep 400
 Sendinput, {t}
 sleep 200
 Sendinput, /me открыл%gender% шкафчик, затем взял%gender% ноутбук, измерительные устройства и полиграф в руки{enter}
-sleep 400
-Sendinput, {t}
-sleep 200
-Sendinput, ЗАГОТОВКА{enter}
-sleep 400
-Sendinput, {t}
-sleep 200
-Sendinput, ЗАГОТОВКА{enter}
-sleep 400
-Sendinput, {t}
-sleep 200
-Sendinput, ЗАГОТОВКА{enter}
 sleep 400
 return
 
