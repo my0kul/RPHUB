@@ -1,4 +1,4 @@
-﻿version := 1.171
+﻿version := 1.172
 
 SetWorkingDir %A_ScriptDir%
 
@@ -899,6 +899,62 @@ sleep 400
 Sendinput, {t}
 sleep 200
 Sendinput, /do В правом кармане штанов лежит боди-камера и комплект звукозаписывающих устройств.{enter}
+sleep 400
+return
+
+:?:..положитьбодивбардачок::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /me достал%gender% боди-камеру и комплект звукозаписывающих устройств из кармана штанов, сложил%gender% их в бардачок автомобиля{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Боди-камера и коплект звукозаписывающих устройств в бардачке.{enter}
+sleep 400
+return
+
+:?:..взятьбодиизбардачка::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /me открыл%gender% бардачок автомобиля, достал%gender% оттуда боди-камеру и комплект звукозаписывающих устройств{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me сложил%gender% боди-камеру и комплект звукозаписывающих устройств в рюкзак{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Боди-камера и коплект звукозаписывающих устройств в рюкзаке.{enter}
+sleep 400
+return
+
+:?:..включитькамеру::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /do В рюкзаке лежит боди-камера и комплект звукозаписывающих устройств.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me достал%gender% боди-камеру и комплект звукозаписывающих устройств из рюкзака{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Боди-камера и комплект звукозаписывающих устройств в руках.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me скрытно установил%gender% под воротник боди-камеру и устройства звукозаписи, после чего включил%gender% их нажатием на кнопку питания{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Боди-камера и звукозаписывающие устройства активированы и записывают все происходящее.{enter}
+sleep 400
+return
+
+:?:..выключитькамеру::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /me скрытно нажал%gender% на кнопку “save” боди-камеры{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Запись с боди-камеры сохранена на microSD FlashCard.{enter}
 sleep 400
 return
 
