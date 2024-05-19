@@ -1,4 +1,4 @@
-﻿version := 1.169
+﻿version := 1.17
 
 SetWorkingDir %A_ScriptDir%
 
@@ -783,6 +783,7 @@ return
 :?:..закрыто::/do Окна в автомобиле закрыты.
 
 :?:.зштп::/ping{enter}
+:?:.пинг::/ping{enter}
 
 :?:.ц::/w
 
@@ -877,12 +878,38 @@ Sendinput, /do Весы показали{space}{space}грамм.{left 7}
 sleep 400
 return
 
+:?:..взятьконтракт::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /me взял%gender% Контракт “О конфиденциальном сотрудничестве с FIB” и шариковую ручку со стола в руки{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Контракт “О конфиденциальном сотрудничестве с FIB” и шариковую ручка в руках.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me подписал%gender% Контракт “О конфиденциальном сотрудничестве с FIB”, затем передал%gender% его обратно человеку напротив{left 7}
+sleep 400
+return
+
+:?:..взятьбоди::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /me взял%gender% боди-камеру и комплект звукозаписывающих устройств у человека напротив, затем положил%gender% их в правый карман штанов{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do В правом кармане штанов лежит боди-камера и комплект звукозаписывающих устройств.{enter}
+sleep 400
+return
+
 :?:..7::/mark CODE-7
 :?:..4::/mark CODE-4
+:?:..2::/mark CODE-2
 :?:..0::/mark CODE-0
 
 :?:/7::/mark CODE-7
 :?:/4::/mark CODE-4
+:?:/2::/mark CODE-2
 :?:/0::/mark CODE-0
 
 :?:..все::/dep to ALL:
