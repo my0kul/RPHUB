@@ -1,4 +1,4 @@
-﻿version := 1.175
+﻿version := 1.176
 
 SetWorkingDir %A_ScriptDir%
 
@@ -497,6 +497,7 @@ Gui 5: Add, Text,, [%key2%]    |          Памятка общая
 Gui 5: Add, Text,, [%key3%]    |          Памятка угонки
 Gui 5: Add, Text,, [%key4%]    |          Памятка определение личности
 Gui 5: Add, Text,, [%key5%]    |          ТЕН-КОДЫ
+Gui 5: Add, Text,, [%key7%]    |          Памятка Дополненная
 Gui 5: Add, Text,, [%key6%]    |          Отключить подсказку
 Gui 5: Add, Text, c8FBC8F,[КОМАНДЫ]
 Gui 5: Add, Text,, ..адвокат - Вызов адвоката
@@ -526,7 +527,7 @@ Gui 7: Color, black
 Gui 7: Font, s10
 Gui 7: Font, w1000
 Gui 7: Font, cFFFFFF
-gui 7: add, picture, h574 w1267, assets/help.png
+gui 7: add, picture, h574 w1267, assets/helpfull.png
 WinSet, TransColor, 0 1000
 Gui 7: Show, x1 y1 NoActivate, window.
  }
