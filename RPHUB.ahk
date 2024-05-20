@@ -1,4 +1,4 @@
-﻿version := 1.173
+﻿version := 1.175
 
 SetWorkingDir %A_ScriptDir%
 
@@ -245,7 +245,7 @@ Gui, Add, Text, x130 y162 w240 h30 +BackgroundTrans, Памятка Угонки
 Gui, Add, Text, x130 y202 w330 h30 +BackgroundTrans, Памятка установки личности
 Gui, Add, Text, x130 y242 w330 h30 +BackgroundTrans, ТЕН-КОДЫ
 Gui, Add, Text, x130 y282 w330 h30 +BackgroundTrans, Информация о биндах и командах
-;=Gui, Add, Text, x130 y322 w330 h30 +BackgroundTrans, .
+Gui, Add, Text, x130 y322 w330 h30 +BackgroundTrans, (NEW) Памятка Дополненная
 ;=Gui, Add, Text, x130 y362 w330 h30 +BackgroundTrans, .
 ;=Gui, Add, Text, x130 y402 w330 h30 +BackgroundTrans, .
 ;=Gui, Add, Text, x130 y442 w330 h30 +BackgroundTrans, .
@@ -279,8 +279,8 @@ Gui, Add, Hotkey, x22 y200 w95 h30 vKey4, %Key4%
 ;==== ТЕН-КОДЫ ==== 
 Gui, Add, Hotkey, x22 y240 w95 h30 vKey5, %Key5%
 Gui, Add, Hotkey, x22 y280 w95 h30 vKey6, %Key6%
+Gui, Add, Hotkey, x22 y320 w95 h30 vKey7, %Key7%
 
-;=Gui, Add, Hotkey, x22 y320 w95 h30 vKey7, %Key7%
 ;=Gui, Add, Hotkey, x22 y360 w95 h30 vKey8, %Key8%
 ;=Gui, Add, Hotkey, x22 y400 w95 h30 vKey9, %Key9%
 ;=Gui, Add, Hotkey, x22 y440 w95 h30 vKey10, %Key10%
@@ -393,7 +393,7 @@ Gui 2: Color, black
 Gui 2: Font, s10
 Gui 2: Font, w1000
 Gui 2: Font, cFFFFFF
-gui 2: add, picture, h575 w961, assets/help.png
+gui 2: add, picture, h574 w960, assets/help.png
 WinSet, TransColor, 0 1000
 Gui 2: Show, x1 y1 NoActivate, window.
  }
@@ -515,6 +515,23 @@ Gui 5: Show, x1 y1 w300 NoActivate, window.
 }
 Else
 Gui 5: Destroy
+return
+
+Key7: 
+State7:=!State7
+If state7
+{ 
+Gui 7: +LastFound +AlwaysOnTop -Caption +ToolWindow 
+Gui 7: Color, black 
+Gui 7: Font, s10
+Gui 7: Font, w1000
+Gui 7: Font, cFFFFFF
+gui 7: add, picture, h574 w1267, assets/help.png
+WinSet, TransColor, 0 1000
+Gui 7: Show, x1 y1 NoActivate, window.
+ }
+Else
+Gui 7: Destroy
 return
 
 ;======================================================================================================================Команды
@@ -902,7 +919,7 @@ Sendinput, /do В правом кармане штанов лежит боди-�
 sleep 400
 return
 
-:?:..положитьбодивавто::
+:?:..положитьбодиавто::
 SendMessage, 0x50,, 0x4190419,, A
 Sendinput, /me достал%gender% боди-камеру и комплект звукозаписывающих устройств из кармана штанов, сложил%gender% их в бардачок автомобиля{enter}
 sleep 400
@@ -926,7 +943,7 @@ Sendinput, /do Боди-камера и коплект звукозаписыв�
 sleep 400
 return
 
-:?:..включитькамеру::
+:?:..вкл::
 SendMessage, 0x50,, 0x4190419,, A
 Sendinput, /do В рюкзаке лежит боди-камера и комплект звукозаписывающих устройств.{enter}
 sleep 400
@@ -948,13 +965,33 @@ Sendinput, /do Боди-камера и звукозаписывающие ус�
 sleep 400
 return
 
-:?:..выключитькамеру::
+:?:..выкл::
 SendMessage, 0x50,, 0x4190419,, A
 Sendinput, /me скрытно нажал%gender% на кнопку “save” боди-камеры{enter}
 sleep 400
 Sendinput, {t}
 sleep 200
 Sendinput, /do Запись с боди-камеры сохранена на microSD FlashCard.{enter}
+sleep 400
+return
+
+:?:..отдатьматы::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /do MicroSD FlashCard с видеоматериалом находится в кармане штанов.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me неспешно достал%gender% из кармана шорт microSD FlashCard с видеоматериалами, затем передал%gender% их человеку напротив{enter}
+sleep 400
+return
+
+:?:..взятьматы::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /me взял%gender% microSD FlashCard с видеоматериалами у человека напротив, затем положил%gender% их в правый карман штанов{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do MicroSD FlashCard с видеоматериалами в правом кармане штанов.{enter}
 sleep 400
 return
 
