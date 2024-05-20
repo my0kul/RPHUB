@@ -1,4 +1,4 @@
-﻿version := 1.177
+﻿version := 1.178
 
 SetWorkingDir %A_ScriptDir%
 
@@ -14,6 +14,7 @@ if v != %version%
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/helpfull.png?raw=true, %A_ScriptDir%\assets\helpfull.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
 IniWrite, %version%, assets/Settings.ini, USER, v
 }
@@ -29,6 +30,10 @@ URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help2.png?ra
 IfnotExist, %A_ScriptDir%\assets\help3.png
 {
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
+}
+IfnotExist, %A_ScriptDir%\assets\helpfull.png
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/helpfull.png?raw=true, %A_ScriptDir%\assets\helpfull.png
 }
 IfnotExist, %A_ScriptDir%\assets\logo.png
 {
