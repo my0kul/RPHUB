@@ -11,33 +11,33 @@ FileCreateDir, %A_ScriptDir%\assets
 IniRead, v, assets/Settings.ini, USER, v
 if v != %version%
 {
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/helpfull.png?raw=true, %A_ScriptDir%\assets\helpfull.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/helpfull.png?raw=true, %A_ScriptDir%\assets\helpfull.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
 IniWrite, %version%, assets/Settings.ini, USER, v
 }
 
 IfnotExist, %A_ScriptDir%\assets\help.png
 {
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
 }
 IfnotExist, %A_ScriptDir%\assets\help2.png
 {
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
 }
 IfnotExist, %A_ScriptDir%\assets\help3.png
 {
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
 }
 IfnotExist, %A_ScriptDir%\assets\helpfull.png
 {
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/helpfull.png?raw=true, %A_ScriptDir%\assets\helpfull.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/helpfull.png?raw=true, %A_ScriptDir%\assets\helpfull.png
 }
 IfnotExist, %A_ScriptDir%\assets\logo.png
 {
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/Assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
 }
 
 IniRead, otdel, assets/Settings.ini, USER, otdel
