@@ -1,4 +1,4 @@
-﻿version := 1.183
+﻿version := 1.184
 
 SetWorkingDir %A_ScriptDir%
 
@@ -1019,3 +1019,5 @@ return
 :?:..емс::/dep to EMS:
 :?:..вн::/dep to WN:
 :?:..гов::/dep to GOV:
+
+:?:..клин::/clearchat:
