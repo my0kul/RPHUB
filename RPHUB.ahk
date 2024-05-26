@@ -1,4 +1,4 @@
-﻿version := 1.185
+﻿version := 1.186
 
 SetWorkingDir %A_ScriptDir%
 
@@ -40,6 +40,7 @@ IfnotExist, %A_ScriptDir%\assets\logo.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
 }
 
+IniRead, frac, assets/Settings.ini, USER, frac
 IniRead, otdel, assets/Settings.ini, USER, otdel
 IniRead, sid, assets/Settings.ini, USER, sid
 IniRead, place, assets/Settings.ini, USER, place
@@ -61,13 +62,18 @@ if place=ERROR
 if otdel=ERROR
     {
 	smthwrong = 1
-    IniWrite, Ваш отдел, assets/Settings.ini, USER, otdel
+    IniWrite, Отдел, assets/Settings.ini, USER, otdel
 }
 
 if sid=ERROR
     {
 	smthwrong = 1
-    IniWrite, Ваш статик, assets/Settings.ini, USER, sid
+    IniWrite, Статик, assets/Settings.ini, USER, sid
+}
+if frac=ERROR
+    {
+	smthwrong = 1
+    IniWrite, FIB, assets/Settings.ini, USER, frac
 }
 if smthwrong = 1
 {
@@ -308,14 +314,16 @@ Gui, 3: -SysMenu
 Gui, 3: Font, S10 CWhite, Calibri
 Gui, 3: Color, c4c4c4
 Gui, 3: Font, c0x000000
-Gui, 3: Add, Text, x2 y10 w70 h18 +0x200 +0x1, Отдел:
-Gui, 3: Add, Edit, x65 y10 w70 h21 votdel, %otdel%
-Gui, 3: Add, Text, x150 y10 w70 h18 +0x200 +0x1, Статик:
-Gui, 3: Add, Edit, x225 y10 w70 h21 vsid, %sid%
-Gui, 3: Add, Edit, x320 y10 w70 h21 vtype, %type%
-Gui, 3: Add, Text, x393 y12 w70 h18, на
-Gui, 3: Add, Edit, x415 y10 w70 h21 vplace, %place%
-Gui, 3: Add, Text, x9 y36 w70 h18 +0x200 +0x1, Ваш пол:
+Gui, 3: Add, Text, x2 y10 w70 h18 +0x200 +0x1, Фракция:
+Gui, 3: Add, Edit, x65 y10 w50 h21 vfrac, %frac%
+Gui, 3: Add, Text, x120 y10 w50 h18 +0x200 +0x1, Отдел:
+Gui, 3: Add, Edit, x165 y10 w50 h21 votdel, %otdel%
+Gui, 3: Add, Text, x220 y10 w50 h18 +0x200 +0x1, Статик:
+Gui, 3: Add, Edit, x275 y10 w70 h21 vsid, %sid%
+Gui, 3: Add, Edit, x370 y10 w70 h21 vtype, %type%
+Gui, 3: Add, Text, x443 y12 w20 h18, на
+Gui, 3: Add, Edit, x465 y10 w70 h21 vplace, %place%
+Gui, 3: Add, Text, x2 y36 w70 h18 +0x200 +0x1, Ваш пол:
 Gui, 3: Add, Radio, x70 y33 w80 h23 Group vRadio1 Checked%Radio1%, Мужчина
 Gui, 3: Add, Radio, x150 y33 w80 h23 vRadio2 Checked%Radio2%, Женщина
 Gui, 3: Add, Button, x320 y36 w70 h20 gSave, Сохранить	
@@ -332,7 +340,7 @@ MsgBox, 0, Команды, Для использования сокращённ�
 return
 
 settings:
-Gui, 3: Show, w505 h60, Настройки
+Gui, 3: Show, w575 h60, Настройки
 return
 
 Update:
@@ -341,6 +349,7 @@ return
 
 Save:
 Gui, submit, NoHide
+IniWrite, %frac%, assets/Settings.ini, USER, frac
 IniWrite, %type%, assets/Settings.ini, USER, type
 IniWrite, %place%, assets/Settings.ini, USER, place
 IniWrite, %otdel%, assets/Settings.ini, USER, otdel
@@ -380,13 +389,14 @@ return
 ;======================================================================================================================Хоткии
 Key1:
 SendMessage, 0x50,, 0x4190419,, A
+IniRead, frac, assets/Settings.ini, USER, frac
 IniRead, otdel, assets/Settings.ini, USER, otdel
 IniRead, sid, assets/Settings.ini, USER, sid
 IniRead, place, assets/Settings.ini, USER, place
 
 SendInput, {T}
 sleep 200
-SendInput, /do На %place% находится %type%: [FIB | %otdel% | %sid%]{Enter}.
+SendInput, /do На %place% находится %type%: [%frac% | %otdel% | %sid%]{Enter}.
 return
 
 Key2: 
