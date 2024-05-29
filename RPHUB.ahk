@@ -1,4 +1,4 @@
-﻿version := 1.193
+﻿version := 1.194
 
 SetWorkingDir %A_ScriptDir%
 
@@ -428,7 +428,7 @@ Gui 2: Color, black
 Gui 2: Font, s10
 Gui 2: Font, w1000
 Gui 2: Font, cFFFFFF
-gui 2: add, picture, h284 w611, assets/help2.png                                                                              
+gui 2: add, picture, h236  w611, assets/help2.png                                                                              
 WinSet, TransColor, 0 1000
 Gui 2: Show, x1 y1 NoActivate, window.
  }
@@ -445,7 +445,7 @@ Gui 2: Color, black
 Gui 2: Font, s10
 Gui 2: Font, w1000
 Gui 2: Font, cFFFFFF
-gui 2: add, picture, w611 h332, assets/help3.png                                                                               
+gui 2: add, picture, w611 h330, assets/help3.png                                                                               
 
 WinSet, TransColor, 0 1000
 Gui 2: Show, x1 y1 NoActivate, window.
