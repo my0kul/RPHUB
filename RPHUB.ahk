@@ -1,4 +1,4 @@
-﻿version := 1.191
+﻿version := 1.192
 
 SetWorkingDir %A_ScriptDir%
 
@@ -545,7 +545,7 @@ Gui 7: Color, black
 Gui 7: Font, s10
 Gui 7: Font, w1000
 Gui 7: Font, cFFFFFF
-gui 7: add, picture, h574 w1267, assets/cidhelp.png
+gui 7: add, picture, h384 w326, assets/cidhelp.png
 WinSet, TransColor, 0 1000
 Gui 7: Show, x1 y1 NoActivate, window.
  }
