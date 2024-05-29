@@ -1,4 +1,4 @@
-﻿version := 1.194
+﻿version := 1.195
 
 SetWorkingDir %A_ScriptDir%
 
@@ -18,7 +18,10 @@ URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cidhelp.png?
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
 IniWrite, %version%, assets/Settings.ini, USER, v
 }
-
+IfnotExist, %A_ScriptDir%\update.ahk
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/update.ahk?raw=true, %A_ScriptDir%\update.ahk
+}
 IfnotExist, %A_ScriptDir%\assets\help.png
 {
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
@@ -977,7 +980,7 @@ return
 :?:..взятка::/do Имеется ли у собеседника аудио или видеозаписывающее устройство? ; ПАСХАЛКО
 :?:..адвокат::/dep to GOV: Требуется адвокат в допросную
 :?:..ду::/do to GOV: Требуется адвокат в допросную
-:?:..пруфы::/do В ориентировке указано: "Совершён угон авто марки .Цвет: . Номер:
+:?:..пруфы::/do В ориентировке указано: "Совершён угон авто марки .Цвет: . Номер:"{left 1}
 :?:..прокурор::/dep to GOV: Требуется прокурор в допросную
 :?:..запросак::/dep to LSPD/LSCSD: Разрешите работать по АК и ДК.
 :?:..запросфиб::/dep to FIB: Разрешите работать по 13.4 УК.
