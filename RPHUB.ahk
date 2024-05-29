@@ -1,4 +1,4 @@
-﻿version := 1.19
+﻿version := 1.191
 
 SetWorkingDir %A_ScriptDir%
 
@@ -344,7 +344,10 @@ Gui, 3: Show, w575 h60, Настройки
 return
 
 Update:
-Run, https://github.com/my0kul/RPHUB/archive/refs/heads/main.zip ; update git
+Run,%A_ScriptDir%\update.ahk
+
+IfWinExist, RPHUB %version%
+    WinClose
 return
 
 Save:
