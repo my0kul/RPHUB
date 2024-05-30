@@ -1,4 +1,4 @@
-﻿version := 1.195
+﻿version := 1.196
 
 SetWorkingDir %A_ScriptDir%
 
@@ -243,7 +243,6 @@ gender = а
 ;Gui 99: Add, Text, x20 y620 w250, [%key6%] - Помощь
 ;WinSet, TransColor, 0
 ;Gui 99: Show, x1 y1 NoActivate, window.
-
 
 Gui, Color, 191919
 Gui, Font, S20 CWhite, Calibri
@@ -863,17 +862,17 @@ return
 
 :?:..взятьбоди::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /me взял%gender% боди-камеру и комплект звукозаписывающих устройств у человека напротив, затем положил%gender% их в правый карман штанов{enter}
+Sendinput, /me взял%gender% боди-камеру и комплект звукозаписывающих устройств у человека напротив, затем положил%gender% их к себе{enter}
 sleep 400
 Sendinput, {t}
 sleep 200
-Sendinput, /do В правом кармане штанов лежит боди-камера и комплект звукозаписывающих устройств.{enter}
+Sendinput, /do Боди-камера и комплект звукозаписывающих устройств лежат у агента.{enter}
 sleep 400
 return
 
 :?:..бардачок::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /me достал%gender% боди-камеру и комплект звукозаписывающих устройств из кармана штанов, сложил%gender% их в бардачок автомобиля{enter}
+Sendinput, /me достал%gender% боди-камеру и комплект звукозаписывающих устройств, сложил%gender% их в бардачок автомобиля{enter}
 sleep 400
 Sendinput, {t}
 sleep 200
