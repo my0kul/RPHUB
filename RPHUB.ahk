@@ -1,4 +1,4 @@
-﻿version := 1.196
+﻿version := 1.197
 
 SetWorkingDir %A_ScriptDir%
 
@@ -6,7 +6,6 @@ IfnotExist, %A_ScriptDir%\assets
 {
 FileCreateDir, %A_ScriptDir%\assets
 }
-;======================================================================================================================Бейджик
 
 IniRead, v, assets/Settings.ini, USER, v
 if v != %version%
@@ -18,6 +17,7 @@ URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cidhelp.png?
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
 IniWrite, %version%, assets/Settings.ini, USER, v
 }
+
 IfnotExist, %A_ScriptDir%\update.ahk
 {
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/update.ahk?raw=true, %A_ScriptDir%\update.ahk
@@ -338,7 +338,7 @@ GuiClose:
 ExitApp
 
 Command:
-MsgBox, 0, Команды, Для использования сокращённых команд, введите в чат указанную команду, а затем нажмите ПРОБЕЛ `n`n===== Общие =====`n..адвокат - Вызов адвоката `n..прокурор - Вызов прокурора `n..запросак - Запрос АК и ДК `n..запросфиб - Запрос 13.4 УК `n..юр - Нарушить юрисдикцию `n..опз - ОПЗ в /do `n..миранда - Миранда `n===== КОДЫ ===== `n..7 ..0 ..4, либо /7 /0 /4 `n===== Обращения ===== `n..все ..пд ..сд ..фиб ..санг ..емс ..вн ..гов `n===== CID ===== `n..взятьсумку - Взять сумку для рейда `n..рейдобыск - Найти нелегал на складе `n..положитьсумку - Положить сумку на склад `n..положитьсумкувбагажник - Положить сумку в багажник `n..взятьполиграф - Взять полиграф `n..подключитьполиграф - Подключить полиграф `n..отключитьполиграф - Отключить полиграф `n===== К-9/DEA DOG ===== `n..запах - [СОБАКА] - проверка на наркотики у игрока `n..сел - [СОБАКА] - запрыгнул в авто `n..вылез - [СОБАКА] - вылез из авто
+MsgBox, 0, Команды, Для использования сокращённых команд, введите в чат указанную команду, а затем нажмите ПРОБЕЛ `n`n===== Общие =====`n..адвокат - Вызов адвоката `n..прокурор - Вызов прокурора `n..запросак - Запрос АК и ДК `n..запросфиб - Запрос 13.4 УК `n..юр - Нарушить юрисдикцию `n..опз - ОПЗ в /do `n..миранда - Миранда `n===== КОДЫ ===== `n..7 ..0 ..4, либо /7 /0 /4 `n===== Обращения ===== `n..все ..пд ..сд ..фиб ..санг ..емс ..вн ..гов `n===== CID ===== `n..взятьсумку - Взять сумку для рейда `n..рейдобыск - Найти нелегал на складе `n..положитьсумку - Положить сумку на склад `n..положитьсумкувбагажник - Положить сумку в багажник `n..взятьполиграф - Взять полиграф `n..подключитьполиграф - Подключить полиграф `n..отключитьполиграф - Отключить полиграф `n===== К-9/DEA DOG ===== `n..запах - проверка на наркотики у игрока `n..сел - запрыгнул в авто `n..вылез - вылез из авто
 return
 
 settings:
@@ -410,9 +410,6 @@ If state2
 { 
 Gui 2: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 2: Color, black 
-Gui 2: Font, s10
-Gui 2: Font, w1000
-Gui 2: Font, cFFFFFF
 gui 2: add, picture, h574 w1267, assets/help.png
 WinSet, TransColor, 0 1000
 Gui 2: Show, x1 y1 NoActivate, window.
@@ -427,9 +424,6 @@ If state3
 {
 Gui 2: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 2: Color, black 
-Gui 2: Font, s10
-Gui 2: Font, w1000
-Gui 2: Font, cFFFFFF
 gui 2: add, picture, h236  w611, assets/help2.png                                                                              
 WinSet, TransColor, 0 1000
 Gui 2: Show, x1 y1 NoActivate, window.
@@ -444,9 +438,6 @@ If state4
 {
 Gui 2: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 2: Color, black 
-Gui 2: Font, s10
-Gui 2: Font, w1000
-Gui 2: Font, cFFFFFF
 gui 2: add, picture, w611 h330, assets/help3.png                                                                               
 
 WinSet, TransColor, 0 1000
@@ -517,7 +508,7 @@ Gui 5: Add, Text,, [%key2%]    |          Памятка общая
 Gui 5: Add, Text,, [%key3%]    |          Памятка угонки
 Gui 5: Add, Text,, [%key4%]    |          Памятка определение личности
 Gui 5: Add, Text,, [%key5%]    |          ТЕН-КОДЫ
-Gui 5: Add, Text,, [%key7%]    |          Памятка Дополненная
+Gui 5: Add, Text,, [%key7%]    |          Памятка CID
 Gui 5: Add, Text,, [%key6%]    |          Отключить подсказку
 Gui 5: Add, Text, c8FBC8F,[КОМАНДЫ]
 Gui 5: Add, Text,, ..адвокат - Вызов адвоката
@@ -544,9 +535,6 @@ If state7
 { 
 Gui 7: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 7: Color, black 
-Gui 7: Font, s10
-Gui 7: Font, w1000
-Gui 7: Font, cFFFFFF
 gui 7: add, picture, h384 w326, assets/cidhelp.png
 WinSet, TransColor, 0 1000
 Gui 7: Show, x1 y1 NoActivate, window.
@@ -975,6 +963,8 @@ return
 :?:.ьу::/me
 :?:.вщ::/do
 :?:.екн::/try
+
+:?:.зфн::/pay
 
 :?:..взятка::/do Имеется ли у собеседника аудио или видеозаписывающее устройство? ; ПАСХАЛКО
 :?:..адвокат::/dep to GOV: Требуется адвокат в допросную
