@@ -22,6 +22,10 @@ IfnotExist, %A_ScriptDir%\update.ahk
 {
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/update.ahk?raw=true, %A_ScriptDir%\update.ahk
 }
+IfnotExist, %A_ScriptDir%\assets\cmds.txt
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cmds.txt?raw=true, %A_ScriptDir%\assets\cmds.txt
+}
 IfnotExist, %A_ScriptDir%\assets\help.png
 {
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
