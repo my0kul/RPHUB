@@ -1,4 +1,4 @@
-﻿version := 1.21
+﻿version := 1.211
 
 SetWorkingDir %A_ScriptDir%
 
@@ -282,7 +282,7 @@ Gui, Font, S13 CBlack, Calibri
 
 Gui, Add, Button, x902 y149 w150 h30 gCommand, Команды
 Gui, Add, Button, x902 y209 w150 h30 gSettings, Настройки
-Gui, Add, Button, x902 y269 w150 h30 gSave, Сохранить
+Gui, Add, Button, x22 y375 w150 h30 gSave, Сохранить
 Gui, Add, Button, x902 y409 w150 h30 gUpdate, Последняя версия
 
 ;==== Бейджик ==== 
