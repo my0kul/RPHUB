@@ -1,4 +1,4 @@
-﻿version := 1.215
+﻿version := 1.216
 
 SetWorkingDir %A_ScriptDir%
 
@@ -561,7 +561,7 @@ If state8
 { 
 Gui 8: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 8: Color, black 
-gui 8: add, picture, h384 w326, assets/help4.png
+gui 8: add, picture, h424 w511, assets/help4.png
 WinSet, TransColor, 0 1000
 Gui 8: Show, x1 y1 NoActivate, window.
  }
