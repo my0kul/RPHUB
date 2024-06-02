@@ -1,4 +1,4 @@
-﻿version := 1.211
+﻿version := 1.212
 
 SetWorkingDir %A_ScriptDir%
 
@@ -15,6 +15,7 @@ URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help2.png?ra
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cidhelp.png?raw=true, %A_ScriptDir%\assets\cidhelp.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cmds.txt?raw=true, %A_ScriptDir%\assets\cmds.txt
 IniWrite, %version%, assets/Settings.ini, USER, v
 }
 
