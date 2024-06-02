@@ -1,4 +1,4 @@
-﻿version := 1.214
+﻿version := 1.215
 
 SetWorkingDir %A_ScriptDir%
 
@@ -13,6 +13,7 @@ if v != %version%
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help4.png?raw=true, %A_ScriptDir%\assets\help4.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cidhelp.png?raw=true, %A_ScriptDir%\assets\cidhelp.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cmds.txt?raw=true, %A_ScriptDir%\assets\cmds.txt
@@ -38,6 +39,10 @@ URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help2.png?ra
 IfnotExist, %A_ScriptDir%\assets\help3.png
 {
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
+}
+IfnotExist, %A_ScriptDir%\assets\help4.png
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help4.png?raw=true, %A_ScriptDir%\assets\help4.png
 }
 IfnotExist, %A_ScriptDir%\assets\cidhelp.png
 {
@@ -264,7 +269,7 @@ Gui, Add, Text, x130 y202 w330 h30 +BackgroundTrans, Памятка устано
 Gui, Add, Text, x130 y242 w330 h30 +BackgroundTrans, ТЕН-КОДЫ
 Gui, Add, Text, x130 y282 w330 h30 +BackgroundTrans, Информация о биндах и командах
 Gui, Add, Text, x130 y322 w330 h30 +BackgroundTrans, Памятка CID
-;=Gui, Add, Text, x130 y362 w330 h30 +BackgroundTrans, .
+Gui, Add, Text, x130 y362 w330 h30 +BackgroundTrans, Памятка Похищения
 ;=Gui, Add, Text, x130 y402 w330 h30 +BackgroundTrans, .
 ;=Gui, Add, Text, x130 y442 w330 h30 +BackgroundTrans, .
 
@@ -283,7 +288,7 @@ Gui, Font, S13 CBlack, Calibri
 
 Gui, Add, Button, x902 y149 w150 h30 gCommand, Команды
 Gui, Add, Button, x902 y209 w150 h30 gSettings, Настройки
-Gui, Add, Button, x22 y375 w150 h30 gSave, Сохранить
+Gui, Add, Button, x22 y400 w150 h30 gSave, Сохранить
 Gui, Add, Button, x902 y409 w150 h30 gUpdate, Последняя версия
 
 ;==== Бейджик ==== 
@@ -299,7 +304,7 @@ Gui, Add, Hotkey, x22 y240 w95 h30 vKey5, %Key5%
 Gui, Add, Hotkey, x22 y280 w95 h30 vKey6, %Key6%
 Gui, Add, Hotkey, x22 y320 w95 h30 vKey7, %Key7%
 
-;=Gui, Add, Hotkey, x22 y360 w95 h30 vKey8, %Key8%
+Gui, Add, Hotkey, x22 y360 w95 h30 vKey8, %Key8%
 ;=Gui, Add, Hotkey, x22 y400 w95 h30 vKey9, %Key9%
 ;=Gui, Add, Hotkey, x22 y440 w95 h30 vKey10, %Key10%
 
@@ -548,6 +553,20 @@ Gui 7: Show, x1 y1 NoActivate, window.
  }
 Else
 Gui 7: Destroy
+return
+
+Key8: 
+State8:=!State8
+If state8
+{ 
+Gui 8: +LastFound +AlwaysOnTop -Caption +ToolWindow 
+Gui 8: Color, black 
+gui 8: add, picture, h384 w326, assets/help4.png
+WinSet, TransColor, 0 1000
+Gui 8: Show, x1 y1 NoActivate, window.
+ }
+Else
+Gui 8: Destroy
 return
 
 ;======================================================================================================================Команды
@@ -1041,10 +1060,36 @@ return
 :?:..похитка::/dep to ALL: %frac% займётся похищением.
 :?:..адекват::/dep to ALL: Требования похитителей адекватные.
 :?:..неадекват::/dep to ALL: Требования похитителей неадекватные, требуется помощь всех гос. структур.
+:?:..коридор::/dep to ALL: Запрашиваю *** зелёного коридора для машин *** цвета.
+:?:..заложники::/dep to ALL: Заложники в безопасности.
+
+:?:..банк::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /me открыл%gender% сумку, положил%gender% в неё деньги, закрыл%gender% её и закинул%gender% на плечо{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Сумка на  плече.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do В сумке лежит $.{left 2}
+sleep 400
+return
+
+:?:..напол::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /me поставил%gender% сумку на землю{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Сумка на земле.{enter}
+sleep 400
+return
 
 :?:..опз::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /me посмотрел на опознавательный знак офицера.{enter}
+Sendinput, /me посмотрел%gender% на опознавательный знак офицера.{enter}
 sleep 400
 Sendinput, {t}
 sleep 200
