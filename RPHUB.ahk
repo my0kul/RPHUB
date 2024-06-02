@@ -1,4 +1,4 @@
-﻿version := 1.213
+﻿version := 1.214
 
 SetWorkingDir %A_ScriptDir%
 
@@ -316,25 +316,25 @@ Gui, Add, Hotkey, x22 y320 w95 h30 vKey7, %Key7%
 
 Gui, Show, w1080 h489, RPHUB %version%
 
-Gui, 3: -MaximizeBox
-Gui, 3: -SysMenu
-Gui, 3: Font, S10 CWhite, Calibri
-Gui, 3: Color, c4c4c4
-Gui, 3: Font, c0x000000
-Gui, 3: Add, Text, x2 y10 w70 h18 +0x200 +0x1, Фракция:
-Gui, 3: Add, Edit, x65 y10 w50 h21 vfrac, %frac%
-Gui, 3: Add, Text, x120 y10 w50 h18 +0x200 +0x1, Отдел:
-Gui, 3: Add, Edit, x165 y10 w50 h21 votdel, %otdel%
-Gui, 3: Add, Text, x220 y10 w50 h18 +0x200 +0x1, Статик:
-Gui, 3: Add, Edit, x275 y10 w70 h21 vsid, %sid%
-Gui, 3: Add, Edit, x370 y10 w70 h21 vtype, %type%
-Gui, 3: Add, Text, x443 y12 w20 h18, на
-Gui, 3: Add, Edit, x465 y10 w70 h21 vplace, %place%
-Gui, 3: Add, Text, x2 y36 w70 h18 +0x200 +0x1, Ваш пол:
-Gui, 3: Add, Radio, x70 y33 w80 h23 Group vRadio1 Checked%Radio1%, Мужчина
-Gui, 3: Add, Radio, x150 y33 w80 h23 vRadio2 Checked%Radio2%, Женщина
-Gui, 3: Add, Button, x320 y36 w70 h20 gSave, Сохранить	
-Gui, 3: submit
+Gui, Настройки: -MaximizeBox
+Gui, Настройки: -SysMenu
+Gui, Настройки: Font, S10 CWhite, Calibri
+Gui, Настройки: Color, c4c4c4
+Gui, Настройки: Font, c0x000000
+Gui, Настройки: Add, Text, x2 y10 w70 h18 +0x200 +0x1, Фракция:
+Gui, Настройки: Add, Edit, x65 y10 w50 h21 vfrac, %frac%
+Gui, Настройки: Add, Text, x120 y10 w50 h18 +0x200 +0x1, Отдел:
+Gui, Настройки: Add, Edit, x165 y10 w50 h21 votdel, %otdel%
+Gui, Настройки: Add, Text, x220 y10 w50 h18 +0x200 +0x1, Статик:
+Gui, Настройки: Add, Edit, x275 y10 w70 h21 vsid, %sid%
+Gui, Настройки: Add, Edit, x370 y10 w70 h21 vtype, %type%
+Gui, Настройки: Add, Text, x443 y12 w20 h18, на
+Gui, Настройки: Add, Edit, x465 y10 w70 h21 vplace, %place%
+Gui, Настройки: Add, Text, x2 y36 w70 h18 +0x200 +0x1, Ваш пол:
+Gui, Настройки: Add, Radio, x70 y33 w80 h23 Group vRadio1 Checked%Radio1%, Мужчина
+Gui, Настройки: Add, Radio, x150 y33 w80 h23 vRadio2 Checked%Radio2%, Женщина
+Gui, Настройки: Add, Button, x320 y36 w70 h20 gSave, Сохранить	
+Gui, Настройки: submit
 return
 
 ;======================================================================================================================Кнопки
@@ -349,7 +349,7 @@ MsgBox, 0, Команды, Для использования сокращённ�
 return
 
 settings:
-Gui, 3: Show, w575 h60, Настройки
+Gui, Настройки: Show, w575 h60, Настройки
 return
 
 Update:
