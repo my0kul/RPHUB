@@ -1,4 +1,4 @@
-﻿version := 1.212
+﻿version := 1.213
 
 SetWorkingDir %A_ScriptDir%
 
@@ -429,29 +429,29 @@ Key3:
 State3:=!State3
 If state3
 {
-Gui 2: +LastFound +AlwaysOnTop -Caption +ToolWindow 
-Gui 2: Color, black 
-gui 2: add, picture, h236  w611, assets/help2.png                                                                              
+Gui 3: +LastFound +AlwaysOnTop -Caption +ToolWindow 
+Gui 3: Color, black 
+gui 3: add, picture, h236  w611, assets/help2.png                                                                              
 WinSet, TransColor, 0 1000
-Gui 2: Show, x1 y1 NoActivate, window.
+Gui 3: Show, x1 y1 NoActivate, window.
  }
 Else
-Gui 2: Destroy
+Gui 3: Destroy
 return
 
 Key4: 
 State4:=!State4
 If state4
 {
-Gui 2: +LastFound +AlwaysOnTop -Caption +ToolWindow 
-Gui 2: Color, black 
-gui 2: add, picture, w611 h330, assets/help3.png                                                                               
+Gui 4: +LastFound +AlwaysOnTop -Caption +ToolWindow 
+Gui 4: Color, black 
+gui 4: add, picture, w611 h330, assets/help3.png                                                                               
 
 WinSet, TransColor, 0 1000
-Gui 2: Show, x1 y1 NoActivate, window.
+Gui 4: Show, x1 y1 NoActivate, window.
  }
 Else
-Gui 2: Destroy
+Gui 4: Destroy
 return
 
 Key5:
@@ -459,41 +459,41 @@ State5:=!State5
 If state5
 {
 CustomColor3 = EEAA99
-Gui 4: +LastFound +AlwaysOnTop -Caption +ToolWindow 
-Gui 4: Color, black
-Gui 4: Font, s9
-Gui 4: Font, cWhite
-Gui 4: Font, w1000
-Gui 4: ADD, TEXT, cYellow, ===========================================ТЭН-КОДЫ===========================================                                                                                                                                     
-Gui 4: ADD, TEXT,, 10-0    Отмена 
-Gui 4: ADD, TEXT,, 10-4    Понял-принял    
-Gui 4: ADD, TEXT,, 10-5    Повторите
-Gui 4: ADD, TEXT,, 10-6    Не принято (отказ)
-Gui 4: ADD, TEXT,, 10-7    Начал патруль
-Gui 4: ADD, TEXT,, 10-7R   Закончил патруль
-Gui 4: ADD, TEXT,, 10-70   Требуется подкрепление
-Gui 4: ADD, TEXT,, 10-71   Требуется медик
-Gui 4: ADD, TEXT,, 10-75   Провожу задержание
-Gui 4: ADD, TEXT,, 10-9    Состояние стабильное (В патруле)
-Gui 4: ADD, TEXT,, 10-10    Провожу задержание
-Gui 4: ADD, TEXT,, 10-20    Текущее местоположение 
-GUI 4: ADD, TEXT,, 10-33    Требуется эвакуация
-GUI 4: ADD, TEXT,, 10-70    Требуется поддержка
-GUI 4: ADD, TEXT,, 10-99     Ситуация урегулирована                  
-GUI 4: ADD, TEXT, cYellow, ========================================Коды для /mark========================================                      
-GUI 4: ADD, TEXT,, CODE-0 - Офицер/агент ранен/убит
-GUI 4: ADD, TEXT,, CODE-1 - По офицеру/агенту открыт огонь
-GUI 4: ADD, TEXT,, CODE-2 - Вызов без сирен.
-GUI 4: ADD, TEXT,, CODE-3 - Вызов с проблесковыми маячками и сиреной 
-GUI 4: ADD, TEXT,, CODE-4 - Ситуация урегулирована, все спокойно
-GUI 4: ADD, TEXT,, CODE-5 - Ложная тревога
-GUI 4: ADD, TEXT,, CODE-6 - Массовые беспорядки 
-GUI 4: ADD, TEXT,, CODE-7 - Большое скопление вооруженных лиц
+Gui 5: +LastFound +AlwaysOnTop -Caption +ToolWindow 
+Gui 5: Color, black
+Gui 5: Font, s9
+Gui 5: Font, cWhite
+Gui 5: Font, w1000
+Gui 5: ADD, TEXT, cYellow, ===========================================ТЭН-КОДЫ===========================================                                                                                                                                     
+Gui 5: ADD, TEXT,, 10-0    Отмена 
+Gui 5: ADD, TEXT,, 10-4    Понял-принял    
+Gui 5: ADD, TEXT,, 10-5    Повторите
+Gui 5: ADD, TEXT,, 10-6    Не принято (отказ)
+Gui 5: ADD, TEXT,, 10-7    Начал патруль
+Gui 5: ADD, TEXT,, 10-7R   Закончил патруль
+Gui 5: ADD, TEXT,, 10-70   Требуется подкрепление
+Gui 5: ADD, TEXT,, 10-71   Требуется медик
+Gui 5: ADD, TEXT,, 10-75   Провожу задержание
+Gui 5: ADD, TEXT,, 10-9    Состояние стабильное (В патруле)
+Gui 5: ADD, TEXT,, 10-10    Провожу задержание
+Gui 5: ADD, TEXT,, 10-20    Текущее местоположение 
+Gui 5: ADD, TEXT,, 10-33    Требуется эвакуация
+Gui 5: ADD, TEXT,, 10-70    Требуется поддержка
+Gui 5: ADD, TEXT,, 10-99     Ситуация урегулирована                  
+Gui 5: ADD, TEXT, cYellow, ========================================Коды для /mark========================================                      
+Gui 5: ADD, TEXT,, CODE-0 - Офицер/агент ранен/убит
+Gui 5: ADD, TEXT,, CODE-1 - По офицеру/агенту открыт огонь
+Gui 5: ADD, TEXT,, CODE-2 - Вызов без сирен.
+Gui 5: ADD, TEXT,, CODE-3 - Вызов с проблесковыми маячками и сиреной 
+Gui 5: ADD, TEXT,, CODE-4 - Ситуация урегулирована, все спокойно
+Gui 5: ADD, TEXT,, CODE-5 - Ложная тревога
+Gui 5: ADD, TEXT,, CODE-6 - Массовые беспорядки 
+Gui 5: ADD, TEXT,, CODE-7 - Большое скопление вооруженных лиц
 WinSet, TransColor, %CustomColor3% 200
-Gui 4: Show, x1 y1 NoActivate, window. 
+Gui 5: Show, x1 y1 NoActivate, window. 
 }
 Else
-Gui 4: Destroy
+Gui 5: Destroy
 return
 
 Key6:
@@ -502,38 +502,38 @@ State6:=!State6
 If state6
 {
 CustomColor1 = EEAA99
-Gui 5: +LastFound +AlwaysOnTop -Caption +ToolWindow
-Gui 5: Color, black
-Gui 5: Font, cWhite
-Gui 5: Font, s9
-Gui 5: Font, w1000
-Gui 5: Font,, MS sans serif
+Gui 6: +LastFound +AlwaysOnTop -Caption +ToolWindow
+Gui 6: Color, black
+Gui 6: Font, cWhite
+Gui 6: Font, s9
+Gui 6: Font, w1000
+Gui 6: Font,, MS sans serif
 
-Gui 5: Add, Text, c8FBC8F,[БИНДЫ]                 [ОТЫГРОВКИ]
-Gui 5: Add, Text,, [%key1%]    |          Бейджик
-Gui 5: Add, Text,, [%key2%]    |          Памятка общая
-Gui 5: Add, Text,, [%key3%]    |          Памятка угонки
-Gui 5: Add, Text,, [%key4%]    |          Памятка определение личности
-Gui 5: Add, Text,, [%key5%]    |          ТЕН-КОДЫ
-Gui 5: Add, Text,, [%key7%]    |          Памятка CID
-Gui 5: Add, Text,, [%key6%]    |          Отключить подсказку
-Gui 5: Add, Text, c8FBC8F,[КОМАНДЫ]
-Gui 5: Add, Text,, ..адвокат - Вызов адвоката
-Gui 5: Add, Text,, ..прокурор - Вызов прокурора
-Gui 5: Add, Text,, ..запросак - Работу по АК и ДК
-Gui 5: Add, Text,, ..запросфиб - Работу по 13.4 УК
-Gui 5: Add, Text,, ..юрсд - Запросить юрисдикцию от СД
-Gui 5: Add, Text,, ..юрпд - Запросить юрисдикцию от ПД
-Gui 5: Add, Text,, ..миранда - (Только если фулл без звука)
-Gui 5: Add, Text,, ..опз - Проверка ОПЗ на госнике
-Gui 5: Add, Text, c8FBC8F,[DOG]
-Gui 5: Add, Text,, ..сел - запрыгнуть в авто
-Gui 5: Add, Text,, ..вылез - выпрыгнул из авто
+Gui 6: Add, Text, c8FBC8F,[БИНДЫ]                 [ОТЫГРОВКИ]
+Gui 6: Add, Text,, [%key1%]    |          Бейджик
+Gui 6: Add, Text,, [%key2%]    |          Памятка общая
+Gui 6: Add, Text,, [%key3%]    |          Памятка угонки
+Gui 6: Add, Text,, [%key4%]    |          Памятка определение личности
+Gui 6: Add, Text,, [%key5%]    |          ТЕН-КОДЫ
+Gui 6: Add, Text,, [%key7%]    |          Памятка CID
+Gui 6: Add, Text,, [%key6%]    |          Отключить подсказку
+Gui 6: Add, Text, c8FBC8F,[КОМАНДЫ]
+Gui 6: Add, Text,, ..адвокат - Вызов адвоката
+Gui 6: Add, Text,, ..прокурор - Вызов прокурора
+Gui 6: Add, Text,, ..запросак - Работу по АК и ДК
+Gui 6: Add, Text,, ..запросфиб - Работу по 13.4 УК
+Gui 6: Add, Text,, ..юрсд - Запросить юрисдикцию от СД
+Gui 6: Add, Text,, ..юрпд - Запросить юрисдикцию от ПД
+Gui 6: Add, Text,, ..миранда - (Только если фулл без звука)
+Gui 6: Add, Text,, ..опз - Проверка ОПЗ на госнике
+Gui 6: Add, Text, c8FBC8F,[DOG]
+Gui 6: Add, Text,, ..сел - запрыгнуть в авто
+Gui 6: Add, Text,, ..вылез - выпрыгнул из авто
 WinSet, TransColor, %CustomColor1% 200
-Gui 5: Show, x1 y1 w300 NoActivate, window.
+Gui 6: Show, x1 y1 w300 NoActivate, window.
 }
 Else
-Gui 5: Destroy
+Gui 6: Destroy
 return
 
 Key7: 
