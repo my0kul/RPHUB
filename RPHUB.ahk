@@ -1,4 +1,4 @@
-﻿version := 1.216
+﻿version := 1.217
 
 SetWorkingDir %A_ScriptDir%
 
@@ -1047,7 +1047,6 @@ return
 
 :?:.зфн::/pay
 
-:?:..взятка::/do Имеется ли у @ аудио или видеозаписывающее устройство?{left 40}
 :?:..адвокат::/dep to GOV: Требуется адвокат в допросную
 :?:..ду::/do to GOV: Требуется адвокат в допросную
 :?:..пруфы::/do В ориентировке указано: "Совершён угон авто марки . Цвет: . Номер:"{left 1}
@@ -1069,7 +1068,7 @@ Sendinput, /me открыл%gender% сумку, положил%gender% в неё
 sleep 400
 Sendinput, {t}
 sleep 200
-Sendinput, /do Сумка на  плече.{enter}
+Sendinput, /do Сумка на плече.{enter}
 sleep 400
 Sendinput, {t}
 sleep 200
@@ -1085,15 +1084,29 @@ Sendinput, {t}
 sleep 200
 Sendinput, /do Сумка на земле.{enter}
 sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do В сумке лежит $.{left 2}
+sleep 400
+return
+
+:?:..взятка::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /me прохлопал%gender% верхние и нижние карманы человека напротив{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Имеется ли у @ аудио или видеозаписывающее устройство?{left 41}
+sleep 400
 return
 
 :?:..опз::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /me посмотрел%gender% на опознавательный знак офицера.{enter}
+Sendinput, /me посмотрел%gender% на опознавательный знак человека.{enter}
 sleep 400
 Sendinput, {t}
 sleep 200
-Sendinput, /do Что написано на опознавательном знаке у @?{left 1}
+Sendinput, /do Что написано на опознавательном знаке у @?{left 2}
 sleep 400
 return
 
