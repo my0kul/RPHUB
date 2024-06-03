@@ -1,4 +1,4 @@
-﻿version := 1.218
+﻿version := 1.219
 
 SetWorkingDir %A_ScriptDir%
 
@@ -257,6 +257,8 @@ gender = а
 Gui, Color, 191919
 Gui, Font, S20 CWhite, Calibri
 Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, Бинды
+Gui, Font, S14 CWhite, Calibri
+Gui, Add, Text, x20 y49 w820 h40 +BackgroundTrans, С Днём Рождения, Эрен! 🎂
 Gui, Add, Picture, x885 y-5 w170 h170 +BackgroundTrans, assets\logo.png
 Gui, Font, S10 CWhite, Calibri
 Gui, Add, Text, x902 y445 w250 h30 +BackgroundTrans, by #110378 | San Diego
