@@ -1,4 +1,4 @@
-﻿version := 1.227
+﻿version := 1.228
 
 SetWorkingDir %A_ScriptDir%
 
@@ -1148,6 +1148,11 @@ return
 :?:..воркфиб::
 SendMessage, 0x50,, 0x4190419,, A
 Sendinput, /dep to FIB: Работайте.
+return
+
+:?:..спавн::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /spawncars
 return
 
 :?:..адвокат::
