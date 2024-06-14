@@ -1,4 +1,4 @@
-﻿version := 1.228
+﻿version := 1.229
 
 SetWorkingDir %A_ScriptDir%
 
@@ -1032,102 +1032,102 @@ return
 
 :?:.ц::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /w
+Sendinput, /w{space}
 return
 
 :?:.и::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /b
+Sendinput, /b{space}
 return
 
 :?:.б::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /b
+Sendinput, /b{space}
 return
 
 :?:.а::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /f
+Sendinput, /f{space}
 return
 
 :?:.ф::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /f
+Sendinput, /f{space}
 return
 
 :?:.аи::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /fb
+Sendinput, /fb{space}
 return
 
 :?:.фб::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /fb
+Sendinput, /fb{space}
 return
 
 :?:.с::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /c
+Sendinput, /c{space}
 return
 
 :?:.си::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /cb
+Sendinput, /cb{space}
 return
 
 :?:.сб::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /cb
+Sendinput, /cb{space}
 return
 
 :?:.вуз::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /dep
+Sendinput, /dep{space}
 return
 
 :?:.деп::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /dep
+Sendinput, /dep{space}
 return
 
 :?:.кузщке::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /report
+Sendinput, /report{space}
 return
 
 :?:.репорт::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /report
+Sendinput, /report{space}
 return
 
 :?:.ьу::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /me
+Sendinput, /me{space}
 return
 
 :?:.вщ::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /do
+Sendinput, /do{space}
 return
 
 :?:.екн::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /try
+Sendinput, /try{space}
 return
 
 :?:.зфн::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /pay
+Sendinput, /pay{space}
 return
 
 :?:.зге::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /put
+Sendinput, /put{space}
 return
 
 :?:.згдд::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /pull
+Sendinput, /pull{space}
 return
 
 :?:.ызфцтсфкы::
@@ -1157,12 +1157,12 @@ return
 
 :?:..адвокат::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /dep to GOV: Требуется адвокат в допросную
+Sendinput, /dep to GOV: Требуется адвокат в допросную{space}
 return
 
 :?:..ду::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /do to GOV: Требуется адвокат в допросную
+Sendinput, /do to GOV: Требуется адвокат в допросную{space}
 return
 
 :?:..пруфы::
@@ -1172,7 +1172,7 @@ return
 
 :?:..прокурор::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /dep to GOV: Требуется прокурор в допросную
+Sendinput, /dep to GOV: Требуется прокурор в допросную{space}
 return
 
 :?:..запросак::
@@ -1259,7 +1259,7 @@ Sendinput, /me прохлопал%gender% верхние и нижние кар�
 sleep 400
 Sendinput, {t}
 sleep 200
-Sendinput, /do Имеется ли у @ аудио или видеозаписывающее устройство?{left 41}
+Sendinput, /do Имеется ли у @ аудио или видеозаписывающее устройство?{left 40}
 sleep 400
 return
 
@@ -1269,7 +1269,7 @@ Sendinput, /me посмотрел%gender% на опознавательный з
 sleep 400
 Sendinput, {t}
 sleep 200
-Sendinput, /do Что написано на опознавательном знаке у @?{left 2}
+Sendinput, /do Что написано на опознавательном знаке у @?{left 1}
 sleep 400
 return
 
@@ -1345,47 +1345,47 @@ return
 
 :?:..все::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /dep to ALL:
+Sendinput, /dep to ALL:{space}
 return
 
 :?:..пд::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /dep to LSPD:
+Sendinput, /dep to LSPD:{space}
 return
 
 :?:..сд::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /dep to SD:
+Sendinput, /dep to SD:{space}
 return
 
 :?:..фиб::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /dep to FIB:
+Sendinput, /dep to FIB:{space}
 return
 
 :?:..санг::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /dep to SANG:
+Sendinput, /dep to SANG:{space}
 return
 
 :?:..емс::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /dep to EMS:
+Sendinput, /dep to EMS:{space}
 return
 
 :?:..вн::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /dep to WN:
+Sendinput, /dep to WN:{space}
 return
 
 :?:..гов::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /dep to GOV:
+Sendinput, /dep to GOV:{space}
 return
 
 :?:..клин::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /clearchat:
+Sendinput, /clearchat
 return
 
 :?:.да::👍
