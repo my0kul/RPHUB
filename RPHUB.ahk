@@ -1,4 +1,4 @@
-﻿version := 1.229
+﻿version := 1.231
 
 SetWorkingDir %A_ScriptDir%
 
@@ -1331,6 +1331,104 @@ Sendinput, /do Весы показали{space}{space}грамм.{left 7}
 sleep 400
 return
 
+;FUCK NO VOICE
+:?:..номера::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /me взял%gender% телефон в руки, сфотографировал%gender% номера транспорта и отправил%gender% фотографию диспетчеру{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Фотография успешно отправлена.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me диспетчер прислал ответ{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do В ориентировке указано: "Совершён угон авто марки . Цвет: . Номер:"{left 1}
+sleep 400
+return
+
+:?:..пред::
+IniRead, frac, assets/Settings.ini, USER, frac
+IniRead, otdel, assets/Settings.ini, USER, otdel
+IniRead, sid, assets/Settings.ini, USER, sid
+IniRead, place, assets/Settings.ini, USER, place
+
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, Здравствуйте, являюсь сотрудником %frac%, опознавательный знак на мне находится{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do На %place% находится %type%: [%frac% | %otdel% | %sid%]{Enter}.{enter}
+sleep 400
+return
+
+:?:..вавто::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /me открыл%gender% дверь патрульного автомобиля, посадил%gender% туда задержанного{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me пристегнул%gender% его ремнём безопасности{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Задержанный надёжно пристёгнут ремнём безопасности.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me закрыл%gender% дверь автомобиля{enter}
+sleep 400
+return
+
+:?:..изавто::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /me открыл%gender% дверь патрульного автомобиля{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me отстегнул%gender% ремень безопасности{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Задержанный не пристёгнут ремнём безопасности{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me достал%gender% задержанного из транспорта{enter}
+sleep 400
+return
+
+:?:..грим::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /me взял%gender% в руки мокрую тряпочку, убрал%gender% грим с лица человека{enter}
+return
+
+:?:..очки::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /me приподнял%gender% очки у человека напротив{enter}
+return
+
+:?:..фоторобот::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /me взял в руки телефон, включил приложение "Камера"{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /me сфотографировал номера транспорта и отправил их диспетчеру{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do Диспетчер прислал ответ, что транспорт находится в угоне.{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /do В ориентировке указано: "Совершён угон авто марки . Цвет: . Номер:"{left 1}
+return
+
+
 :?:..20::/mark 10-20
 :?:..7::/mark CODE-7
 :?:..4::/mark CODE-4
@@ -1386,6 +1484,11 @@ return
 :?:..клин::
 SendMessage, 0x50,, 0x4190419,, A
 Sendinput, /clearchat
+return
+
+:?:..трусы::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /mark 10-20 [Рвут трусы]
 return
 
 :?:.да::👍
