@@ -1,4 +1,4 @@
-﻿version := 1.232
+﻿version := 1.233
 
 SetWorkingDir %A_ScriptDir%
 
@@ -1347,7 +1347,7 @@ Sendinput, /do Фотография успешно отправлена.{enter}
 sleep 400
 Sendinput, {t}
 sleep 200
-Sendinput, /me диспетчер прислал ответ{enter}
+Sendinput, /do Диспетчер прислал ответ.{enter}
 sleep 400
 Sendinput, {t}
 sleep 200
@@ -1418,19 +1418,16 @@ return
 
 :?:..фоторобот::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /me взял в руки телефон, включил приложение "Камера"{enter}
+Sendinput, /me взял%gender% в руки телефон, включил%gender% приложение "Камера"{enter}
 sleep 400
 Sendinput, {t}
 sleep 200
-Sendinput, /me сфотографировал номера транспорта и отправил их диспетчеру{enter}
+Sendinput, /me сфотографировал%gender% лицо человека напротив{enter}
 sleep 400
 Sendinput, {t}
 sleep 200
-Sendinput, /do Диспетчер прислал ответ, что транспорт находится в угоне.{enter}
+Sendinput, /do Диспетчер прислал ответ, что человек  находится в розыске.{left 21}
 sleep 400
-Sendinput, {t}
-sleep 200
-Sendinput, /do В ориентировке указано: "Совершён угон авто марки . Цвет: . Номер:"{left 1}
 return
 
 
