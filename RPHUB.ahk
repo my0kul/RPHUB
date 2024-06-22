@@ -1,4 +1,4 @@
-﻿version := 1.233
+﻿version := 1.234
 
 SetWorkingDir %A_ScriptDir%
 
@@ -1442,6 +1442,33 @@ return
 :?:/4::/mark CODE-4
 :?:/2::/mark CODE-2
 :?:/0::/mark CODE-0
+
+:?:..апд::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to LSPD: Вызов принят.
+return
+:?:..асд::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to LSCSD: Вызов принят.
+return
+:?:..афиб::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to FIB: Вызов принят.
+return
+
+:?:/apd::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to LSPD: Вызов принят.
+return
+:?:/asd::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to LSCSD: Вызов принят.
+return
+:?:/afib::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to FIB: Вызов принят.
+return
+
 
 :?:..все::
 SendMessage, 0x50,, 0x4190419,, A
