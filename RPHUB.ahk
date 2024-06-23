@@ -1,4 +1,4 @@
-﻿version := 1.235
+﻿version := 1.236
 
 SetWorkingDir %A_ScriptDir%
 
@@ -14,6 +14,7 @@ URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help.png?raw
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help4.png?raw=true, %A_ScriptDir%\assets\help4.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help5.png?raw=true, %A_ScriptDir%\assets\help5.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cidhelp.png?raw=true, %A_ScriptDir%\assets\cidhelp.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cmds.txt?raw=true, %A_ScriptDir%\assets\cmds.txt
@@ -43,6 +44,10 @@ URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help3.png?ra
 IfnotExist, %A_ScriptDir%\assets\help4.png
 {
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help4.png?raw=true, %A_ScriptDir%\assets\help4.png
+}
+IfnotExist, %A_ScriptDir%\assets\help5.png
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help5.png?raw=true, %A_ScriptDir%\assets\help5.png
 }
 IfnotExist, %A_ScriptDir%\assets\cidhelp.png
 {
@@ -244,20 +249,11 @@ gender = а
 ;===================================================================================
 
 ;======================================================================================================================Основное GUI
-;Gui 99: +LastFound +AlwaysOnTop -Caption +ToolWindow 
-;Gui 99: Color, black 
-;Gui 99: Font, s10
-;Gui 99: Font, w1000
-;Gui 99: Font, cFFFFFF
-;Gui 99: Add, Text, x20 y600 w250, RPHUB %version%
-;Gui 99: Add, Text, x20 y620 w250, [%key6%] - Помощь
-;WinSet, TransColor, 0
-;Gui 99: Show, x1 y1 NoActivate, window.
-
 Gui, Color, 191919
 Gui, Font, S20 CWhite, Calibri
 Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, Бинды
 Gui, Add, Picture, x885 y-5 w170 h170 +BackgroundTrans, assets\logo.png
+Gui, Add, Picture, x480 y-65 w359 h566 gDiscord, assets\filatov.png
 Gui, Font, S10 CWhite, Calibri
 Gui, Add, Text, x902 y445 w250 h30 +BackgroundTrans, by #110378 | San Diego
 Gui, Font, S15 CWhite, Calibri
@@ -267,7 +263,7 @@ Gui, Add, Text, x130 y122 w240 h30 +BackgroundTrans, Памятка Общая
 Gui, Add, Text, x130 y162 w240 h30 +BackgroundTrans, Памятка Угонки
 Gui, Add, Text, x130 y202 w330 h30 +BackgroundTrans, Памятка установки личности
 Gui, Add, Text, x130 y242 w330 h30 +BackgroundTrans, ТЕН-КОДЫ
-Gui, Add, Text, x130 y282 w330 h30 +BackgroundTrans, Информация о биндах и командах
+Gui, Add, Text, x130 y282 w330 h30 +BackgroundTrans, Памятка Задержание Госника
 Gui, Add, Text, x130 y322 w330 h30 +BackgroundTrans, Памятка CID
 Gui, Add, Text, x130 y362 w330 h30 +BackgroundTrans, Памятка Похищения
 ;=Gui, Add, Text, x130 y402 w330 h30 +BackgroundTrans, .
@@ -364,6 +360,10 @@ IfWinExist, RPHUB %version%
     WinClose
 return
 
+Discord:
+Run, https://discord.gg/ptBaYHpSRG
+return
+
 Save:
 Gui, submit, NoHide
 IniWrite, %frac%, assets/Settings.ini, USER, frac
@@ -404,6 +404,7 @@ Close:
 ExitApp
 return
 ;======================================================================================================================Хоткии
+
 Key1:
 SendMessage, 0x50,, 0x4190419,, A
 IniRead, frac, assets/Settings.ini, USER, frac
@@ -413,7 +414,7 @@ IniRead, place, assets/Settings.ini, USER, place
 
 SendInput, {T}
 sleep 200
-SendInput, /do На %place% находится %type%: [%frac% | %otdel% | %sid%]{Enter}.
+SendInput, /do На %place% находится %type%: [%frac% | %otdel% | %sid%].{Enter}
 return
 
 Key2: 
@@ -422,7 +423,9 @@ If state2
 { 
 Gui 2: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 2: Color, black 
-gui 2: add, picture, h574 w1267, assets/help.png
+gui 2: add, picture, h574 w1268, assets/help.png
+
+Winset, ExStyle, +0x20
 WinSet, TransColor, 0 1000
 Gui 2: Show, x1 y1 NoActivate, window.
  }
@@ -436,7 +439,9 @@ If state3
 {
 Gui 3: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 3: Color, black 
-gui 3: add, picture, h236  w611, assets/help2.png                                                                              
+gui 3: add, picture, h177 w459, assets/help2.png           
+
+Winset, ExStyle, +0x20                                                                   
 WinSet, TransColor, 0 1000
 Gui 3: Show, x1 y1 NoActivate, window.
  }
@@ -452,6 +457,7 @@ Gui 4: +LastFound +AlwaysOnTop -Caption +ToolWindow
 Gui 4: Color, black 
 gui 4: add, picture, w611 h330, assets/help3.png                                                                               
 
+Winset, ExStyle, +0x20
 WinSet, TransColor, 0 1000
 Gui 4: Show, x1 y1 NoActivate, window.
  }
@@ -494,6 +500,8 @@ Gui 5: ADD, TEXT,, CODE-4 - Ситуация урегулирована, все 
 Gui 5: ADD, TEXT,, CODE-5 - Ложная тревога
 Gui 5: ADD, TEXT,, CODE-6 - Массовые беспорядки 
 Gui 5: ADD, TEXT,, CODE-7 - Большое скопление вооруженных лиц
+
+Winset, ExStyle, +0x20
 WinSet, TransColor, %CustomColor3% 200
 Gui 5: Show, x1 y1 NoActivate, window. 
 }
@@ -503,39 +511,15 @@ return
 
 Key6:
 State6:=!State6
-
 If state6
 {
-CustomColor1 = EEAA99
-Gui 6: +LastFound +AlwaysOnTop -Caption +ToolWindow
-Gui 6: Color, black
-Gui 6: Font, cWhite
-Gui 6: Font, s9
-Gui 6: Font, w1000
-Gui 6: Font,, MS sans serif
+Gui 6: +LastFound +AlwaysOnTop -Caption +ToolWindow 
+Gui 6: Color, black 
+gui 6: add, picture, w613 h286, assets/help5.png                                                                               
 
-Gui 6: Add, Text, c8FBC8F,[БИНДЫ]                 [ОТЫГРОВКИ]
-Gui 6: Add, Text,, [%key1%]    |          Бейджик
-Gui 6: Add, Text,, [%key2%]    |          Памятка общая
-Gui 6: Add, Text,, [%key3%]    |          Памятка угонки
-Gui 6: Add, Text,, [%key4%]    |          Памятка определение личности
-Gui 6: Add, Text,, [%key5%]    |          ТЕН-КОДЫ
-Gui 6: Add, Text,, [%key7%]    |          Памятка CID
-Gui 6: Add, Text,, [%key6%]    |          Отключить подсказку
-Gui 6: Add, Text, c8FBC8F,[КОМАНДЫ]
-Gui 6: Add, Text,, ..адвокат - Вызов адвоката
-Gui 6: Add, Text,, ..прокурор - Вызов прокурора
-Gui 6: Add, Text,, ..запросак - Работу по АК и ДК
-Gui 6: Add, Text,, ..запросфиб - Работу по 13.4 УК
-Gui 6: Add, Text,, ..юрсд - Запросить юрисдикцию от СД
-Gui 6: Add, Text,, ..юрпд - Запросить юрисдикцию от ПД
-Gui 6: Add, Text,, ..миранда - (Только если фулл без звука)
-Gui 6: Add, Text,, ..опз - Проверка ОПЗ на госнике
-Gui 6: Add, Text, c8FBC8F,[DOG]
-Gui 6: Add, Text,, ..сел - запрыгнуть в авто
-Gui 6: Add, Text,, ..вылез - выпрыгнул из авто
-WinSet, TransColor, %CustomColor1% 200
-Gui 6: Show, x1 y1 w300 NoActivate, window.
+Winset, ExStyle, +0x20
+WinSet, TransColor, 0 1000
+Gui 6: Show, x1 y1 NoActivate, window.
 }
 Else
 Gui 6: Destroy
@@ -548,6 +532,8 @@ If state7
 Gui 7: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 7: Color, black 
 gui 7: add, picture, h384 w326, assets/cidhelp.png
+
+Winset, ExStyle, +0x20
 WinSet, TransColor, 0 1000
 Gui 7: Show, x1 y1 NoActivate, window.
  }
@@ -561,7 +547,9 @@ If state8
 { 
 Gui 8: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 8: Color, black 
-gui 8: add, picture, h424 w511, assets/help4.png
+gui 8: add, picture, h393 w459, assets/help4.png
+
+Winset, ExStyle, +0x20
 WinSet, TransColor, 0 1000
 Gui 8: Show, x1 y1 NoActivate, window.
  }
