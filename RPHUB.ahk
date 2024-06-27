@@ -1,4 +1,4 @@
-﻿version := 1.237
+﻿version := 1.238
 
 SetWorkingDir %A_ScriptDir%
 
@@ -15,6 +15,7 @@ URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help2.png?ra
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help4.png?raw=true, %A_ScriptDir%\assets\help4.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help5.png?raw=true, %A_ScriptDir%\assets\help5.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/tencode.png?raw=true, %A_ScriptDir%\assets\tencode.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/filatov.png?raw=true, %A_ScriptDir%\assets\filatov.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cidhelp.png?raw=true, %A_ScriptDir%\assets\cidhelp.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
@@ -53,6 +54,10 @@ URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help5.png?ra
 IfnotExist, %A_ScriptDir%\assets\filatov.png
 {
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/filatov.png?raw=true, %A_ScriptDir%\assets\filatov.png
+}
+IfnotExist, %A_ScriptDir%\assets\tencode.png
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/tencode.png?raw=true, %A_ScriptDir%\assets\tencode.png
 }
 IfnotExist, %A_ScriptDir%\assets\cidhelp.png
 {
@@ -474,41 +479,13 @@ Key5:
 State5:=!State5
 If state5
 {
-CustomColor3 = EEAA99
 Gui 5: +LastFound +AlwaysOnTop -Caption +ToolWindow 
-Gui 5: Color, black
-Gui 5: Font, s9
-Gui 5: Font, cWhite
-Gui 5: Font, w1000
-Gui 5: ADD, TEXT, cYellow, ===========================================ТЭН-КОДЫ===========================================                                                                                                                                     
-Gui 5: ADD, TEXT,, 10-0    Отмена 
-Gui 5: ADD, TEXT,, 10-4    Понял-принял    
-Gui 5: ADD, TEXT,, 10-5    Повторите
-Gui 5: ADD, TEXT,, 10-6    Не принято (отказ)
-Gui 5: ADD, TEXT,, 10-7    Начал патруль
-Gui 5: ADD, TEXT,, 10-7R   Закончил патруль
-Gui 5: ADD, TEXT,, 10-70   Требуется подкрепление
-Gui 5: ADD, TEXT,, 10-71   Требуется медик
-Gui 5: ADD, TEXT,, 10-75   Провожу задержание
-Gui 5: ADD, TEXT,, 10-9    Состояние стабильное (В патруле)
-Gui 5: ADD, TEXT,, 10-10    Провожу задержание
-Gui 5: ADD, TEXT,, 10-20    Текущее местоположение 
-Gui 5: ADD, TEXT,, 10-33    Требуется эвакуация
-Gui 5: ADD, TEXT,, 10-70    Требуется поддержка
-Gui 5: ADD, TEXT,, 10-99     Ситуация урегулирована                  
-Gui 5: ADD, TEXT, cYellow, ========================================Коды для /mark========================================                      
-Gui 5: ADD, TEXT,, CODE-0 - Офицер/агент ранен/убит
-Gui 5: ADD, TEXT,, CODE-1 - По офицеру/агенту открыт огонь
-Gui 5: ADD, TEXT,, CODE-2 - Вызов без сирен.
-Gui 5: ADD, TEXT,, CODE-3 - Вызов с проблесковыми маячками и сиреной 
-Gui 5: ADD, TEXT,, CODE-4 - Ситуация урегулирована, все спокойно
-Gui 5: ADD, TEXT,, CODE-5 - Ложная тревога
-Gui 5: ADD, TEXT,, CODE-6 - Массовые беспорядки 
-Gui 5: ADD, TEXT,, CODE-7 - Большое скопление вооруженных лиц
+Gui 5: Color, black 
+gui 5: add, picture, w306 h377, assets/tencode.png                                                                               
 
 Winset, ExStyle, +0x20
-WinSet, TransColor, %CustomColor3% 200
-Gui 5: Show, x1 y1 NoActivate, window. 
+WinSet, TransColor, 0 1000
+Gui 5: Show, x1 y1 NoActivate, window.
 }
 Else
 Gui 5: Destroy
@@ -1199,8 +1176,9 @@ Sendinput, Вы задержаны и имеете право хранить м�
 return
 
 :?:..похитка::
+IniRead, frac, assets/Settings.ini, USER, frac
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /dep to ALL: FIB займётся похищением.
+Sendinput, /dep to ALL: %frac% займётся похищением.
 return
 
 :?:..адекват::
