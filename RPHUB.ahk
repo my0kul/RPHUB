@@ -1,4 +1,4 @@
-﻿version := 1.239
+﻿version := 1.24
 
 SetWorkingDir %A_ScriptDir%
 
@@ -274,7 +274,7 @@ Gui, Add, Text, x130 y162 w240 h30 +BackgroundTrans, Памятка Угонки
 Gui, Add, Text, x130 y202 w330 h30 +BackgroundTrans, Памятка установки личности
 Gui, Add, Text, x130 y242 w330 h30 +BackgroundTrans, ТЕН-КОДЫ
 Gui, Add, Text, x130 y282 w330 h30 +BackgroundTrans, Памятка Задержание Госника
-Gui, Add, Text, x130 y322 w330 h30 +BackgroundTrans, Памятка CID
+Gui, Add, Text, x130 y322 w330 h30 +BackgroundTrans, Памятка CID/DB
 Gui, Add, Text, x130 y362 w330 h30 +BackgroundTrans, Памятка Похищения
 ;=Gui, Add, Text, x130 y402 w330 h30 +BackgroundTrans, .
 ;=Gui, Add, Text, x130 y442 w330 h30 +BackgroundTrans, .
@@ -1241,11 +1241,11 @@ return
 
 :?:..опз::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, /me посмотрел%gender% на опознавательный знак человека.{enter}
+Sendinput, /me посмотрел%gender% на опознавательный знак человека{enter}
 sleep 400
 Sendinput, {t}
 sleep 200
-Sendinput, /do Что написано на опознавательном знаке у @?{left 1}
+Sendinput, /do Какая государственная структура, отдел и серийный номер указан на опознавательном знаке у @?{left 1}
 sleep 400
 return
 
@@ -1357,6 +1357,10 @@ Sendinput, {t}
 sleep 200
 Sendinput, /me закрыл%gender% дверь автомобиля{enter}
 sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /put{space}
+sleep 400
 return
 
 :?:..изавто::
@@ -1374,6 +1378,10 @@ sleep 400
 Sendinput, {t}
 sleep 200
 Sendinput, /me достал%gender% задержанного из транспорта{enter}
+sleep 400
+Sendinput, {t}
+sleep 200
+Sendinput, /pull{space}
 sleep 400
 return
 
