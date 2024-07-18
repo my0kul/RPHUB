@@ -1,4 +1,4 @@
-﻿version := 1.245
+﻿version := 1.246
 
 SetWorkingDir %A_ScriptDir%
 
