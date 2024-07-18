@@ -1,4 +1,4 @@
-﻿version := 1.246
+﻿version := 1.247
 
 SetWorkingDir %A_ScriptDir%
 
@@ -1444,6 +1444,14 @@ return
 SendMessage, 0x50,, 0x4190419,, A
 Sendinput, /dep to FIB: Вызов принят.
 return
+:?:..асанг::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to SANG: Вызов принят.
+return
+:?:..агов::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to GOV: Вызов принят.
+return
 
 :?:/apd::
 SendMessage, 0x50,, 0x4190419,, A
@@ -1456,6 +1464,14 @@ return
 :?:/afib::
 SendMessage, 0x50,, 0x4190419,, A
 Sendinput, /dep to FIB: Вызов принят.
+return
+:?:/asang::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to SANG: Вызов принят.
+return
+:?:/agov::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to GOV: Вызов принят.
 return
 
 
