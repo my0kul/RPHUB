@@ -1,4 +1,4 @@
-﻿version := 1.248
+﻿version := 1.249
 
 SetWorkingDir %A_ScriptDir%
 
@@ -1461,7 +1461,7 @@ return
 
 :?:..видеозапись::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, Требую у вас показать видеофиксацию правонарушения задержанного на основании статьи 5.1 Закона "О деятельности Коллегии Адвокатов"
+Sendinput, Требую у вас показать видеофиксацию правонарушения задержанного на основании статьи 5.1 Закона "О деятельности Коллегии Адвокатов", а так же 2.1 Закона "О деятельности Коллегии Адвокатов"
 return
 
 :?:..апрокурор::
@@ -1561,6 +1561,46 @@ Sendinput, /dep to WN:{space}
 return
 
 :?:..гов::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to GOV:{space}
+return
+
+:?:/all::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to ALL:{space}
+return
+
+:?:/pd::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to LSPD:{space}
+return
+
+:?:/sd::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to SD:{space}
+return
+
+:?:/fib::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to FIB:{space}
+return
+
+:?:/sang::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to SANG:{space}
+return
+
+:?:/ems::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to EMS:{space}
+return
+
+:?:/wn::
+SendMessage, 0x50,, 0x4190419,, A
+Sendinput, /dep to WN:{space}
+return
+
+:?:/gov::
 SendMessage, 0x50,, 0x4190419,, A
 Sendinput, /dep to GOV:{space}
 return
