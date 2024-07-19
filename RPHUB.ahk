@@ -15,6 +15,7 @@ URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help2.png?ra
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help4.png?raw=true, %A_ScriptDir%\assets\help4.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help5.png?raw=true, %A_ScriptDir%\assets\help5.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help6.png?raw=true, %A_ScriptDir%\assets\help6.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/tencode.png?raw=true, %A_ScriptDir%\assets\tencode.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/filatov.png?raw=true, %A_ScriptDir%\assets\filatov.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cidhelp.png?raw=true, %A_ScriptDir%\assets\cidhelp.png
@@ -51,6 +52,10 @@ IfnotExist, %A_ScriptDir%\assets\help5.png
 {
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help5.png?raw=true, %A_ScriptDir%\assets\help5.png
 }
+IfnotExist, %A_ScriptDir%\assets\help6.png
+{
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help6.png?raw=true, %A_ScriptDir%\assets\help6.png
+}
 IfnotExist, %A_ScriptDir%\assets\filatov.png
 {
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/filatov.png?raw=true, %A_ScriptDir%\assets\filatov.png
@@ -73,6 +78,7 @@ IniRead, otdel, assets/Settings.ini, USER, otdel
 IniRead, sid, assets/Settings.ini, USER, sid
 IniRead, place, assets/Settings.ini, USER, place
 IniRead, type, assets/Settings.ini, USER, type
+IniRead, resolution, assets/Settings.ini, USER, resolution
 
 smthwrong = 0
 if type=ERROR
@@ -102,6 +108,11 @@ if frac=ERROR
     {
 	smthwrong = 1
     IniWrite, FIB, assets/Settings.ini, USER, frac
+}
+if resolutin=ERROR
+    {
+	smthwrong = 1
+    IniWrite, 0, assets/Settings.ini, USER, resolution
 }
 if smthwrong = 1
 {
@@ -276,10 +287,10 @@ Gui, Add, Text, x130 y242 w330 h30 +BackgroundTrans, ТЕН-КОДЫ
 Gui, Add, Text, x130 y282 w330 h30 +BackgroundTrans, Памятка Задержание Госника
 Gui, Add, Text, x130 y322 w330 h30 +BackgroundTrans, Памятка CID/DB
 Gui, Add, Text, x130 y362 w330 h30 +BackgroundTrans, Памятка Похищения
-;=Gui, Add, Text, x130 y402 w330 h30 +BackgroundTrans, .
+Gui, Add, Text, x130 y402 w330 h30 +BackgroundTrans, Памятка Адвокатов
 ;=Gui, Add, Text, x130 y442 w330 h30 +BackgroundTrans, .
 
-;=Gui, Add, Text, x580 y82 w500 h30 +BackgroundTrans,  .
+;Gui, Add, Text, x580 y82 w500 h30 +BackgroundTrans,  .
 ;=Gui, Add, Text, x580 y122 w240 h30 +BackgroundTrans, .
 ;=Gui, Add, Text, x580 y162 w240 h30 +BackgroundTrans, .
 ;=Gui, Add, Text, x580 y202 w330 h30 +BackgroundTrans, .
@@ -294,7 +305,7 @@ Gui, Font, S13 CBlack, Calibri
 
 Gui, Add, Button, x902 y149 w150 h30 gCommand, Команды
 Gui, Add, Button, x902 y209 w150 h30 gSettings, Настройки
-Gui, Add, Button, x22 y400 w150 h30 gSave, Сохранить
+Gui, Add, Button, x22 y440 w150 h30 gSave, Сохранить
 Gui, Add, Button, x902 y409 w150 h30 gUpdate, Последняя версия
 
 ;==== Бейджик ==== 
@@ -311,10 +322,10 @@ Gui, Add, Hotkey, x22 y280 w95 h30 vKey6, %Key6%
 Gui, Add, Hotkey, x22 y320 w95 h30 vKey7, %Key7%
 
 Gui, Add, Hotkey, x22 y360 w95 h30 vKey8, %Key8%
-;=Gui, Add, Hotkey, x22 y400 w95 h30 vKey9, %Key9%
+Gui, Add, Hotkey, x22 y400 w95 h30 vKey9, %Key9%
 ;=Gui, Add, Hotkey, x22 y440 w95 h30 vKey10, %Key10%
 
-;=Gui, Add, Hotkey, x472 y80 w95 h30 vKey11, %Key11%
+;Gui, Add, Hotkey, x472 y80 w95 h30 vKey11, %Key11%
 ;=Gui, Add, Hotkey, x472 y120 w95 h30 vKey12, %Key12%
 ;=Gui, Add, Hotkey, x472 y160 w95 h30 vKey13, %Key13%
 ;=Gui, Add, Hotkey, x472 y200 w95 h30 vKey14, %Key14%
@@ -344,7 +355,8 @@ Gui, Настройки: Add, Edit, x465 y10 w70 h21 vplace, %place%
 Gui, Настройки: Add, Text, x2 y36 w70 h18 +0x200 +0x1, Ваш пол:
 Gui, Настройки: Add, Radio, x70 y33 w80 h23 Group vRadio1 Checked%Radio1%, Мужчина
 Gui, Настройки: Add, Radio, x150 y33 w80 h23 vRadio2 Checked%Radio2%, Женщина
-Gui, Настройки: Add, Button, x320 y36 w70 h20 gSave, Сохранить	
+Gui, Настройки: Add, Checkbox, x240 y33 w100 h23 gHighResolution Checked%resolution%, 4К Монитор
+Gui, Настройки: Add, Button, x360 y36 w70 h20 gSave, Сохранить	
 Gui, Настройки: submit
 return
 
@@ -372,6 +384,19 @@ return
 
 Discord:
 Run, https://discord.gg/ptBaYHpSRG
+return
+
+HighResolution:
+IniRead, resolution, assets/Settings.ini, USER, resolution
+if resolution = 1
+{
+resolution = 0
+}
+else
+{
+resolution = 1
+}
+IniWrite, %resolution%, assets/Settings.ini, USER, resolution
 return
 
 Save:
@@ -433,7 +458,14 @@ If state2
 { 
 Gui 2: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 2: Color, black 
-gui 2: add, picture, h574 w1268, assets/help.png
+if resolution = 0
+{
+Gui 2: add, picture, h574 w1268, assets/help.png
+}
+else
+{
+Gui 2: add, picture, h1148 w2536, assets/help.png
+}
 
 Winset, ExStyle, +0x20
 WinSet, TransColor, 0 1000
@@ -537,6 +569,28 @@ Gui 8: Show, x1 y1 NoActivate, window.
  }
 Else
 Gui 8: Destroy
+return
+
+Key9: 
+IniRead, frac, assets/Settings.ini, USER, frac
+State9:=!State9
+If state9
+{ 
+Gui 9: +LastFound +AlwaysOnTop -Caption +ToolWindow 
+Gui 9: Color, black 
+if frac == LSPD
+{
+gui 9: add, picture, h566 w482, assets/help6.png
+}
+else{
+gui 9: add, picture, h566 w482, assets/help6.png
+}
+Winset, ExStyle, +0x20
+WinSet, TransColor, 0 1000
+Gui 9: Show, x1 y1 NoActivate, window.
+ }
+Else
+Gui 9: Destroy
 return
 
 ;======================================================================================================================Команды
@@ -1411,7 +1465,7 @@ return
 
 :?:..видеозапись::
 SendMessage, 0x50,, 0x4190419,, A
-Sendinput, Требую у вас показать видеофиксацию правонарушения задержанного на основании статьи 2.1 Закона "О деятельности Коллегии Адвокатов"
+Sendinput, Требую у вас показать видеофиксацию правонарушения задержанного на основании статьи 5.1 Закона "О деятельности Коллегии Адвокатов"
 return
 
 :?:..апрокурор::
