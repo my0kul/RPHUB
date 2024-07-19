@@ -1,4 +1,4 @@
-﻿version := 1.249
+﻿version := 1.25
 
 SetWorkingDir %A_ScriptDir%
 
@@ -316,7 +316,6 @@ return
 
 Update:
 Run,%A_ScriptDir%\update.ahk
-
 IfWinExist, RPHUB %version%
     WinClose
 return
@@ -349,6 +348,7 @@ IniWrite, %type%, assets/Settings.ini, USER, type
 IniWrite, %place%, assets/Settings.ini, USER, place
 IniWrite, %otdel%, assets/Settings.ini, USER, otdel
 IniWrite, %sid%, assets/Settings.ini, USER, sid
+
 IniWrite, %Key1%, assets/Settings.ini, USER, Key1
 IniWrite, %Key2%, assets/Settings.ini, USER, Key2
 IniWrite, %Key3%, assets/Settings.ini, USER, Key3
@@ -370,7 +370,6 @@ IniWrite, %Key17%, assets/Settings.ini, USER, Key17
 IniWrite, %Key18%, assets/Settings.ini, USER, Key18
 IniWrite, %Key19%, assets/Settings.ini, USER, Key19
 IniWrite, %Key20%, assets/Settings.ini, USER, Key20
-
 IniWrite, %Key21%, assets/Settings.ini, USER, Key21
 
 IniWrite, %Radio1%, assets/Settings.ini, USER, Gender1
@@ -409,7 +408,6 @@ else
 {
 Gui 2: add, picture, h861 w1902, assets/help.png
 }
-
 Winset, ExStyle, +0x20
 WinSet, TransColor, 0 1000
 Gui 2: Show, x1 y1 NoActivate, window.
@@ -426,13 +424,12 @@ Gui 3: +LastFound +AlwaysOnTop -Caption +ToolWindow
 Gui 3: Color, black 
 if resolution = 0
 {
-gui 3: add, picture, h212 w550, assets/help2.png
+Gui 3: add, picture, h212 w550, assets/help2.png
 }
 else
 {
-gui 3: add, picture, h318 w825, assets/help2.png
+Gui 3: add, picture, h318 w825, assets/help2.png
 }      
-
 Winset, ExStyle, +0x20                                                                   
 WinSet, TransColor, 0 1000
 Gui 3: Show, x1 y1 NoActivate, window.
@@ -449,11 +446,11 @@ Gui 4: +LastFound +AlwaysOnTop -Caption +ToolWindow
 Gui 4: Color, black 
 if resolution = 0
 {
-gui 4: add, picture, w611 h330, assets/help3.png
+Gui 4: add, picture, w611 h330, assets/help3.png
 }
 else
 {
-gui 4: add, picture, w916 h495, assets/help3.png
+Gui 4: add, picture, w916 h495, assets/help3.png
 }                                                                          
 
 Winset, ExStyle, +0x20
@@ -472,11 +469,11 @@ Gui 5: +LastFound +AlwaysOnTop -Caption +ToolWindow
 Gui 5: Color, black
 if resolution = 0
 {
-gui 5: add, picture, w367 h452, assets/tencode.png
+Gui 5: add, picture, w367 h452, assets/tencode.png
 }
 else
 {
-gui 5: add, picture, w550 h678, assets/tencode.png
+Gui 5: add, picture, w550 h678, assets/tencode.png
 }
 
 Winset, ExStyle, +0x20
@@ -495,11 +492,11 @@ Gui 6: +LastFound +AlwaysOnTop -Caption +ToolWindow
 Gui 6: Color, black
 if resolution = 0
 {
-gui 6: add, picture, w735 h343, assets/help5.png
+Gui 6: add, picture, w735 h343, assets/help5.png
 }
 else
 {
-gui 6: add, picture, w1102 h514, assets/help5.png
+Gui 6: add, picture, w1102 h514, assets/help5.png
 }
 
 Winset, ExStyle, +0x20
@@ -518,11 +515,11 @@ Gui 7: +LastFound +AlwaysOnTop -Caption +ToolWindow
 Gui 7: Color, black
 if resolution = 0
 {
-gui 7: add, picture, h460 w391, assets/cidhelp.png
+Gui 7: add, picture, h460 w391, assets/cidhelp.png
 }
 else
 {
-gui 7: add, picture, h690 w586, assets/cidhelp.png
+Gui 7: add, picture, h690 w586, assets/cidhelp.png
 }
 Winset, ExStyle, +0x20
 WinSet, TransColor, 0 1000
@@ -540,11 +537,11 @@ Gui 8: +LastFound +AlwaysOnTop -Caption +ToolWindow
 Gui 8: Color, black
 if resolution = 0
 {
-gui 8: add, picture, h432 w504, assets/help4.png
+Gui 8: add, picture, h432 w504, assets/help4.png
 }
 else
 {
-gui 8: add, picture, h648 w756, assets/help4.png
+Gui 8: add, picture, h648 w756, assets/help4.png
 }
 
 Winset, ExStyle, +0x20
@@ -564,10 +561,10 @@ Gui 9: +LastFound +AlwaysOnTop -Caption +ToolWindow
 Gui 9: Color, black 
 if resolution = 0
 {
-gui 9: add, picture, h679 w578, assets/help6.png
+Gui 9: add, picture, h679 w578, assets/help6.png
 }
 else{
-gui 9: add, picture, h1018 w867, assets/help6.png
+Gui 9: add, picture, h1018 w867, assets/help6.png
 }
 Winset, ExStyle, +0x20
 WinSet, TransColor, 0 1000
