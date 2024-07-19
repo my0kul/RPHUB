@@ -303,7 +303,7 @@ Gui, Add, Text, x130 y402 w330 h30 +BackgroundTrans, Памятка Адвока
 
 Gui, Font, S13 CBlack, Calibri
 
-Gui, Add, Button, x902 y149 w150 h30 gCommand, Команды
+Gui, Add, Button, x902 y149 w150 h30 gCommand, WIKI
 Gui, Add, Button, x902 y209 w150 h30 gSettings, Настройки
 Gui, Add, Button, x22 y440 w150 h30 gSave, Сохранить
 Gui, Add, Button, x902 y409 w150 h30 gUpdate, Последняя версия
@@ -464,7 +464,7 @@ Gui 2: add, picture, h574 w1268, assets/help.png
 }
 else
 {
-Gui 2: add, picture, h1148 w2536, assets/help.png
+Gui 2: add, picture, h861 w1902, assets/help.png
 }
 
 Winset, ExStyle, +0x20
@@ -481,7 +481,14 @@ If state3
 {
 Gui 3: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 3: Color, black 
-gui 3: add, picture, h177 w459, assets/help2.png           
+if resolution = 0
+{
+gui 3: add, picture, h212 w550, assets/help2.png
+}
+else
+{
+gui 3: add, picture, h318 w825, assets/help2.png
+}      
 
 Winset, ExStyle, +0x20                                                                   
 WinSet, TransColor, 0 1000
@@ -497,7 +504,14 @@ If state4
 {
 Gui 4: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 4: Color, black 
-gui 4: add, picture, w611 h330, assets/help3.png                                                                               
+if resolution = 0
+{
+gui 4: add, picture, w611 h330, assets/help3.png
+}
+else
+{
+gui 4: add, picture, w916 h495, assets/help3.png
+}                                                                          
 
 Winset, ExStyle, +0x20
 WinSet, TransColor, 0 1000
@@ -512,8 +526,15 @@ State5:=!State5
 If state5
 {
 Gui 5: +LastFound +AlwaysOnTop -Caption +ToolWindow 
-Gui 5: Color, black 
-gui 5: add, picture, w306 h377, assets/tencode.png                                                                               
+Gui 5: Color, black
+if resolution = 0
+{
+gui 5: add, picture, w367 h452, assets/tencode.png
+}
+else
+{
+gui 5: add, picture, w550 h678, assets/tencode.png
+}
 
 Winset, ExStyle, +0x20
 WinSet, TransColor, 0 1000
@@ -528,8 +549,15 @@ State6:=!State6
 If state6
 {
 Gui 6: +LastFound +AlwaysOnTop -Caption +ToolWindow 
-Gui 6: Color, black 
-gui 6: add, picture, w613 h286, assets/help5.png                                                                               
+Gui 6: Color, black
+if resolution = 0
+{
+gui 6: add, picture, w735 h343, assets/help5.png
+}
+else
+{
+gui 6: add, picture, w1102 h514, assets/help5.png
+}
 
 Winset, ExStyle, +0x20
 WinSet, TransColor, 0 1000
@@ -544,9 +572,15 @@ State7:=!State7
 If state7
 { 
 Gui 7: +LastFound +AlwaysOnTop -Caption +ToolWindow 
-Gui 7: Color, black 
-gui 7: add, picture, h384 w326, assets/cidhelp.png
-
+Gui 7: Color, black
+if resolution = 0
+{
+gui 7: add, picture, h460 w391, assets/cidhelp.png
+}
+else
+{
+gui 7: add, picture, h690 w586, assets/cidhelp.png
+}
 Winset, ExStyle, +0x20
 WinSet, TransColor, 0 1000
 Gui 7: Show, x1 y1 NoActivate, window.
@@ -560,8 +594,15 @@ State8:=!State8
 If state8
 { 
 Gui 8: +LastFound +AlwaysOnTop -Caption +ToolWindow 
-Gui 8: Color, black 
-gui 8: add, picture, h393 w459, assets/help4.png
+Gui 8: Color, black
+if resolution = 0
+{
+gui 8: add, picture, h432 w504, assets/help4.png
+}
+else
+{
+gui 8: add, picture, h648 w756, assets/help4.png
+}
 
 Winset, ExStyle, +0x20
 WinSet, TransColor, 0 1000
@@ -578,12 +619,12 @@ If state9
 { 
 Gui 9: +LastFound +AlwaysOnTop -Caption +ToolWindow 
 Gui 9: Color, black 
-if frac == LSPD
+if resolution = 0
 {
-gui 9: add, picture, h566 w482, assets/help6.png
+gui 9: add, picture, h679 w578, assets/help6.png
 }
 else{
-gui 9: add, picture, h566 w482, assets/help6.png
+gui 9: add, picture, h1018 w867, assets/help6.png
 }
 Winset, ExStyle, +0x20
 WinSet, TransColor, 0 1000
