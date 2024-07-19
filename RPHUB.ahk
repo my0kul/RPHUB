@@ -322,7 +322,7 @@ IfWinExist, RPHUB %version%
 return
 
 Discord:
-Run, https://discord.gg/ptBaYHpSRG
+Run, https://discord.gg/h2XQhFVDeM
 return
 
 WIKI:
