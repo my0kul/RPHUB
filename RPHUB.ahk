@@ -1,4 +1,4 @@
-﻿version := 1.247
+﻿version := 1.248
 
 SetWorkingDir %A_ScriptDir%
 
@@ -20,17 +20,12 @@ URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/tencode.png?
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/filatov.png?raw=true, %A_ScriptDir%\assets\filatov.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cidhelp.png?raw=true, %A_ScriptDir%\assets\cidhelp.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cmds.txt?raw=true, %A_ScriptDir%\assets\cmds.txt
 IniWrite, %version%, assets/Settings.ini, USER, v
 }
 
 IfnotExist, %A_ScriptDir%\update.ahk
 {
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/update.ahk?raw=true, %A_ScriptDir%\update.ahk
-}
-IfnotExist, %A_ScriptDir%\assets\cmds.txt
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cmds.txt?raw=true, %A_ScriptDir%\assets\cmds.txt
 }
 IfnotExist, %A_ScriptDir%\assets\help.png
 {
@@ -73,51 +68,13 @@ IfnotExist, %A_ScriptDir%\assets\logo.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
 }
 
-IniRead, frac, assets/Settings.ini, USER, frac
-IniRead, otdel, assets/Settings.ini, USER, otdel
-IniRead, sid, assets/Settings.ini, USER, sid
-IniRead, place, assets/Settings.ini, USER, place
-IniRead, type, assets/Settings.ini, USER, type
-IniRead, resolution, assets/Settings.ini, USER, resolution
+IniRead, frac, assets/Settings.ini, USER, frac, Фракция
+IniRead, otdel, assets/Settings.ini, USER, otdel, Отдел
+IniRead, sid, assets/Settings.ini, USER, sid, Статик
+IniRead, place, assets/Settings.ini, USER, place, поясе
+IniRead, type, assets/Settings.ini, USER, type, бейджик
+IniRead, resolution, assets/Settings.ini, USER, resolution, 0
 
-smthwrong = 0
-if type=ERROR
-    {
-	smthwrong = 1
-    IniWrite, бейджик, assets/Settings.ini, USER, type
-}
-
-if place=ERROR
-    {
-	smthwrong = 1
-    IniWrite, поясе, assets/Settings.ini, USER, place
-}
-
-if otdel=ERROR
-    {
-	smthwrong = 1
-    IniWrite, Отдел, assets/Settings.ini, USER, otdel
-}
-
-if sid=ERROR
-    {
-	smthwrong = 1
-    IniWrite, Статик, assets/Settings.ini, USER, sid
-}
-if frac=ERROR
-    {
-	smthwrong = 1
-    IniWrite, FIB, assets/Settings.ini, USER, frac
-}
-if resolutin=ERROR
-    {
-	smthwrong = 1
-    IniWrite, 0, assets/Settings.ini, USER, resolution
-}
-if smthwrong = 1
-{
-Reload
-}
 ;======================================================================================================================Кнопки
 
 IniRead, Key1, assets/Settings.ini, USER, Key1, % A_Space
@@ -303,8 +260,8 @@ Gui, Add, Text, x130 y402 w330 h30 +BackgroundTrans, Памятка Адвока
 
 Gui, Font, S13 CBlack, Calibri
 
-Gui, Add, Button, x902 y149 w150 h30 gCommand, WIKI
-Gui, Add, Button, x902 y209 w150 h30 gSettings, Настройки
+Gui, Add, Button, x902 y149 w150 h30 gWIKI, WIKI
+Gui, Add, Button, x902 y189 w150 h30 gSettings, Настройки
 Gui, Add, Button, x22 y440 w150 h30 gSave, Сохранить
 Gui, Add, Button, x902 y409 w150 h30 gUpdate, Последняя версия
 
@@ -365,12 +322,6 @@ return
 GuiClose:
 ExitApp
 
-Command:
-FileEncoding, UTF-8
-FileRead, allcmds, *t assets\cmds.txt
-MsgBox, 0, Команды, Для использования сокращённых команд, введите в чат указанную команду, а затем нажмите ПРОБЕЛ `n %allcmds%
-return
-
 settings:
 Gui, Настройки: Show, w575 h60, Настройки
 return
@@ -384,6 +335,10 @@ return
 
 Discord:
 Run, https://discord.gg/ptBaYHpSRG
+return
+
+WIKI:
+Run, https://maximealexeev.gitbook.io/rphub
 return
 
 HighResolution:
