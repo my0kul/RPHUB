@@ -224,16 +224,16 @@ Gui, Font, S10 CWhite, Calibri
 Gui, Add, Text, x902 y445 w250 h30 +BackgroundTrans, by #110378 | San Diego
 Gui, Font, S15 CWhite, Calibri
 
-Gui, Add, Text, x130 y82 w500 h30 +BackgroundTrans, Бейджик
-Gui, Add, Text, x130 y122 w240 h30 +BackgroundTrans, Памятка Общая
-Gui, Add, Text, x130 y162 w240 h30 +BackgroundTrans, Памятка Угонки
-Gui, Add, Text, x130 y202 w330 h30 +BackgroundTrans, Памятка установки личности
-Gui, Add, Text, x130 y242 w330 h30 +BackgroundTrans, ТЕН-КОДЫ
-Gui, Add, Text, x130 y282 w330 h30 +BackgroundTrans, Памятка Задержание Госника
-Gui, Add, Text, x130 y322 w330 h30 +BackgroundTrans, Памятка CID/DB
-Gui, Add, Text, x130 y362 w330 h30 +BackgroundTrans, Памятка Похищения
-Gui, Add, Text, x130 y402 w330 h30 +BackgroundTrans, Памятка Адвокатов
-;=Gui, Add, Text, x130 y442 w330 h30 +BackgroundTrans, .
+Gui, Add, Text, x130 y62 w500 h30 +BackgroundTrans, Бейджик
+Gui, Add, Text, x130 y102 w240 h30 +BackgroundTrans, Памятка Общая
+Gui, Add, Text, x130 y142 w240 h30 +BackgroundTrans, Памятка Угонки
+Gui, Add, Text, x130 y182 w330 h30 +BackgroundTrans, Памятка установки личности
+Gui, Add, Text, x130 y222 w330 h30 +BackgroundTrans, ТЕН-КОДЫ
+Gui, Add, Text, x130 y262 w330 h30 +BackgroundTrans, Памятка Задержание Госника
+Gui, Add, Text, x130 y302 w330 h30 +BackgroundTrans, Памятка CID/DB
+Gui, Add, Text, x130 y342 w330 h30 +BackgroundTrans, Памятка Похищения
+Gui, Add, Text, x130 y382 w330 h30 +BackgroundTrans, Памятка Адвокатов
+;=Gui, Add, Text, x130 y422 w330 h30 +BackgroundTrans, .
 
 ;Gui, Add, Text, x580 y82 w500 h30 +BackgroundTrans,  .
 ;=Gui, Add, Text, x580 y122 w240 h30 +BackgroundTrans, .
@@ -250,24 +250,24 @@ Gui, Font, S13 CBlack, Calibri
 
 Gui, Add, Button, x902 y149 w150 h30 gWIKI, WIKI
 Gui, Add, Button, x902 y189 w150 h30 gSettings, Настройки
-Gui, Add, Button, x22 y440 w150 h30 gSave, Сохранить
+Gui, Add, Button, x22 y430 w150 h30 gSave, Сохранить
 Gui, Add, Button, x902 y409 w150 h30 gUpdate, Последняя версия
 
 ;==== Бейджик ==== 
-Gui, Add, Hotkey, x22 y80 w95 h30 vKey1, %Key1%
+Gui, Add, Hotkey, x22 y60 w95 h30 vKey1, %Key1%
 ;==== Памятка общая ==== 
-Gui, Add, Hotkey, x22 y120 w95 h30 vKey2, %Key2%
+Gui, Add, Hotkey, x22 y100 w95 h30 vKey2, %Key2%
 ;==== Памятка угонки ==== 
-Gui, Add, Hotkey, x22 y160 w95 h30 vKey3, %Key3%
+Gui, Add, Hotkey, x22 y140 w95 h30 vKey3, %Key3%
 ;==== Памятка установки личности ==== 
-Gui, Add, Hotkey, x22 y200 w95 h30 vKey4, %Key4%
+Gui, Add, Hotkey, x22 y180 w95 h30 vKey4, %Key4%
 ;==== ТЕН-КОДЫ ==== 
-Gui, Add, Hotkey, x22 y240 w95 h30 vKey5, %Key5%
-Gui, Add, Hotkey, x22 y280 w95 h30 vKey6, %Key6%
-Gui, Add, Hotkey, x22 y320 w95 h30 vKey7, %Key7%
+Gui, Add, Hotkey, x22 y220 w95 h30 vKey5, %Key5%
+Gui, Add, Hotkey, x22 y260 w95 h30 vKey6, %Key6%
+Gui, Add, Hotkey, x22 y300 w95 h30 vKey7, %Key7%
 
-Gui, Add, Hotkey, x22 y360 w95 h30 vKey8, %Key8%
-Gui, Add, Hotkey, x22 y400 w95 h30 vKey9, %Key9%
+Gui, Add, Hotkey, x22 y340 w95 h30 vKey8, %Key8%
+Gui, Add, Hotkey, x22 y380 w95 h30 vKey9, %Key9%
 ;=Gui, Add, Hotkey, x22 y440 w95 h30 vKey10, %Key10%
 
 ;Gui, Add, Hotkey, x472 y80 w95 h30 vKey11, %Key11%
