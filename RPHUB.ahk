@@ -24,49 +24,37 @@ IniWrite, %version%, assets/Settings.ini, USER, v
 }
 
 IfnotExist, %A_ScriptDir%\update.ahk
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/update.ahk?raw=true, %A_ScriptDir%\update.ahk
-}
+	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/update.ahk?raw=true, %A_ScriptDir%\update.ahk
+
 IfnotExist, %A_ScriptDir%\assets\help.png
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
-}
+	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
+
 IfnotExist, %A_ScriptDir%\assets\help2.png
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
-}
+	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
+
 IfnotExist, %A_ScriptDir%\assets\help3.png
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
-}
+	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
+
 IfnotExist, %A_ScriptDir%\assets\help4.png
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help4.png?raw=true, %A_ScriptDir%\assets\help4.png
-}
+	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help4.png?raw=true, %A_ScriptDir%\assets\help4.png
+
 IfnotExist, %A_ScriptDir%\assets\help5.png
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help5.png?raw=true, %A_ScriptDir%\assets\help5.png
-}
+	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help5.png?raw=true, %A_ScriptDir%\assets\help5.png
+
 IfnotExist, %A_ScriptDir%\assets\help6.png
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help6.png?raw=true, %A_ScriptDir%\assets\help6.png
-}
+	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help6.png?raw=true, %A_ScriptDir%\assets\help6.png
+
 IfnotExist, %A_ScriptDir%\assets\filatov.png
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/filatov.png?raw=true, %A_ScriptDir%\assets\filatov.png
-}
+	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/filatov.png?raw=true, %A_ScriptDir%\assets\filatov.png
+
 IfnotExist, %A_ScriptDir%\assets\tencode.png
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/tencode.png?raw=true, %A_ScriptDir%\assets\tencode.png
-}
+	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/tencode.png?raw=true, %A_ScriptDir%\assets\tencode.png
+
 IfnotExist, %A_ScriptDir%\assets\cidhelp.png
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cidhelp.png?raw=true, %A_ScriptDir%\assets\cidhelp.png
-}
+	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cidhelp.png?raw=true, %A_ScriptDir%\assets\cidhelp.png
+
 IfnotExist, %A_ScriptDir%\assets\logo.png
-{
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
-}
+	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
 
 IniRead, frac, assets/Settings.ini, USER, frac, Фракция
 IniRead, otdel, assets/Settings.ini, USER, otdel, Отдел
