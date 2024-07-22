@@ -400,7 +400,7 @@ GuiManager(GuiNum, PictureFile, Height, Width) {
 		Gui %GuiNum%: add, picture, h%Height% w%Width%, %PictureFile%
 		Winset, ExStyle, +0x20
 		WinSet, TransColor, 0 1000
-		Gui %GuiNum%: Show, x1 y1, Gui %GuiNum%
+		Gui %GuiNum%: Show, x1 y1 NoActivate, Gui %GuiNum%
 	}
 }
 
