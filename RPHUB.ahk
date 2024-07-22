@@ -384,7 +384,7 @@ IniRead, sid, assets/Settings.ini, USER, sid
 IniRead, place, assets/Settings.ini, USER, place
 
 SendInput, {T}
-sleep 50
+sleep 200
 SendPlay, /do На %place% находится %type%: [%frac% | %otdel% | %sid%].{Enter}
 return
 
