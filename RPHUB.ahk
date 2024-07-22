@@ -1,4 +1,4 @@
-﻿version := 1.25
+﻿version := 1.251
 
 SetWorkingDir %A_ScriptDir%
 
@@ -331,14 +331,7 @@ return
 
 HighResolution:
 IniRead, resolution, assets/Settings.ini, USER, resolution
-if resolution = 1
-{
-resolution = 0
-}
-else
-{
-resolution = 1
-}
+resolution := !resolution
 IniWrite, %resolution%, assets/Settings.ini, USER, resolution
 return
 
