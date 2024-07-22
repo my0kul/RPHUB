@@ -384,12 +384,13 @@ return
 ;======================================================================================================================Хоткии
 
 Key1:
+SendMessage, 0x50,, 0x4190419,, A
 IniRead, frac, assets/Settings.ini, USER, frac
 IniRead, otdel, assets/Settings.ini, USER, otdel
 IniRead, sid, assets/Settings.ini, USER, sid
 IniRead, place, assets/Settings.ini, USER, place
 
-SendMessage, 0x50,, 0x4190419,, A
+SendInput, {T}
 sleep 50
 SendPlay, /do На %place% находится %type%: [%frac% | %otdel% | %sid%].{Enter}
 return
