@@ -1,4 +1,4 @@
-﻿version := 1.251
+﻿version := 1.252
 
 SetWorkingDir %A_ScriptDir%
 
@@ -62,6 +62,13 @@ IniRead, sid, assets/Settings.ini, USER, sid, Статик
 IniRead, place, assets/Settings.ini, USER, place, поясе
 IniRead, type, assets/Settings.ini, USER, type, бейджик
 IniRead, resolution, assets/Settings.ini, USER, resolution, 0
+IniRead, performancemode, assets/Settings.ini, USER, performancemode, 0
+
+rtime = 200
+if performancemode = 1
+{
+rtime = 85
+}
 
 ;======================================================================================================================Кнопки
 
@@ -302,7 +309,8 @@ Gui, Настройки: Add, Text, x2 y36 w70 h18 +0x200 +0x1, Ваш пол:
 Gui, Настройки: Add, Radio, x70 y33 w80 h23 Group vRadio1 Checked%Radio1%, Мужчина
 Gui, Настройки: Add, Radio, x150 y33 w80 h23 vRadio2 Checked%Radio2%, Женщина
 Gui, Настройки: Add, Checkbox, x240 y33 w100 h23 gHighResolution Checked%resolution%, 4К Монитор
-Gui, Настройки: Add, Button, x360 y36 w70 h20 gSave, Сохранить	
+Gui, Настройки: Add, Checkbox, x350 y33 w250 h23 gHighPerformance Checked%rtime%, Уменьшение задержки (может вызвать проблемы на некоторых устройствах)
+Gui, Настройки: Add, Button, x12 y56 w70 h20 gSave, Сохранить	
 Gui, Настройки: submit
 return
 
@@ -312,7 +320,7 @@ GuiClose:
 ExitApp
 
 settings:
-Gui, Настройки: Show, w575 h60, Настройки
+Gui, Настройки: Show, w615 h80, Настройки
 return
 
 Update:
@@ -333,6 +341,21 @@ HighResolution:
 IniRead, resolution, assets/Settings.ini, USER, resolution
 resolution := !resolution
 IniWrite, %resolution%, assets/Settings.ini, USER, resolution
+return
+
+HighPerformance:
+IniRead, performancemode, assets/Settings.ini, USER, performancemode
+if performancemode = 0
+{
+rtime = 85
+performancemode = 1
+}
+else
+{
+rtime = 200
+performancemode = 0
+}
+IniWrite, %performancemode%, assets/Settings.ini, USER, performancemode
 return
 
 Save:
@@ -384,7 +407,7 @@ IniRead, sid, assets/Settings.ini, USER, sid
 IniRead, place, assets/Settings.ini, USER, place
 
 SendInput, {T}
-sleep 200
+sleep %rtime%
 SendPlay, /do На %place% находится %type%: [%frac% | %otdel% | %sid%].{Enter}
 return
 
@@ -447,438 +470,438 @@ return
 
 :?:..взятьсумку::
 SendMessage, 0x50,, 0x4190419,, A
-sleep 200
+sleep %rtime%
 Send, /do В шкафчике лежит вместительная сумка и пачка зип-пакетов.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me открыл%gender% шкафчик{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me достал%gender% вместительную сумку и пачку зип-пакетов из шкафчика{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do На плече висит вместительная сумка.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Пачка зип-пакетов лежит в подсумке.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..рейдобыск::
 SendMessage, 0x50,, 0x4190419,, A
-sleep 200
+sleep %rtime%
 Send, /do Сумка висит на плече.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me снял%gender% сумку с плеча и положил%gender% её на пол{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me движением руки открыл%gender% сумку{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Сумка открыта.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me осмотрел%gender% склад{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me начал%gender% складывать в сумку все нелегальные предметы{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Сумка заполнена.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me движением руки повесил%gender% сумку на плечо{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Сумка, заполненная нелегалом, висит на плече.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Зип-пакеты лежат в подсумке.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me движением руки достал%gender% зип-пакет из подсумка{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Зип-пакет в руке.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me открыл%gender% зип-пакет и начал%gender% складывать в него все мелкие нелегальные вещества{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Зип-пакет заполнен.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me движением руки закрыл%gender% зип-пакет и положил%gender% его в подсумок{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Заполненный зип-пакет в подсумке.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me движением руки достал%gender% еще один пустой зип-пакет из подсумка{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Зип-пакет в руке.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me открыл%gender% зип-пакет и начал%gender% складывать в него все мелкие нелегальные вещества{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Зип-пакет заполнен.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me движением руки закрыл%gender% зип-пакет и положил%gender% его в подсумок{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Заполненные нелегальными веществами зип-пакеты лежат в подсумке.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..склад::
 SendMessage, 0x50,, 0x4190419,, A
-sleep 200
+sleep %rtime%
 Send, /do Сумка с нелегалом висит на плече.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me достал%gender% зип-пакеты из подсумка и положил%gender% их на полку{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Зип-пакеты на полке.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me снял%gender% сумку с плеча и положил%gender% её на полку{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Сумка с нелегалом лежит на полке.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..багажник::
 SendMessage, 0x50,, 0x4190419,, A
-sleep 200
+sleep %rtime%
 Send, /do Сумка с нелегалом висит на плече.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me достал%gender% зип-пакеты из подсумка и положил%gender% их в багажник{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Зип-пакеты в багажнике.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me снял%gender% сумку с плеча и положил%gender% её в багажник{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Сумка с нелегалом лежит в багажнике.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..взятьполиграф::
 SendMessage, 0x50,, 0x4190419,, A
-sleep 200
+sleep %rtime%
 Send, /do В рюкзаке находится ноутбук, измерительные устройства и полиграф для проведения допроса.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me открыл%gender% рюкзак, затем взял%gender% ноутбук, измерительные устройства и полиграф в руки{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..подключитьполиграф::
 SendMessage, 0x50,, 0x4190419,, A
-sleep 200
+sleep %rtime%
 Send, /do В руках агента ноутбук, полиграф и измерительные устройства для проведения допроса.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me поставил%gender% на стол ноутбук и подключил%gender% к нему с помощью проводов полиграф{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me открыл%gender% экран ноутбука, затем нажал%gender% кнопку включения и ввел%gender% пароль{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Вход в систему выполнен.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me включил%gender% специальную программу для работы с полиграфом{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me нажал%gender% на небольшую красную кнопочку на полиграфе{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Полиграф включен.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me надел%gender% на правую руку человека напротив датчик артериального давления и частоты пульса{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me надел%gender% на два пальца левой руки два датчика потоотделения{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me надел%gender% на человека опоясывающий грудь датчик глубины дыхания{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me подключил%gender% измерительные устройства к полиграфу при помощи проводов{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Полиграф готов к проведению измерений.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do На экране ноутбука начали рисоваться графики согласно полученным данным.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..отключитьполиграф::
 SendMessage, 0x50,, 0x4190419,, A
-sleep 200
+sleep %rtime%
 Send, /me снял%gender% с правой руки человека напротив датчик давления и частоты пульса, после чего положил%gender% его на стол{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me снял%gender% с пальцев левой руки человека датчики потоотделения и положил%gender% их на стол{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me снял%gender% с груди человека датчик глубины дыхания и положил%gender% его на стол{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do На столе лежат несколько датчиков, стоит включенный ноутбук, а также полиграф.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me нажал%gender% на кнопку выключения полиграфа и ноутбука{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Полиграф и ноутбук выключены.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..датьконтракт::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /do Контракт “О конфиденциальном сотрудничестве с FIB” лежит в закрытом ящике письменного стола.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me открыл%gender% ящик письменного стола, достал%gender% Контракт “О конфиденциальном сотрудничестве с FIB” и положил%gender% его на стол{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Шариковая ручка на столе.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..взятьконтракт::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /me взял%gender% Контракт “О конфиденциальном сотрудничестве с FIB” и шариковую ручку со стола в руки{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Контракт “О конфиденциальном сотрудничестве с FIB” и шариковая ручка в руках.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me подписал%gender% Контракт “О конфиденциальном сотрудничестве с FIB”, затем передал%gender% его обратно человеку напротив{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..датьбоди::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /do В рюкзаке лежит боди-камера и комплект звукозаписывающих устройств.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me снял%gender% рюкзак, затем открыл%gender% его{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me достал%gender% боди-камеру и комплект звукозаписывающих устройств из рюкзака, затем передал%gender% их человеку напротив{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..взятьбоди::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /me взял%gender% боди-камеру и комплект звукозаписывающих устройств у человека напротив, затем положил%gender% их к себе{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Боди-камера и комплект звукозаписывающих устройств лежат у агента.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..бардачок::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /me достал%gender% боди-камеру и комплект звукозаписывающих устройств, сложил%gender% их в бардачок автомобиля{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Боди-камера и комплект звукозаписывающих устройств в бардачке.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..бодиавто::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /me открыл%gender% бардачок автомобиля, достал%gender% оттуда боди-камеру и комплект звукозаписывающих устройств{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me сложил%gender% боди-камеру и комплект звукозаписывающих устройств в рюкзак{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Боди-камера и коплект звукозаписывающих устройств в рюкзаке.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..вкл::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /do В рюкзаке лежит боди-камера и комплект звукозаписывающих устройств.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me достал%gender% боди-камеру и комплект звукозаписывающих устройств из рюкзака{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Боди-камера и комплект звукозаписывающих устройств в руках.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me скрытно установил%gender% на одежду боди-камеру и устройства звукозаписи, после чего включил%gender% их нажатием на кнопку питания{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Боди-камера и звукозаписывающие устройства активированы и записывают все происходящее.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..выкл::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /me скрытно нажал%gender% на кнопку “save” боди-камеры{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Запись с боди-камеры сохранена на microSD FlashCard.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..датьматы::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /do MicroSD FlashCard с видеоматериалом находится у агента.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me неспешно достал%gender% из кармана microSD FlashCard с видеоматериалами, затем передал%gender% их человеку напротив{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..взятьматы::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /me взял%gender% microSD FlashCard с видеоматериалами у человека напротив, затем положил%gender% их к себе{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do MicroSD FlashCard с видеоматериалами у агента.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..армия::
 SendMessage, 0x50,, 0x4190419,, A
-sleep 200
+sleep %rtime%
 Send, /me взял%gender% из ящика с инструментами швабру{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Швабра в руках.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me протянул%gender% руку за ведром, которое стояло рядом{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me аккуратно взял%gender% ведро в руки{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Ведро находится в руках.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me поставил%gender% ведро на пол, намочил%gender% швабру и начал%gender% вытирать пол{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Пол чист.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me взял%gender% в руки тряпку, начал%gender% протирать шкафчики{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Шкафы полностью убраны.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me достал%gender% большой мусорный пакет и стал%gender% убирать мусор с пола{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me подобрал%gender% надкусанное яблоко, закинул%gender% его в пакет{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me подобрал%gender% смятые бумаги и так же сложил%gender% всё в мусорку{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Весь мусор сложен в пакет.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..закрыто::
@@ -1100,126 +1123,126 @@ return
 :?:..банк::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /me открыл%gender% сумку, положил%gender% в неё деньги, закрыл%gender% её и закинул%gender% на плечо{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Сумка на плече.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do В сумке лежит $.{left 2}
-sleep 400
+sleep %rtime%
 return
 
 :?:..напол::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /me поставил%gender% сумку на землю{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Сумка на земле.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do В сумке лежит $.{left 2}
-sleep 400
+sleep %rtime%
 return
 
 :?:..взятка::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /me прохлопал%gender% верхние и нижние карманы человека напротив{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Имеется ли у @ аудио или видеозаписывающее устройство?{left 40}
-sleep 400
+sleep %rtime%
 return
 
 :?:..опз::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /me посмотрел%gender% на опознавательный знак человека{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Какая государственная структура, отдел и номер удостоверения указан на опознавательном знаке у @?{left 1}
-sleep 400
+sleep %rtime%
 return
 
 :?:..сел::
 SendMessage, 0x50,, 0x4190419,, A
-sleep 200
+sleep %rtime%
 Send, /me запрыгнул%gender% в автомобиль через открытое окно{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..вылез::
 SendMessage, 0x50,, 0x4190419,, A
-sleep 200
+sleep %rtime%
 Send, /me выпрыгнул%gender% из автомобиля через открытое окно{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..нарко::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /do На столе лежит сумка с мед. приборами.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me достал%gender% резиновые перчатки из тактического пояса и надел%gender% их на руки{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me достал%gender% медицинские ножницы и пробирку с раствором{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me достал%gender% из зип-лока пакетик с порошком, насыпал%gender% порошок в пробирку с раствором{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Тест будет готов через 3 секунды.{enter}
 sleep 3000
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Результат готов. Раствор изменился в цвете.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Анализ показал содержание наркотических веществ.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..весы::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /do Весы лежат на столе.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me включил%gender% весы и положил%gender% на них пакет с наркотическим веществом{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Весы показали{space}{space}грамм.{left 7}
-sleep 400
+sleep %rtime%
 return
 
 ;FUCK NO VOICE
 :?:..номера::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /me взял%gender% телефон в руки, сфотографировал%gender% номера транспорта и отправил%gender% фотографию диспетчеру{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Фотография успешно отправлена.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Диспетчер прислал ответ.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do В ориентировке указано: "Совершён угон авто марки . Цвет: . Номер:"{left 1}
-sleep 400
+sleep %rtime%
 return
 
 :?:..пред::
@@ -1230,55 +1253,55 @@ IniRead, place, assets/Settings.ini, USER, place
 
 SendMessage, 0x50,, 0x4190419,, A
 Send, Здравствуйте, являюсь сотрудником %frac%, опознавательный знак на мне находится{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do На %place% находится %type%: [%frac% | %otdel% | %sid%]{Enter}.{enter}
-sleep 400
+sleep %rtime%
 return
 
 :?:..вавто::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /me открыл%gender% дверь патрульного автомобиля, посадил%gender% туда задержанного{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me пристегнул%gender% его ремнём безопасности{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Задержанный надёжно пристёгнут ремнём безопасности.{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me закрыл%gender% дверь автомобиля{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /put{space}
-sleep 400
+sleep %rtime%
 return
 
 :?:..изавто::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /me открыл%gender% дверь патрульного автомобиля{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me отстегнул%gender% ремень безопасности{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Задержанный не пристёгнут ремнём безопасности{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me достал%gender% задержанного из транспорта{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /pull{space}
-sleep 400
+sleep %rtime%
 return
 
 :?:..грим::
@@ -1294,15 +1317,15 @@ return
 :?:..фоторобот::
 SendMessage, 0x50,, 0x4190419,, A
 Send, /me взял%gender% в руки телефон, включил%gender% приложение "Камера"{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /me сфотографировал%gender% лицо человека напротив{enter}
-sleep 400
+sleep %rtime%
 Send, {t}
-sleep 200
+sleep %rtime%
 Send, /do Диспетчер прислал ответ, что человек  находится в розыске.{left 21}
-sleep 400
+sleep %rtime%
 return
 
 :?:..видеозапись::
