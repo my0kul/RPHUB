@@ -309,7 +309,7 @@ Gui, Настройки: Add, Text, x2 y36 w70 h18 +0x200 +0x1, Ваш пол:
 Gui, Настройки: Add, Radio, x70 y33 w80 h23 Group vRadio1 Checked%Radio1%, Мужчина
 Gui, Настройки: Add, Radio, x150 y33 w80 h23 vRadio2 Checked%Radio2%, Женщина
 Gui, Настройки: Add, Checkbox, x240 y33 w100 h23 gHighResolution Checked%resolution%, 4К Монитор
-Gui, Настройки: Add, Checkbox, x350 y33 w250 h23 gHighPerformance Checked%rtime%, Уменьшение задержки (может вызвать проблемы на некоторых устройствах)
+Gui, Настройки: Add, Checkbox, x350 y33 w250 h23 gHighPerformance Checked%performancemode%, Уменьшение задержки (может вызвать проблемы на некоторых устройствах)
 Gui, Настройки: Add, Button, x12 y56 w70 h20 gSave, Сохранить	
 Gui, Настройки: submit
 return
@@ -462,787 +462,564 @@ return
 
 ;======================================================================================================================Команды
 
+ChatOpen() {
+sleep %rtime%
+SendInput, {t}
+sleep %rtime%
+}
+
 ;MISC
 :?:..сп::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me включил%gender% музыку на колонке{enter}
+SendInput, /me включил%gender% музыку на колонке{enter}
 return
 
 :?:..взятьсумку::
 SendMessage, 0x50,, 0x4190419,, A
-sleep %rtime%
-Send, /do В шкафчике лежит вместительная сумка и пачка зип-пакетов.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me открыл%gender% шкафчик{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me достал%gender% вместительную сумку и пачку зип-пакетов из шкафчика{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do На плече висит вместительная сумка.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Пачка зип-пакетов лежит в подсумке.{enter}
-sleep %rtime%
+SendInput, /do В шкафчике лежит вместительная сумка и пачка зип-пакетов.{enter}
+ChatOpen()
+SendInput, /me открыл%gender% шкафчик{enter}
+ChatOpen()
+SendInput, /me достал%gender% вместительную сумку и пачку зип-пакетов из шкафчика{enter}
+ChatOpen()
+SendInput, /do На плече висит вместительная сумка.{enter}
+ChatOpen()
+SendInput, /do Пачка зип-пакетов лежит в подсумке.{enter}
 return
 
 :?:..рейдобыск::
 SendMessage, 0x50,, 0x4190419,, A
-sleep %rtime%
-Send, /do Сумка висит на плече.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me снял%gender% сумку с плеча и положил%gender% её на пол{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me движением руки открыл%gender% сумку{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Сумка открыта.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me осмотрел%gender% склад{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me начал%gender% складывать в сумку все нелегальные предметы{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Сумка заполнена.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me движением руки повесил%gender% сумку на плечо{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Сумка, заполненная нелегалом, висит на плече.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Зип-пакеты лежат в подсумке.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me движением руки достал%gender% зип-пакет из подсумка{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Зип-пакет в руке.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me открыл%gender% зип-пакет и начал%gender% складывать в него все мелкие нелегальные вещества{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Зип-пакет заполнен.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me движением руки закрыл%gender% зип-пакет и положил%gender% его в подсумок{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Заполненный зип-пакет в подсумке.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me движением руки достал%gender% еще один пустой зип-пакет из подсумка{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Зип-пакет в руке.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me открыл%gender% зип-пакет и начал%gender% складывать в него все мелкие нелегальные вещества{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Зип-пакет заполнен.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me движением руки закрыл%gender% зип-пакет и положил%gender% его в подсумок{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Заполненные нелегальными веществами зип-пакеты лежат в подсумке.{enter}
-sleep %rtime%
+SendInput, /do Сумка висит на плече.{enter}
+ChatOpen()
+SendInput, /me снял%gender% сумку с плеча и положил%gender% её на пол{enter}
+ChatOpen()
+SendInput, /me движением руки открыл%gender% сумку{enter}
+ChatOpen()
+SendInput, /do Сумка открыта.{enter}
+ChatOpen()
+SendInput, /me осмотрел%gender% склад{enter}
+ChatOpen()
+SendInput, /me начал%gender% складывать в сумку все нелегальные предметы{enter}
+ChatOpen()
+SendInput, /do Сумка заполнена.{enter}
+ChatOpen()
+SendInput, /me движением руки повесил%gender% сумку на плечо{enter}
+ChatOpen()
+SendInput, /do Сумка, заполненная нелегалом, висит на плече.{enter}
+ChatOpen()
+SendInput, /do Зип-пакеты лежат в подсумке.{enter}
+ChatOpen()
+SendInput, /me движением руки достал%gender% зип-пакет из подсумка{enter}
+ChatOpen()
+SendInput, /do Зип-пакет в руке.{enter}
+ChatOpen()
+SendInput, /me открыл%gender% зип-пакет и начал%gender% складывать в него все мелкие нелегальные вещества{enter}
+ChatOpen()
+SendInput, /do Зип-пакет заполнен.{enter}
+ChatOpen()
+SendInput, /me движением руки закрыл%gender% зип-пакет и положил%gender% его в подсумок{enter}
+ChatOpen()
+SendInput, /do Заполненный зип-пакет в подсумке.{enter}
+ChatOpen()
+SendInput, /me движением руки достал%gender% еще один пустой зип-пакет из подсумка{enter}
+ChatOpen()
+SendInput, /do Зип-пакет в руке.{enter}
+ChatOpen()
+SendInput, /me открыл%gender% зип-пакет и начал%gender% складывать в него все мелкие нелегальные вещества{enter}
+ChatOpen()
+SendInput, /do Зип-пакет заполнен.{enter}
+ChatOpen()
+SendInput, /me движением руки закрыл%gender% зип-пакет и положил%gender% его в подсумок{enter}
+ChatOpen()
+SendInput, /do Заполненные нелегальными веществами зип-пакеты лежат в подсумке.{enter}
 return
 
 :?:..склад::
 SendMessage, 0x50,, 0x4190419,, A
-sleep %rtime%
-Send, /do Сумка с нелегалом висит на плече.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me достал%gender% зип-пакеты из подсумка и положил%gender% их на полку{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Зип-пакеты на полке.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me снял%gender% сумку с плеча и положил%gender% её на полку{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Сумка с нелегалом лежит на полке.{enter}
-sleep %rtime%
+SendInput, /do Сумка с нелегалом висит на плече.{enter}
+ChatOpen()
+SendInput, /me достал%gender% зип-пакеты из подсумка и положил%gender% их на полку{enter}
+ChatOpen()
+SendInput, /do Зип-пакеты на полке.{enter}
+ChatOpen()
+SendInput, /me снял%gender% сумку с плеча и положил%gender% её на полку{enter}
+ChatOpen()
+SendInput, /do Сумка с нелегалом лежит на полке.{enter}
 return
 
 :?:..багажник::
 SendMessage, 0x50,, 0x4190419,, A
-sleep %rtime%
-Send, /do Сумка с нелегалом висит на плече.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me достал%gender% зип-пакеты из подсумка и положил%gender% их в багажник{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Зип-пакеты в багажнике.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me снял%gender% сумку с плеча и положил%gender% её в багажник{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Сумка с нелегалом лежит в багажнике.{enter}
-sleep %rtime%
+SendInput, /do Сумка с нелегалом висит на плече.{enter}
+ChatOpen()
+SendInput, /me достал%gender% зип-пакеты из подсумка и положил%gender% их в багажник{enter}
+ChatOpen()
+SendInput, /do Зип-пакеты в багажнике.{enter}
+ChatOpen()
+SendInput, /me снял%gender% сумку с плеча и положил%gender% её в багажник{enter}
+ChatOpen()
+SendInput, /do Сумка с нелегалом лежит в багажнике.{enter}
 return
 
 :?:..взятьполиграф::
 SendMessage, 0x50,, 0x4190419,, A
-sleep %rtime%
-Send, /do В рюкзаке находится ноутбук, измерительные устройства и полиграф для проведения допроса.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me открыл%gender% рюкзак, затем взял%gender% ноутбук, измерительные устройства и полиграф в руки{enter}
-sleep %rtime%
+SendInput, /do В рюкзаке находится ноутбук, измерительные устройства и полиграф для проведения допроса.{enter}
+ChatOpen()
+SendInput, /me открыл%gender% рюкзак, затем взял%gender% ноутбук, измерительные устройства и полиграф в руки{enter}
 return
 
 :?:..подключитьполиграф::
 SendMessage, 0x50,, 0x4190419,, A
-sleep %rtime%
-Send, /do В руках агента ноутбук, полиграф и измерительные устройства для проведения допроса.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me поставил%gender% на стол ноутбук и подключил%gender% к нему с помощью проводов полиграф{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me открыл%gender% экран ноутбука, затем нажал%gender% кнопку включения и ввел%gender% пароль{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Вход в систему выполнен.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me включил%gender% специальную программу для работы с полиграфом{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me нажал%gender% на небольшую красную кнопочку на полиграфе{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Полиграф включен.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me надел%gender% на правую руку человека напротив датчик артериального давления и частоты пульса{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me надел%gender% на два пальца левой руки два датчика потоотделения{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me надел%gender% на человека опоясывающий грудь датчик глубины дыхания{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me подключил%gender% измерительные устройства к полиграфу при помощи проводов{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Полиграф готов к проведению измерений.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do На экране ноутбука начали рисоваться графики согласно полученным данным.{enter}
-sleep %rtime%
+SendInput, /do В руках агента ноутбук, полиграф и измерительные устройства для проведения допроса.{enter}
+ChatOpen()
+SendInput, /me поставил%gender% на стол ноутбук и подключил%gender% к нему с помощью проводов полиграф{enter}
+ChatOpen()
+SendInput, /me открыл%gender% экран ноутбука, затем нажал%gender% кнопку включения и ввел%gender% пароль{enter}
+ChatOpen()
+SendInput, /do Вход в систему выполнен.{enter}
+ChatOpen()
+SendInput, /me включил%gender% специальную программу для работы с полиграфом{enter}
+ChatOpen()
+SendInput, /me нажал%gender% на небольшую красную кнопочку на полиграфе{enter}
+ChatOpen()
+SendInput, /do Полиграф включен.{enter}
+ChatOpen()
+SendInput, /me надел%gender% на правую руку человека напротив датчик артериального давления и частоты пульса{enter}
+ChatOpen()
+SendInput, /me надел%gender% на два пальца левой руки два датчика потоотделения{enter}
+ChatOpen()
+SendInput, /me надел%gender% на человека опоясывающий грудь датчик глубины дыхания{enter}
+ChatOpen()
+SendInput, /me подключил%gender% измерительные устройства к полиграфу при помощи проводов{enter}
+ChatOpen()
+SendInput, /do Полиграф готов к проведению измерений.{enter}
+ChatOpen()
+SendInput, /do На экране ноутбука начали рисоваться графики согласно полученным данным.{enter}
 return
 
 :?:..отключитьполиграф::
 SendMessage, 0x50,, 0x4190419,, A
-sleep %rtime%
-Send, /me снял%gender% с правой руки человека напротив датчик давления и частоты пульса, после чего положил%gender% его на стол{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me снял%gender% с пальцев левой руки человека датчики потоотделения и положил%gender% их на стол{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me снял%gender% с груди человека датчик глубины дыхания и положил%gender% его на стол{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do На столе лежат несколько датчиков, стоит включенный ноутбук, а также полиграф.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me нажал%gender% на кнопку выключения полиграфа и ноутбука{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Полиграф и ноутбук выключены.{enter}
-sleep %rtime%
+SendInput, /me снял%gender% с правой руки человека напротив датчик давления и частоты пульса, после чего положил%gender% его на стол{enter}
+ChatOpen()
+SendInput, /me снял%gender% с пальцев левой руки человека датчики потоотделения и положил%gender% их на стол{enter}
+ChatOpen()
+SendInput, /me снял%gender% с груди человека датчик глубины дыхания и положил%gender% его на стол{enter}
+ChatOpen()
+SendInput, /do На столе лежат несколько датчиков, стоит включенный ноутбук, а также полиграф.{enter}
+ChatOpen()
+SendInput, /me нажал%gender% на кнопку выключения полиграфа и ноутбука{enter}
+ChatOpen()
+SendInput, /do Полиграф и ноутбук выключены.{enter}
 return
 
 :?:..датьконтракт::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /do Контракт “О конфиденциальном сотрудничестве с FIB” лежит в закрытом ящике письменного стола.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me открыл%gender% ящик письменного стола, достал%gender% Контракт “О конфиденциальном сотрудничестве с FIB” и положил%gender% его на стол{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Шариковая ручка на столе.{enter}
-sleep %rtime%
+SendInput, /do Контракт “О конфиденциальном сотрудничестве с FIB” лежит в закрытом ящике письменного стола.{enter}
+ChatOpen()
+SendInput, /me открыл%gender% ящик письменного стола, достал%gender% Контракт “О конфиденциальном сотрудничестве с FIB” и положил%gender% его на стол{enter}
+ChatOpen()
+SendInput, /do Шариковая ручка на столе.{enter}
 return
 
 :?:..взятьконтракт::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me взял%gender% Контракт “О конфиденциальном сотрудничестве с FIB” и шариковую ручку со стола в руки{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Контракт “О конфиденциальном сотрудничестве с FIB” и шариковая ручка в руках.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me подписал%gender% Контракт “О конфиденциальном сотрудничестве с FIB”, затем передал%gender% его обратно человеку напротив{enter}
-sleep %rtime%
+SendInput, /me взял%gender% Контракт “О конфиденциальном сотрудничестве с FIB” и шариковую ручку со стола в руки{enter}
+ChatOpen()
+SendInput, /do Контракт “О конфиденциальном сотрудничестве с FIB” и шариковая ручка в руках.{enter}
+ChatOpen()
+SendInput, /me подписал%gender% Контракт “О конфиденциальном сотрудничестве с FIB”, затем передал%gender% его обратно человеку напротив{enter}
 return
 
 :?:..датьбоди::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /do В рюкзаке лежит боди-камера и комплект звукозаписывающих устройств.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me снял%gender% рюкзак, затем открыл%gender% его{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me достал%gender% боди-камеру и комплект звукозаписывающих устройств из рюкзака, затем передал%gender% их человеку напротив{enter}
-sleep %rtime%
+SendInput, /do В рюкзаке лежит боди-камера и комплект звукозаписывающих устройств.{enter}
+ChatOpen()
+SendInput, /me снял%gender% рюкзак, затем открыл%gender% его{enter}
+ChatOpen()
+SendInput, /me достал%gender% боди-камеру и комплект звукозаписывающих устройств из рюкзака, затем передал%gender% их человеку напротив{enter}
 return
 
 :?:..взятьбоди::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me взял%gender% боди-камеру и комплект звукозаписывающих устройств у человека напротив, затем положил%gender% их к себе{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Боди-камера и комплект звукозаписывающих устройств лежат у агента.{enter}
-sleep %rtime%
+SendInput, /me взял%gender% боди-камеру и комплект звукозаписывающих устройств у человека напротив, затем положил%gender% их к себе{enter}
+ChatOpen()
+SendInput, /do Боди-камера и комплект звукозаписывающих устройств лежат у агента.{enter}
 return
 
 :?:..бардачок::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me достал%gender% боди-камеру и комплект звукозаписывающих устройств, сложил%gender% их в бардачок автомобиля{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Боди-камера и комплект звукозаписывающих устройств в бардачке.{enter}
-sleep %rtime%
+SendInput, /me достал%gender% боди-камеру и комплект звукозаписывающих устройств, сложил%gender% их в бардачок автомобиля{enter}
+ChatOpen()
+SendInput, /do Боди-камера и комплект звукозаписывающих устройств в бардачке.{enter}
 return
 
 :?:..бодиавто::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me открыл%gender% бардачок автомобиля, достал%gender% оттуда боди-камеру и комплект звукозаписывающих устройств{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me сложил%gender% боди-камеру и комплект звукозаписывающих устройств в рюкзак{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Боди-камера и коплект звукозаписывающих устройств в рюкзаке.{enter}
-sleep %rtime%
+SendInput, /me открыл%gender% бардачок автомобиля, достал%gender% оттуда боди-камеру и комплект звукозаписывающих устройств{enter}
+ChatOpen()
+SendInput, /me сложил%gender% боди-камеру и комплект звукозаписывающих устройств в рюкзак{enter}
+ChatOpen()
+SendInput, /do Боди-камера и коплект звукозаписывающих устройств в рюкзаке.{enter}
 return
 
 :?:..вкл::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /do В рюкзаке лежит боди-камера и комплект звукозаписывающих устройств.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me достал%gender% боди-камеру и комплект звукозаписывающих устройств из рюкзака{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Боди-камера и комплект звукозаписывающих устройств в руках.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me скрытно установил%gender% на одежду боди-камеру и устройства звукозаписи, после чего включил%gender% их нажатием на кнопку питания{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Боди-камера и звукозаписывающие устройства активированы и записывают все происходящее.{enter}
-sleep %rtime%
+SendInput, /do В рюкзаке лежит боди-камера и комплект звукозаписывающих устройств.{enter}
+ChatOpen()
+SendInput, /me достал%gender% боди-камеру и комплект звукозаписывающих устройств из рюкзака{enter}
+ChatOpen()
+SendInput, /do Боди-камера и комплект звукозаписывающих устройств в руках.{enter}
+ChatOpen()
+SendInput, /me скрытно установил%gender% на одежду боди-камеру и устройства звукозаписи, после чего включил%gender% их нажатием на кнопку питания{enter}
+ChatOpen()
+SendInput, /do Боди-камера и звукозаписывающие устройства активированы и записывают все происходящее.{enter}
 return
 
 :?:..выкл::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me скрытно нажал%gender% на кнопку “save” боди-камеры{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Запись с боди-камеры сохранена на microSD FlashCard.{enter}
-sleep %rtime%
+SendInput, /me скрытно нажал%gender% на кнопку “save” боди-камеры{enter}
+ChatOpen()
+SendInput, /do Запись с боди-камеры сохранена на microSD FlashCard.{enter}
 return
 
 :?:..датьматы::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /do MicroSD FlashCard с видеоматериалом находится у агента.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me неспешно достал%gender% из кармана microSD FlashCard с видеоматериалами, затем передал%gender% их человеку напротив{enter}
-sleep %rtime%
+SendInput, /do MicroSD FlashCard с видеоматериалом находится у агента.{enter}
+ChatOpen()
+SendInput, /me неспешно достал%gender% из кармана microSD FlashCard с видеоматериалами, затем передал%gender% их человеку напротив{enter}
 return
 
 :?:..взятьматы::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me взял%gender% microSD FlashCard с видеоматериалами у человека напротив, затем положил%gender% их к себе{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do MicroSD FlashCard с видеоматериалами у агента.{enter}
-sleep %rtime%
+SendInput, /me взял%gender% microSD FlashCard с видеоматериалами у человека напротив, затем положил%gender% их к себе{enter}
+ChatOpen()
+SendInput, /do MicroSD FlashCard с видеоматериалами у агента.{enter}
 return
 
 :?:..армия::
 SendMessage, 0x50,, 0x4190419,, A
-sleep %rtime%
-Send, /me взял%gender% из ящика с инструментами швабру{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Швабра в руках.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me протянул%gender% руку за ведром, которое стояло рядом{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me аккуратно взял%gender% ведро в руки{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Ведро находится в руках.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me поставил%gender% ведро на пол, намочил%gender% швабру и начал%gender% вытирать пол{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Пол чист.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me взял%gender% в руки тряпку, начал%gender% протирать шкафчики{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Шкафы полностью убраны.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me достал%gender% большой мусорный пакет и стал%gender% убирать мусор с пола{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me подобрал%gender% надкусанное яблоко, закинул%gender% его в пакет{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me подобрал%gender% смятые бумаги и так же сложил%gender% всё в мусорку{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Весь мусор сложен в пакет.{enter}
-sleep %rtime%
+SendInput, /me взял%gender% из ящика с инструментами швабру{enter}
+ChatOpen()
+SendInput, /do Швабра в руках.{enter}
+ChatOpen()
+SendInput, /me протянул%gender% руку за ведром, которое стояло рядом{enter}
+ChatOpen()
+SendInput, /me аккуратно взял%gender% ведро в руки{enter}
+ChatOpen()
+SendInput, /do Ведро находится в руках.{enter}
+ChatOpen()
+SendInput, /me поставил%gender% ведро на пол, намочил%gender% швабру и начал%gender% вытирать пол{enter}
+ChatOpen()
+SendInput, /do Пол чист.{enter}
+ChatOpen()
+SendInput, /me взял%gender% в руки тряпку, начал%gender% протирать шкафчики{enter}
+ChatOpen()
+SendInput, /do Шкафы полностью убраны.{enter}
+ChatOpen()
+SendInput, /me достал%gender% большой мусорный пакет и стал%gender% убирать мусор с пола{enter}
+ChatOpen()
+SendInput, /me подобрал%gender% надкусанное яблоко, закинул%gender% его в пакет{enter}
+ChatOpen()
+SendInput, /me подобрал%gender% смятые бумаги и так же сложил%gender% всё в мусорку{enter}
+ChatOpen()
+SendInput, /do Весь мусор сложен в пакет.{enter}
 return
 
 :?:..закрыто::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /do Окна в автомобиле закрыты.
+SendInput, /do Окна в автомобиле закрыты.
 return
 
 :?:.зштп::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /ping{enter}
+SendInput, /ping{enter}
 return
 
 :?:.пинг::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /ping{enter}
+SendInput, /ping{enter}
 return
 
 :?:.ц::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /w{space}
+SendInput, /w{space}
 return
 
 :?:.и::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /b{space}
+SendInput, /b{space}
 return
 
 :?:.б::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /b{space}
+SendInput, /b{space}
 return
 
 :?:.а::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /f{space}
+SendInput, /f{space}
 return
 
 :?:.ф::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /f{space}
+SendInput, /f{space}
 return
 
 :?:.аи::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /fb{space}
+SendInput, /fb{space}
 return
 
 :?:.фб::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /fb{space}
+SendInput, /fb{space}
 return
 
 :?:.с::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /c{space}
+SendInput, /c{space}
 return
 
 :?:.си::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /cb{space}
+SendInput, /cb{space}
 return
 
 :?:.сб::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /cb{space}
+SendInput, /cb{space}
 return
 
 :?:.вуз::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep{space}
+SendInput, /dep{space}
 return
 
 :?:.деп::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep{space}
+SendInput, /dep{space}
 return
 
 :?:.кузщке::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /report{space}
+SendInput, /report{space}
 return
 
 :?:.репорт::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /report{space}
+SendInput, /report{space}
 return
 
 :?:.ьу::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me{space}
+SendInput, /me{space}
 return
 
 :?:.вщ::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /do{space}
+SendInput, /do{space}
 return
 
 :?:.екн::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /try{space}
+SendInput, /try{space}
 return
 
 :?:.зфн::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /pay{space}
+SendInput, /pay{space}
 return
 
 :?:.зге::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /put{space}
+SendInput, /put{space}
 return
 
 :?:.згдд::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /pull{space}
+SendInput, /pull{space}
 return
 
 :?:.ызфцтсфкы::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /spawncars
+SendInput, /spawncars
 return
 
 :?:..воркпд::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to LSPD: Работайте.
+SendInput, /dep to LSPD: Работайте.
 return
 
 :?:..ворксд::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to LSCSD: Работайте.
+SendInput, /dep to LSCSD: Работайте.
 return
 
 :?:..воркфиб::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to FIB: Работайте.
+SendInput, /dep to FIB: Работайте.
 return
 
 :?:..ворксанг::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to SANG: Работайте.
+SendInput, /dep to SANG: Работайте.
 return
 
 :?:..спавн::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /spawncars
+SendInput, /spawncars
 return
 
 :?:..адвокат::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to GOV: Требуется адвокат в допросную{space}
+SendInput, /dep to GOV: Требуется адвокат в допросную{space}
 return
 
 :?:..рация::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /do to GOV: Требуется адвокат в допросную{space}
+SendInput, /do to GOV: Требуется адвокат в допросную{space}
 return
 
 :?:..пруфы::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /do В ориентировке указано: "Совершён угон авто марки . Цвет: . Номер:"{left 1}
+SendInput, /do В ориентировке указано: "Совершён угон авто марки . Цвет: . Номер:"{left 1}
 return
 
 :?:..прокурор::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to GOV: Требуется прокурор в допросную{space}
+SendInput, /dep to GOV: Требуется прокурор в допросную{space}
 return
 
 :?:..запросак::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to LSPD/LSCSD: Разрешите работать по АК и ДК.
+SendInput, /dep to LSPD/LSCSD: Разрешите работать по АК и ДК.
 return
 
 :?:..запросфиб::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to FIB: Разрешите работать по  УК.{left 4}
+SendInput, /dep to FIB: Разрешите работать по  УК.{left 4}
 return
 
 :?:..юрсд::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to LSCSD: Разрешите нарушить юрисдикцию для комфортного патруля.
+SendInput, /dep to LSCSD: Разрешите нарушить юрисдикцию для комфортного патруля.
 return
 
 :?:..юрпд::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to LSPD: Разрешите нарушить юрисдикцию для комфортного патруля.
+SendInput, /dep to LSPD: Разрешите нарушить юрисдикцию для комфортного патруля.
 return
 
 :?:..миранда::
 SendMessage, 0x50,, 0x4190419,, A
-Send, Вы задержаны и имеете право хранить молчание. Всё, что вы скажете, может и будет использовано против Вас. Вы имеете право на один телефонный разговор до 2х минут и на одного адвоката. Если вы не можете оплатить услуги адвоката, он будет предоставлен вам государством бесплатно. Ваш адвокат имеет право присутствовать и представлять ваши интересы до и во время допроса. Вы понимаете свои права?
+SendInput, Вы задержаны и имеете право хранить молчание. Всё, что вы скажете, может и будет использовано против Вас. Вы имеете право на один телефонный разговор до 2х минут и на одного адвоката. Если вы не можете оплатить услуги адвоката, он будет предоставлен вам государством бесплатно. Ваш адвокат имеет право присутствовать и представлять ваши интересы до и во время допроса. Вы понимаете свои права?
 return
 
 :?:..похитка::
 IniRead, frac, assets/Settings.ini, USER, frac
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to ALL: %frac% займётся похищением.
+SendInput, /dep to ALL: %frac% займётся похищением.
 return
 
 :?:..адекват::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to ALL: Требования похитителей адекватные.
+SendInput, /dep to ALL: Требования похитителей адекватные.
 return
 
 :?:..неадекват::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to ALL: Требования похитителей неадекватные, требуется помощь всех гос. структур.
+SendInput, /dep to ALL: Требования похитителей неадекватные, требуется помощь всех гос. структур.
 return
 
 :?:..коридор::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to ALL: Запрашиваю *** зелёного коридора для машин *** цвета.
+SendInput, /dep to ALL: Запрашиваю *** зелёного коридора для машин *** цвета.
 return
 
 :?:..заложники::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to ALL: Заложники в безопасности.
+SendInput, /dep to ALL: Заложники в безопасности.
 return
 
 :?:..банк::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me открыл%gender% сумку, положил%gender% в неё деньги, закрыл%gender% её и закинул%gender% на плечо{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Сумка на плече.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do В сумке лежит $.{left 2}
-sleep %rtime%
+SendInput, /me открыл%gender% сумку, положил%gender% в неё деньги, закрыл%gender% её и закинул%gender% на плечо{enter}
+ChatOpen()
+SendInput, /do Сумка на плече.{enter}
+ChatOpen()
+SendInput, /do В сумке лежит $.{left 2}
 return
 
 :?:..напол::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me поставил%gender% сумку на землю{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Сумка на земле.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do В сумке лежит $.{left 2}
-sleep %rtime%
+SendInput, /me поставил%gender% сумку на землю{enter}
+ChatOpen()
+SendInput, /do Сумка на земле.{enter}
+ChatOpen()
+SendInput, /do В сумке лежит $.{left 2}
 return
 
 :?:..взятка::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me прохлопал%gender% верхние и нижние карманы человека напротив{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Имеется ли у @ аудио или видеозаписывающее устройство?{left 40}
-sleep %rtime%
+SendInput, /me прохлопал%gender% верхние и нижние карманы человека напротив{enter}
+ChatOpen()
+SendInput, /do Имеется ли у @ аудио или видеозаписывающее устройство?{left 40}
 return
 
 :?:..опз::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me посмотрел%gender% на опознавательный знак человека{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Какая государственная структура, отдел и номер удостоверения указан на опознавательном знаке у @?{left 1}
-sleep %rtime%
+SendInput, /me посмотрел%gender% на опознавательный знак человека{enter}
+ChatOpen()
+SendInput, /do Какая государственная структура, отдел и номер удостоверения указан на опознавательном знаке у @?{left 1}
 return
 
 :?:..сел::
 SendMessage, 0x50,, 0x4190419,, A
-sleep %rtime%
-Send, /me запрыгнул%gender% в автомобиль через открытое окно{enter}
-sleep %rtime%
+SendInput, /me запрыгнул%gender% в автомобиль через открытое окно{enter}
 return
 
 :?:..вылез::
 SendMessage, 0x50,, 0x4190419,, A
-sleep %rtime%
-Send, /me выпрыгнул%gender% из автомобиля через открытое окно{enter}
-sleep %rtime%
+SendInput, /me выпрыгнул%gender% из автомобиля через открытое окно{enter}
 return
 
 :?:..нарко::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /do На столе лежит сумка с мед. приборами.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me достал%gender% резиновые перчатки из тактического пояса и надел%gender% их на руки{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me достал%gender% медицинские ножницы и пробирку с раствором{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me достал%gender% из зип-лока пакетик с порошком, насыпал%gender% порошок в пробирку с раствором{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Тест будет готов через 3 секунды.{enter}
+SendInput, /do На столе лежит сумка с мед. приборами.{enter}
+ChatOpen()
+SendInput, /me достал%gender% резиновые перчатки из тактического пояса и надел%gender% их на руки{enter}
+ChatOpen()
+SendInput, /me достал%gender% медицинские ножницы и пробирку с раствором{enter}
+ChatOpen()
+SendInput, /me достал%gender% из зип-лока пакетик с порошком, насыпал%gender% порошок в пробирку с раствором{enter}
+ChatOpen()
+SendInput, /do Тест будет готов через 3 секунды.{enter}
 sleep 3000
-Send, {t}
+SendInput, {t}
 sleep %rtime%
-Send, /do Результат готов. Раствор изменился в цвете.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Анализ показал содержание наркотических веществ.{enter}
-sleep %rtime%
+SendInput, /do Результат готов. Раствор изменился в цвете.{enter}
+ChatOpen()
+SendInput, /do Анализ показал содержание наркотических веществ.{enter}
 return
 
 :?:..весы::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /do Весы лежат на столе.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me включил%gender% весы и положил%gender% на них пакет с наркотическим веществом{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Весы показали{space}{space}грамм.{left 7}
-sleep %rtime%
+SendInput, /do Весы лежат на столе.{enter}
+ChatOpen()
+SendInput, /me включил%gender% весы и положил%gender% на них пакет с наркотическим веществом{enter}
+ChatOpen()
+SendInput, /do Весы показали{space}{space}грамм.{left 7}
 return
 
 ;FUCK NO VOICE
 :?:..номера::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me взял%gender% телефон в руки, сфотографировал%gender% номера транспорта и отправил%gender% фотографию диспетчеру{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Фотография успешно отправлена.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Диспетчер прислал ответ.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do В ориентировке указано: "Совершён угон авто марки . Цвет: . Номер:"{left 1}
-sleep %rtime%
+SendInput, /me взял%gender% телефон в руки, сфотографировал%gender% номера транспорта и отправил%gender% фотографию диспетчеру{enter}
+ChatOpen()
+SendInput, /do Фотография успешно отправлена.{enter}
+ChatOpen()
+SendInput, /do Диспетчер прислал ответ.{enter}
+ChatOpen()
+SendInput, /do В ориентировке указано: "Совершён угон авто марки . Цвет: . Номер:"{left 1}
 return
 
 :?:..пред::
@@ -1252,90 +1029,64 @@ IniRead, sid, assets/Settings.ini, USER, sid
 IniRead, place, assets/Settings.ini, USER, place
 
 SendMessage, 0x50,, 0x4190419,, A
-Send, Здравствуйте, являюсь сотрудником %frac%, опознавательный знак на мне находится{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do На %place% находится %type%: [%frac% | %otdel% | %sid%]{Enter}.{enter}
-sleep %rtime%
+SendInput, Здравствуйте, являюсь сотрудником %frac%, опознавательный знак на мне находится{enter}
+ChatOpen()
+SendInput, /do На %place% находится %type%: [%frac% | %otdel% | %sid%]{Enter}.{enter}
 return
 
 :?:..вавто::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me открыл%gender% дверь патрульного автомобиля, посадил%gender% туда задержанного{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me пристегнул%gender% его ремнём безопасности{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Задержанный надёжно пристёгнут ремнём безопасности.{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me закрыл%gender% дверь автомобиля{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /put{space}
-sleep %rtime%
+SendInput, /me открыл%gender% дверь патрульного автомобиля, посадил%gender% туда задержанного{enter}
+ChatOpen()
+SendInput, /me пристегнул%gender% его ремнём безопасности{enter}
+ChatOpen()
+SendInput, /do Задержанный надёжно пристёгнут ремнём безопасности.{enter}
+ChatOpen()
+SendInput, /me закрыл%gender% дверь автомобиля{enter}
+ChatOpen()
+SendInput, /put{space}
 return
 
 :?:..изавто::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me открыл%gender% дверь патрульного автомобиля{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me отстегнул%gender% ремень безопасности{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Задержанный не пристёгнут ремнём безопасности{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me достал%gender% задержанного из транспорта{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /pull{space}
-sleep %rtime%
+SendInput, /me открыл%gender% дверь патрульного автомобиля{enter}
+ChatOpen()
+SendInput, /me отстегнул%gender% ремень безопасности{enter}
+ChatOpen()
+SendInput, /do Задержанный не пристёгнут ремнём безопасности{enter}
+ChatOpen()
+SendInput, /me достал%gender% задержанного из транспорта{enter}
+ChatOpen()
+SendInput, /pull{space}
 return
 
 :?:..грим::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me взял%gender% в руки мокрую тряпочку, убрал%gender% грим с лица человека{enter}
+SendInput, /me взял%gender% в руки мокрую тряпочку, убрал%gender% грим с лица человека{enter}
 return
 
 :?:..очки::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me приподнял%gender% очки у человека напротив{enter}
+SendInput, /me приподнял%gender% очки у человека напротив{enter}
 return
 
 :?:..фоторобот::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /me взял%gender% в руки телефон, включил%gender% приложение "Камера"{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /me сфотографировал%gender% лицо человека напротив{enter}
-sleep %rtime%
-Send, {t}
-sleep %rtime%
-Send, /do Диспетчер прислал ответ, что человек  находится в розыске.{left 21}
-sleep %rtime%
+SendInput, /me взял%gender% в руки телефон, включил%gender% приложение "Камера"{enter}
+ChatOpen()
+SendInput, /me сфотографировал%gender% лицо человека напротив{enter}
+ChatOpen()
+SendInput, /do Диспетчер прислал ответ, что человек  находится в розыске.{left 21}
 return
 
 :?:..видеозапись::
 SendMessage, 0x50,, 0x4190419,, A
-Send, Требую у вас показать видеофиксацию правонарушения задержанного на основании статьи 5.1 Закона "О деятельности Коллегии Адвокатов", а так же 2.1 Закона "О деятельности Коллегии Адвокатов"
+SendInput, Требую у вас показать видеофиксацию правонарушения задержанного на основании статьи 5.1 Закона "О деятельности Коллегии Адвокатов", а так же 2.1 Закона "О деятельности Коллегии Адвокатов"
 return
 
 :?:..апрокурор::
 SendMessage, 0x50,, 0x4190419,, A
-Send, Требую у вас вызвать прокурора на основании статьи 2.1.9 Процессуального кодекса
+SendInput, Требую у вас вызвать прокурора на основании статьи 2.1.9 Процессуального кодекса
 return
 
 
@@ -1353,140 +1104,140 @@ return
 
 :?:..апд::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to LSPD: Вызов принят.
+SendInput, /dep to LSPD: Вызов принят.
 return
 :?:..асд::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to LSCSD: Вызов принят.
+SendInput, /dep to LSCSD: Вызов принят.
 return
 :?:..афиб::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to FIB: Вызов принят.
+SendInput, /dep to FIB: Вызов принят.
 return
 :?:..асанг::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to SANG: Вызов принят.
+SendInput, /dep to SANG: Вызов принят.
 return
 :?:..агов::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to GOV: Вызов принят.
+SendInput, /dep to GOV: Вызов принят.
 return
 
 :?:/apd::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to LSPD: Вызов принят.
+SendInput, /dep to LSPD: Вызов принят.
 return
 :?:/asd::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to LSCSD: Вызов принят.
+SendInput, /dep to LSCSD: Вызов принят.
 return
 :?:/afib::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to FIB: Вызов принят.
+SendInput, /dep to FIB: Вызов принят.
 return
 :?:/asang::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to SANG: Вызов принят.
+SendInput, /dep to SANG: Вызов принят.
 return
 :?:/agov::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to GOV: Вызов принят.
+SendInput, /dep to GOV: Вызов принят.
 return
 
 
 :?:..все::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to ALL:{space}
+SendInput, /dep to ALL:{space}
 return
 
 :?:..пд::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to LSPD:{space}
+SendInput, /dep to LSPD:{space}
 return
 
 :?:..сд::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to SD:{space}
+SendInput, /dep to SD:{space}
 return
 
 :?:..фиб::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to FIB:{space}
+SendInput, /dep to FIB:{space}
 return
 
 :?:..санг::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to SANG:{space}
+SendInput, /dep to SANG:{space}
 return
 
 :?:..емс::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to EMS:{space}
+SendInput, /dep to EMS:{space}
 return
 
 :?:..вн::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to WN:{space}
+SendInput, /dep to WN:{space}
 return
 
 :?:..гов::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to GOV:{space}
+SendInput, /dep to GOV:{space}
 return
 
 :?:/all::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to ALL:{space}
+SendInput, /dep to ALL:{space}
 return
 
 :?:/pd::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to LSPD:{space}
+SendInput, /dep to LSPD:{space}
 return
 
 :?:/sd::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to SD:{space}
+SendInput, /dep to SD:{space}
 return
 
 :?:/fib::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to FIB:{space}
+SendInput, /dep to FIB:{space}
 return
 
 :?:/sang::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to SANG:{space}
+SendInput, /dep to SANG:{space}
 return
 
 :?:/ems::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to EMS:{space}
+SendInput, /dep to EMS:{space}
 return
 
 :?:/wn::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to WN:{space}
+SendInput, /dep to WN:{space}
 return
 
 :?:/gov::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /dep to GOV:{space}
+SendInput, /dep to GOV:{space}
 return
 
 :?:..клин::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /clearchat
+SendInput, /clearchat
 return
 
 :?:..трусы::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /mark 10-20 [Рвут трусы]
+SendInput, /mark 10-20 [Рвут трусы]
 return
 
 :?:..чтонаписано::
 SendMessage, 0x50,, 0x4190419,, A
-Send, /do Что написано в ориентировке у @?{left 1}
+SendInput, /do Что написано в ориентировке у @?{left 1}
 return
 
 :?:.да::👍
