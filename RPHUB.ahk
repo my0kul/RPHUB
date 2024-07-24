@@ -380,6 +380,14 @@ ExitApp
 return
 ;======================================================================================================================Хоткии
 
+ChatOpen()
+{
+SendMessage, 0x50,, 0x4190419,, A
+sleep %rtime%
+SendInput, {t}
+sleep %rtime%
+}
+
 Key1:
 SendMessage, 0x50,, 0x4190419,, A
 IniRead, frac, assets/Settings.ini, USER, frac
@@ -387,9 +395,7 @@ IniRead, otdel, assets/Settings.ini, USER, otdel
 IniRead, sid, assets/Settings.ini, USER, sid
 IniRead, place, assets/Settings.ini, USER, place
 
-sleep %rtime%
-SendInput, {T}
-sleep %rtime%
+ChatOpen()
 SendPlay, /do На %place% находится %type%: [%frac% | %otdel% | %sid%].{Enter}
 return
 
@@ -443,13 +449,6 @@ GuiManager(9, "assets/help6.png", (resolution = 0 ? 679 : 1018), (resolution = 0
 return
 
 ;======================================================================================================================Команды
-
-ChatOpen()
-{
-sleep %rtime%
-SendInput, {t}
-sleep %rtime%
-}
 
 ;MISC
 :?:..сп::
