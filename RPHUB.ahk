@@ -387,6 +387,7 @@ IniRead, otdel, assets/Settings.ini, USER, otdel
 IniRead, sid, assets/Settings.ini, USER, sid
 IniRead, place, assets/Settings.ini, USER, place
 
+sleep %rtime%
 SendInput, {T}
 sleep %rtime%
 SendPlay, /do На %place% находится %type%: [%frac% | %otdel% | %sid%].{Enter}
@@ -443,7 +444,8 @@ return
 
 ;======================================================================================================================Команды
 
-ChatOpen() {
+ChatOpen()
+{
 sleep %rtime%
 SendInput, {t}
 sleep %rtime%
