@@ -1,5 +1,16 @@
 ﻿version := 1.253
 
+RunWait, cmd /c Ver > %A_Temp%\OsVer,, Hide
+FileRead, OsVer, %A_Temp%\OsVer
+FileDelete, %A_Temp%\OsVer
+DllCall("OemToChar", "Str", OsVer, "Str", OsVer)
+ver := SubStr(OsVer, 29, 7)
+Needle := "10.0.2"
+If InStr(ver, Needle)
+    windows_version = win11
+Else
+    windows_version = other
+
 SetWorkingDir %A_ScriptDir%
 
 IfnotExist, %A_ScriptDir%\assets
@@ -390,7 +401,14 @@ IniRead, rtime, assets/Settings.ini, USER, rtime
 
 SendInput, {t}
 sleep 400
+if windows_version = win11
+{
+SendInput, /do На %place% находится %type%: [%frac% | %otdel% | %sid%].{Enter}
+}
+else
+{
 SendPlay, /do На %place% находится %type%: [%frac% | %otdel% | %sid%].{Enter}
+}
 return
 
 GuiManager(GuiNum, PictureFile, Height, Width) {
