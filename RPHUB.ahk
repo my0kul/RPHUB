@@ -1,4 +1,4 @@
-﻿version := 1.26
+﻿version := 1.261
 
 RunWait, cmd /c Ver > %A_Temp%\OsVer,, Hide
 FileRead, OsVer, %A_Temp%\OsVer
