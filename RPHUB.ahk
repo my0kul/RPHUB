@@ -1,4 +1,4 @@
-﻿version := 1.256
+﻿version := 1.257
 
 RunWait, cmd /c Ver > %A_Temp%\OsVer,, Hide
 FileRead, OsVer, %A_Temp%\OsVer
@@ -262,6 +262,7 @@ Gui, Font, S13 CBlack, Calibri
 
 Gui, Add, Button, x902 y149 w150 h30 gWIKI, WIKI
 Gui, Add, Button, x902 y189 w150 h30 gSettings, Настройки
+Gui, Add, Button, x902 y229 w150 h30 gLawsuit, Генератор исков
 Gui, Add, Button, x22 y430 w150 h30 gSave, Сохранить
 Gui, Add, Button, x902 y409 w150 h30 gUpdate, Последняя версия
 
@@ -318,6 +319,46 @@ Gui, Настройки: Add, Checkbox, x240 y33 w100 h23 gHighResolution Checke
 ;Gui, Настройки: Add, Edit, x435 y33 w70 h21 vrtime, %rtime%
 Gui, Настройки: Add, Button, x12 y56 w70 h20 gSave, Сохранить
 Gui, Настройки: submit
+
+
+i_name = -
+i_what = -
+i_gos = -
+i_jeton = -
+i_ds = -
+i_phone = -
+i_pass = -
+i_proof = -
+
+Gui, ГенераторИсков: -MaximizeBox
+Gui, ГенераторИсков: Font, S10 CWhite, Calibri
+Gui, ГенераторИсков: Color, c4c4c4
+Gui, ГенераторИсков: Font, c0x000000
+Gui, ГенераторИсков: Add, Text, x2 y10 w140 h18 +0x200 +0x1, Ваше Имя Фамилия:
+Gui, ГенераторИсков: Add, Edit, x135 y10 w120 h21 vi_name, %i_name%
+
+Gui, ГенераторИсков: Add, Text, x2 y35 w140 h18 +0x200 +0x1, Описание ситуации:
+Gui, ГенераторИсков: Add, Edit, x15 y55 w270 h145 vi_what, %i_what%
+
+Gui, ГенераторИсков: Add, Text, x295 y10 w160 h18 +0x200 +0x1, Имя Фамилия на кого иск:
+Gui, ГенераторИсков: Add, Edit, x455 y10 w120 h21 vi_gos, %i_gos%
+Gui, ГенераторИсков: Add, Text, x295 y35 w160 h18 +0x200 +0x1, Жетон (если есть):
+Gui, ГенераторИсков: Add, Edit, x455 y35 w120 h21 vi_jeton, %i_jeton%
+
+Gui, ГенераторИсков: Add, Text, x295 y65 w160 h18 +0x200 +0x1, Ваш ДС:
+Gui, ГенераторИсков: Add, Edit, x455 y65 w120 h21 vi_ds, %i_ds%
+
+Gui, ГенераторИсков: Add, Text, x295 y95 w160 h18 +0x200 +0x1, Ваш Телефон:
+Gui, ГенераторИсков: Add, Edit, x455 y95 w120 h21 vi_phone, %i_phone%
+
+Gui, ГенераторИсков: Add, Text, x295 y125 w160 h18 +0x200 +0x1, Паспорт (imgur):
+Gui, ГенераторИсков: Add, Edit, x455 y125 w120 h21 vi_pass, %i_pass%
+
+Gui, ГенераторИсков: Add, Text, x295 y155 w160 h18 +0x200 +0x1, Док-ва (imgur/youtube):
+Gui, ГенераторИсков: Add, Edit, x455 y155 w120 h21 vi_proof, %i_proof%
+
+Gui, ГенераторИсков: Add, Button, x455 y185 w90 h20 gCopy, Скопировать
+Gui, ГенераторИсков: submit
 return
 
 ;======================================================================================================================Кнопки
@@ -341,6 +382,22 @@ return
 
 WIKI:
 Run, https://maximealexeev.gitbook.io/rphub
+return
+
+Lawsuit:
+Gui, ГенераторИсков: Show, w615 h210, Генератор исков
+return
+
+Copy:
+Gui, submit, NoHide
+if i_gos = -
+{
+i_gos = Сотрудника
+}
+FormatTime, TimeString,, Shortdate
+clipboard = От: гражданина Штата San Andreas %i_name%`nг. Los Santos, штат San Andreas`n`nЯ, %i_name%, гражданин штата San Andreas, пользуясь своими правами, подаю исковое заявление в Окружной Суд на %i_gos% c номером жетона %i_jeton%, объясняя всю ситуацию, а также прилагая все имеющиеся и необходимые суду доказательства.`n`n%i_what%`n`n1. Выплатить мне, истцу %i_name%, моральную компенсацию в размере 100.000$.`n2. Привлечь к ответственности сотрудника %i_gos% c номером жетона %i_jeton% согласно законодательству штата.`n`nК исковому заявления прикладываю следующую документацию:`n1. Ксерокопия Вашего паспорта: %i_pass%`n2. Доказательства правонарушения (видео, фото, аудио): %i_proof%`n3. Контактные данные истца: %i_phone% | %i_ds%@majestic.com`n4. Список свидетелей (если они имеются) и их номера телефонов, либо почта: -`nДата подачи заявления: %TimeString%`nПодпись: %i_name%
+
+
 return
 
 HighResolution:
