@@ -1,4 +1,4 @@
-﻿version := 1.255
+﻿version := 1.256
 
 RunWait, cmd /c Ver > %A_Temp%\OsVer,, Hide
 FileRead, OsVer, %A_Temp%\OsVer
@@ -229,7 +229,7 @@ gender = а
 ;======================================================================================================================Основное GUI
 Gui, Color, 191919
 Gui, Font, S20 CWhite, Calibri
-Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, Бинды
+Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, Бинды памяток
 Gui, Add, Picture, x885 y-5 w170 h170 +BackgroundTrans, assets\logo.png
 Gui, Add, Picture, x480 y-65 w359 h566 gDiscord, assets\filatov.png
 Gui, Font, S10 CWhite, Calibri
@@ -237,14 +237,14 @@ Gui, Add, Text, x902 y445 w250 h30 +BackgroundTrans, by #110378 | San Diego
 Gui, Font, S15 CWhite, Calibri
 
 Gui, Add, Text, x130 y62 w500 h30 +BackgroundTrans, Бейджик
-Gui, Add, Text, x130 y102 w240 h30 +BackgroundTrans, Памятка Общая
-Gui, Add, Text, x130 y142 w240 h30 +BackgroundTrans, Памятка Угонки
-Gui, Add, Text, x130 y182 w330 h30 +BackgroundTrans, Памятка установки личности
-Gui, Add, Text, x130 y222 w330 h30 +BackgroundTrans, ТЕН-КОДЫ
-Gui, Add, Text, x130 y262 w330 h30 +BackgroundTrans, Памятка Задержание Госника
-Gui, Add, Text, x130 y302 w330 h30 +BackgroundTrans, Памятка CID/DB
-Gui, Add, Text, x130 y342 w330 h30 +BackgroundTrans, Памятка Похищения
-Gui, Add, Text, x130 y382 w330 h30 +BackgroundTrans, Памятка Адвокатов
+Gui, Add, Text, x130 y102 w240 h30 +BackgroundTrans, Общая
+Gui, Add, Text, x130 y142 w240 h30 +BackgroundTrans, Угонки
+Gui, Add, Text, x130 y182 w330 h30 +BackgroundTrans, Установка личности
+Gui, Add, Text, x130 y222 w330 h30 +BackgroundTrans, Команды и Тен-Коды
+Gui, Add, Text, x130 y262 w330 h30 +BackgroundTrans, Задержание Госника
+Gui, Add, Text, x130 y302 w330 h30 +BackgroundTrans, CID/DB
+Gui, Add, Text, x130 y342 w330 h30 +BackgroundTrans, Похищения
+Gui, Add, Text, x130 y382 w330 h30 +BackgroundTrans, Адвокаты
 ;=Gui, Add, Text, x130 y422 w330 h30 +BackgroundTrans, .
 
 ;Gui, Add, Text, x580 y82 w500 h30 +BackgroundTrans,  .
@@ -314,8 +314,8 @@ Gui, Настройки: Add, Text, x2 y36 w70 h18 +0x200 +0x1, Ваш пол:
 Gui, Настройки: Add, Radio, x70 y33 w80 h23 Group vRadio1 Checked%Radio1%, Мужчина
 Gui, Настройки: Add, Radio, x150 y33 w80 h23 vRadio2 Checked%Radio2%, Женщина
 Gui, Настройки: Add, Checkbox, x240 y33 w100 h23 gHighResolution Checked%resolution%, 4К Монитор
-Gui, Настройки: Add, Text, x345 y36 w230 h18, Задержка(мс):
-Gui, Настройки: Add, Edit, x435 y33 w70 h21 vrtime, %rtime%
+;Gui, Настройки: Add, Text, x345 y36 w230 h18, Задержка(мс):
+;Gui, Настройки: Add, Edit, x435 y33 w70 h21 vrtime, %rtime%
 Gui, Настройки: Add, Button, x12 y56 w70 h20 gSave, Сохранить
 Gui, Настройки: submit
 return
@@ -397,7 +397,6 @@ IniRead, frac, assets/Settings.ini, USER, frac
 IniRead, otdel, assets/Settings.ini, USER, otdel
 IniRead, sid, assets/Settings.ini, USER, sid
 IniRead, place, assets/Settings.ini, USER, place
-IniRead, rtime, assets/Settings.ini, USER, rtime
 
 SendInput, {t}
 sleep 400
@@ -441,7 +440,7 @@ GuiManager(4, "assets/help3.png", (resolution = 0 ? 330 : 916), (resolution = 0 
 return
 
 Key5:
-GuiManager(5, "assets/tencode.png", (resolution = 0 ? 452 : 678), (resolution = 0 ? 367 : 550))
+GuiManager(5, "assets/tencode.png", (resolution = 0 ? 452 : 678), (resolution = 0 ? 734 : 1100))
 return
 
 Key6:
@@ -996,7 +995,7 @@ ChatOpen()
 SendInput, /do Тест будет готов через 3 секунды.{enter}
 sleep 3000
 SendInput, {t}
-sleep %rtime%
+sleep 200
 SendInput, /do Результат готов. Раствор изменился в цвете.{enter}
 ChatOpen()
 SendInput, /do Анализ показал содержание наркотических веществ.{enter}
