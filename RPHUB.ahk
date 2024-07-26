@@ -1,4 +1,4 @@
-﻿version := 1.261
+﻿version := 1.262
 
 RunWait, cmd /c Ver > %A_Temp%\OsVer,, Hide
 FileRead, OsVer, %A_Temp%\OsVer
@@ -321,14 +321,16 @@ Gui, Настройки: Add, Button, x12 y56 w70 h20 gSave, Сохранить
 Gui, Настройки: submit
 
 
-i_name = -
-i_what = -
-i_gos = -
-i_jeton = -
+i_name = 
+i_what = 
+i_gos = 
+i_frac = 
+i_jeton = 
 i_ds = -
 i_phone = -
 i_pass = -
 i_proof = -
+prosecutor = 0
 
 Gui, ГенераторИсков: -MaximizeBox
 Gui, ГенераторИсков: Font, S10 CWhite, Calibri
@@ -338,28 +340,36 @@ Gui, ГенераторИсков: Add, Text, x2 y10 w140 h18 +0x200 +0x1, Ва�
 Gui, ГенераторИсков: Add, Edit, x135 y10 w120 h21 vi_name, %i_name%
 
 Gui, ГенераторИсков: Add, Text, x2 y35 w140 h18 +0x200 +0x1, Описание ситуации:
-Gui, ГенераторИсков: Add, Edit, x15 y55 w270 h145 vi_what, %i_what%
+Gui, ГенераторИсков: Add, Edit, x15 y55 w270 h205 vi_what, %i_what%
 
 Gui, ГенераторИсков: Add, Text, x295 y10 w160 h18 +0x200 +0x1, Имя Фамилия на кого иск:
 Gui, ГенераторИсков: Add, Edit, x455 y10 w120 h21 vi_gos, %i_gos%
+
 Gui, ГенераторИсков: Add, Text, x295 y35 w160 h18 +0x200 +0x1, Жетон (если есть):
 Gui, ГенераторИсков: Add, Edit, x455 y35 w120 h21 vi_jeton, %i_jeton%
 
-Gui, ГенераторИсков: Add, Text, x295 y65 w160 h18 +0x200 +0x1, Ваш ДС:
-Gui, ГенераторИсков: Add, Edit, x455 y65 w120 h21 vi_ds, %i_ds%
+Gui, ГенераторИсков: Add, Text, x295 y65 w160 h18 +0x200 +0x1, Его фракция:
+Gui, ГенераторИсков: Add, Edit, x455 y65 w120 h21 vi_frac, %i_frac%
 
-Gui, ГенераторИсков: Add, Text, x295 y95 w160 h18 +0x200 +0x1, Ваш Телефон:
-Gui, ГенераторИсков: Add, Edit, x455 y95 w120 h21 vi_phone, %i_phone%
+Gui, ГенераторИсков: Add, Text, x295 y95 w160 h18 +0x200 +0x1, Ваш ДС:
+Gui, ГенераторИсков: Add, Edit, x455 y95 w120 h21 vi_ds, %i_ds%
 
-Gui, ГенераторИсков: Add, Text, x295 y125 w160 h18 +0x200 +0x1, Паспорт (imgur):
-Gui, ГенераторИсков: Add, Edit, x455 y125 w120 h21 vi_pass, %i_pass%
+Gui, ГенераторИсков: Add, Text, x295 y125 w160 h18 +0x200 +0x1, Ваш Телефон:
+Gui, ГенераторИсков: Add, Edit, x455 y125 w120 h21 vi_phone, %i_phone%
 
-Gui, ГенераторИсков: Add, Text, x295 y155 w160 h18 +0x200 +0x1, Док-ва (imgur/youtube):
-Gui, ГенераторИсков: Add, Edit, x455 y155 w120 h21 vi_proof, %i_proof%
+Gui, ГенераторИсков: Add, Text, x295 y155 w160 h18 +0x200 +0x1, Паспорт (imgur):
+Gui, ГенераторИсков: Add, Edit, x455 y155 w120 h21 vi_pass, %i_pass%
 
-Gui, ГенераторИсков: Add, Button, x455 y185 w90 h20 gCopy, Скопировать
+Gui, ГенераторИсков: Add, Button, x305 y175 w140 h20 gMakeScreenshot, Скриншот экрана
 
-Gui, ГенераторИсков: Add, Button, x295 y185 w140 h20 gForum, Окружной суд (ссылка)
+Gui, ГенераторИсков: Add, Text, x295 y200 w160 h18 +0x200 +0x1, Док-ва (imgur/youtube):
+Gui, ГенераторИсков: Add, Edit, x455 y200 w120 h21 vi_proof, %i_proof%
+
+Gui, ГенераторИсков: Add, Button, x455 y225 w140 h20 gCopy, Скопировать результат
+
+Gui, ГенераторИсков: Add, Button, x295 y225 w140 h20 gForumSud, Окружной суд
+Gui, ГенераторИсков: Add, Button, x295 y250 w140 h20 gForumProc, Прокуратура
+Gui, ГенераторИсков: Add, Checkbox, x455 y250 w170 h23 vprosecutor Checked%prosecutor%, Шаблон прокуратура
 Gui, ГенераторИсков: submit
 return
 
@@ -382,26 +392,159 @@ Discord:
 Run, https://discord.gg/h2XQhFVDeM
 return
 
+MakeScreenshot:
+screenshot:=(A_ScriptDir . "\screenshot.png")
+SaveScreenshotToFile(0, 0, A_ScreenWidth, A_ScreenHeight, screenshot)
+imgur := SendImageToImgur(screenshot,ClientID:="b43407a79b2308a")
+GuiControl,, i_pass, %imgur%
+i_pass = %imgur%
+Filedelete, %A_ScriptDir%\screenshot.png
+return
+
+SaveScreenshotToFile(x, y, w, h, filePath)
+{
+	hBitmap := GetHBitmapFromScreen(x, y, w, h)
+	gdip := new GDIplus
+	pBitmap := gdip.BitmapFromHBitmap(hBitmap)
+	DllCall("DeleteObject", Ptr, hBitmap)
+	gdip.SaveBitmapToFile(pBitmap, filePath)
+	gdip.DisposeImage(pBitmap)
+}
+
+GetHBitmapFromScreen(x, y, w, h)
+{
+	hDC := DllCall("GetDC", Ptr, 0, Ptr)
+	hBM := DllCall("CreateCompatibleBitmap", Ptr, hDC, Int, w, Int, h, Ptr)
+	pDC := DllCall("CreateCompatibleDC", Ptr, hDC, Ptr)
+	oBM := DllCall("SelectObject", Ptr, pDC, Ptr, hBM, Ptr)
+	DllCall("BitBlt", Ptr, pDC, Int, 0, Int, 0, Int, w, Int, h, Ptr, hDC, Int, x, Int, y, UInt, 0x00CC0020)
+	DllCall("SelectObject", Ptr, pDC, Ptr, oBM)
+	DllCall("DeleteDC", Ptr, pDC)
+	DllCall("ReleaseDC", Ptr, 0, Ptr, hDC)
+	Return hBM
+}
+
+SendImageToImgur(imagePath, ClientID, JpegQuality := "")  
+{
+	oFile := FileOpen(imagePath, "r")
+	oFile.Pos := 0
+	oFile.RawRead(buff, size := oFile.length)
+	oFile.Close()
+	strBase64 := CryptBinaryToStringBASE64(&buff, size, true)
+	http := ComObjCreate("Msxml2.XMLHTTP")
+	http.open("POST", "https://api.imgur.com/3/image", true)
+	http.SetRequestHeader("authorization", "Client-ID " . ClientID)
+	http.send(strBase64)
+	VarSetCapacity(strBase64, 0), VarSetCapacity(buff, 0)
+	while !(http.readyState = 4)
+		Continue
+	json:=http.responseText
+	RegExMatch(json, """link"":""(.*?)""", match)
+	link := StrReplace(match1, "\")
+	return link
+}
+
+CryptBinaryToStringBASE64(pData, Bytes, NOCRLF = "")  {
+	static CRYPT_STRING_BASE64 := 1, CRYPT_STRING_NOCRLF := 0x40000000
+	CRYPT := CRYPT_STRING_BASE64 | (NOCRLF ? CRYPT_STRING_NOCRLF : 0)
+	DllCall("Crypt32\CryptBinaryToString", Ptr, pData, UInt, Bytes, UInt, CRYPT, Ptr, 0, UIntP, Chars)
+	VarSetCapacity(OutData, Chars * (A_IsUnicode ? 2 : 1))
+	DllCall("Crypt32\CryptBinaryToString", Ptr, pData, UInt, Bytes, UInt, CRYPT, Str, OutData, UIntP, Chars)
+	Return OutData
+}
+
+class GDIplus   {
+	__New()  {
+		if !DllCall("GetModuleHandle", Str, "gdiplus", Ptr)
+			DllCall("LoadLibrary", Str, "gdiplus")
+		VarSetCapacity(si, A_PtrSize = 8 ? 24 : 16, 0), si := Chr(1)
+		DllCall("gdiplus\GdiplusStartup", PtrP, pToken, Ptr, &si, Ptr, 0)
+		this.token := pToken
+	}
+	__Delete()  {
+		DllCall("gdiplus\GdiplusShutdown", Ptr, this.token)
+		if hModule := DllCall("GetModuleHandle", Str, "gdiplus", Ptr)
+			DllCall("FreeLibrary", Ptr, hModule)
+	}
+	BitmapFromHBitmap(hBitmap, Palette := 0)  {
+		DllCall("gdiplus\GdipCreateBitmapFromHBITMAP", Ptr, hBitmap, Ptr, Palette, PtrP, pBitmap)
+		return pBitmap
+	}
+	SaveBitmapToFile(pBitmap, sOutput, Quality=75)  {
+		SplitPath, sOutput,,, Extension
+		if Extension not in BMP,DIB,RLE,JPG,JPEG,JPE,JFIF,GIF,TIF,TIFF,PNG
+			return -1
+		DllCall("gdiplus\GdipGetImageEncodersSize", UIntP, nCount, UIntP, nSize)
+		VarSetCapacity(ci, nSize)
+		DllCall("gdiplus\GdipGetImageEncoders", UInt, nCount, UInt, nSize, Ptr, &ci)
+		if !(nCount && nSize)
+			return -2
+		Loop, % nCount  {
+			sString := StrGet(NumGet(ci, (idx := (48+7*A_PtrSize)*(A_Index-1))+32+3*A_PtrSize), "UTF-16")
+			if !InStr(sString, "*." Extension)
+				continue
+			pCodec := &ci+idx
+			break
+		}
+		if !pCodec
+			return -3
+		if RegExMatch(Extension, "i)^J(PG|PEG|PE|FIF)$") && Quality != 75  {
+			DllCall("gdiplus\GdipGetEncoderParameterListSize", Ptr, pBitmap, Ptr, pCodec, UintP, nSize)
+			VarSetCapacity(EncoderParameters, nSize, 0)
+			DllCall("gdiplus\GdipGetEncoderParameterList", Ptr, pBitmap, Ptr, pCodec, UInt, nSize, Ptr, &EncoderParameters)
+			Loop, % NumGet(EncoderParameters, "UInt")  {
+				elem := (24+A_PtrSize)*(A_Index-1) + 4 + (pad := A_PtrSize = 8 ? 4 : 0)
+				if (NumGet(EncoderParameters, elem+16, "UInt") = 1) && (NumGet(EncoderParameters, elem+20, "UInt") = 6)  {
+					p := elem+&EncoderParameters-pad-4
+					NumPut(Quality, NumGet(NumPut(4, NumPut(1, p+0)+20, "UInt")), "UInt")
+					break
+				}
+			}
+		}
+		if A_IsUnicode
+			pOutput := &sOutput
+		else  {
+			VarSetCapacity(wOutput, StrPut(sOutput, "UTF-16")*2, 0)
+			StrPut(sOutput, &wOutput, "UTF-16")
+			pOutput := &wOutput
+		}
+		E := DllCall("gdiplus\GdipSaveImageToFile", Ptr, pBitmap, Ptr, pOutput, Ptr, pCodec, UInt, p ? p : 0)
+		return E ? -5 : 0
+	}
+	DisposeImage(pBitmap)  {
+		return DllCall("gdiplus\GdipDisposeImage", Ptr, pBitmap)
+	}
+}
+
 WIKI:
 Run, https://maximealexeev.gitbook.io/rphub
 return
 
-Forum:
+ForumSud:
 Run, https://forum.majestic-rp.ru/forums/okruzhnoj-sud.557/
 return
 
+ForumProc:
+Run, https://forum.majestic-rp.ru/forums/prokuratura.631/
+return
+
 Lawsuit:
-Gui, ГенераторИсков: Show, w615 h210, Генератор исков
+Gui, ГенераторИсков: Show, w615 h275, Генератор исков
 return
 
 Copy:
 Gui, submit, NoHide
-if i_gos = -
-{
-i_gos = Сотрудника
-}
+TimeString := A_NowUTC
+TimeString += 3, h
 FormatTime, TimeString,, Shortdate
-clipboard = От: гражданина Штата San Andreas %i_name%`nг. Los Santos, штат San Andreas`n`nЯ, %i_name%, гражданин штата San Andreas, пользуясь своими правами, подаю исковое заявление в Окружной Суд на %i_gos% c номером жетона %i_jeton%, объясняя всю ситуацию, а также прилагая все имеющиеся и необходимые суду доказательства.`n`n%i_what%`n`n1. Выплатить мне, истцу %i_name%, моральную компенсацию в размере 100.000$.`n2. Привлечь к ответственности %i_gos% c номером жетона %i_jeton% согласно законодательству штата.`n`nК исковому заявления прикладываю следующую документацию:`n1. Ксерокопия Вашего паспорта: %i_pass%`n2. Доказательства правонарушения (видео, фото, аудио): %i_proof%`n3. Контактные данные истца: Номер телефона: %i_phone% | Электронная почта: %i_ds%`n4. Список свидетелей (если они имеются) и их номера телефонов, либо почта: -`nДата подачи заявления: %TimeString%`nПодпись: %i_name%
+if prosecutor = 0
+{
+clipboard = От: гражданина Штата San Andreas %i_name%`nг. Los Santos, штат San Andreas`n`nЯ, %i_name%, гражданин штата San Andreas, пользуясь своими правами, подаю исковое заявление в Окружной Суд на сотрудника %i_frac% %i_gos% c номером жетона %i_jeton%, объясняя всю ситуацию, а также прилагая все имеющиеся и необходимые суду доказательства.`n`n%i_what%`n`n1. Выплатить мне, истцу %i_name%, моральную компенсацию в размере 100.000$.`n2. Привлечь к ответственности %i_gos% c номером жетона %i_jeton% согласно законодательству штата.`n`nК исковому заявления прикладываю следующую документацию:`n1. Ксерокопия Вашего паспорта: %i_pass%`n2. Доказательства правонарушения (видео, фото, аудио): %i_proof%`n3. Контактные данные истца: Номер телефона: %i_phone% | Электронная почта: %i_ds%`n4. Список свидетелей (если они имеются) и их номера телефонов, либо почта: -`nДата подачи заявления: %TimeString%`nПодпись: %i_name%
+}
+else
+{
+clipboard = Заявление в прокуратуру №0000`n`nЯ, гражданин штата San-Andreas %i_name%, подаю заявление в прокуратуру на сотрудника %i_frac% %i_gos% с номером жетона %i_jeton%.`n`nК заявлению в прокуратуру прилагаю:`n`n1. Копия паспорта: [URL='%i_pass%']паспорт[/URL]`n2. Контактные данные: номер телефона: %i_phone%, почта: %i_ds%`n3. Подробное описание правонарушения: %i_what%`n4. Доказательства, подтверждающие правонарушение: [URL='%i_proof%']доказательства[/URL]`n5. Дата и время подачи заявления: %TimeString%`n6.Подпись: %i_name%
+}
 
 
 return
