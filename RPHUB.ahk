@@ -1,4 +1,4 @@
-﻿version := 1.262
+﻿version := 1.263
 
 RunWait, cmd /c Ver > %A_Temp%\OsVer,, Hide
 FileRead, OsVer, %A_Temp%\OsVer
@@ -575,7 +575,7 @@ IniWrite, %Key8%, assets/Settings.ini, USER, Key8
 IniWrite, %Key9%, assets/Settings.ini, USER, Key9
 IniWrite, %Key10%, assets/Settings.ini, USER, Key10
 
-IniWrite, %Key16%, assets/Settings.ini, USER, Key11
+IniWrite, %Key11%, assets/Settings.ini, USER, Key11
 IniWrite, %Key12%, assets/Settings.ini, USER, Key12
 IniWrite, %Key13%, assets/Settings.ini, USER, Key13
 IniWrite, %Key14%, assets/Settings.ini, USER, Key14
@@ -596,6 +596,12 @@ Close:
 ExitApp
 return
 ;======================================================================================================================Хоткии
+ChatOpen()
+{
+sleep 400
+SendInput, {t}
+sleep 200
+}
 
 Key1:
 SendMessage, 0x50,, 0x4190419,, A
@@ -604,16 +610,15 @@ IniRead, otdel, assets/Settings.ini, USER, otdel
 IniRead, sid, assets/Settings.ini, USER, sid
 IniRead, place, assets/Settings.ini, USER, place
 
-SendInput, {t}
-sleep 400
-if windows_version = win11
-{
+ChatOpen()
+;if windows_version = win11
+;{
 SendInput, /do На %place% находится %type%: [%frac% | %otdel% | %sid%].{Enter}
-}
-else
-{
-SendPlay, /do На %place% находится %type%: [%frac% | %otdel% | %sid%].{Enter}
-}
+;}
+;else
+;{
+;SendPlay, /do На %place% находится %type%: [%frac% | %otdel% | %sid%].{Enter}
+;}
 return
 
 GuiManager(GuiNum, PictureFile, Height, Width) {
@@ -666,13 +671,6 @@ GuiManager(9, "assets/help6.png", (resolution = 0 ? 679 : 1018), (resolution = 0
 return
 
 ;======================================================================================================================Команды
-
-ChatOpen()
-{
-sleep 400
-SendInput, {t}
-sleep 200
-}
 
 ;MISC
 :?:..сп::
