@@ -1439,7 +1439,7 @@ return
 
 :?:..лида::
 SendMessage, 0x50,, 0x4190419,, A
-SendInput, /me взял%gender% в руки листову и клей, приклеил%gender% листовку на стену{enter}
+SendInput, /me взял%gender% в руки листовку и клей, приклеил%gender% её на стену{enter}
 ChatOpen()
 SendInput, /do На листовке написано: "Голосуй завтра за EREN FILATOV - свобода и равенство для всех!"{enter}
 return
