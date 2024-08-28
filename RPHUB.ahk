@@ -1441,7 +1441,7 @@ return
 SendMessage, 0x50,, 0x4190419,, A
 SendInput, /me взял%gender% в руки листовку и клей, приклеил%gender% её на стену{enter}
 ChatOpen()
-SendInput, /do На листовке написано: "EREN FILATOV - свобода и равенство для всех! Уже завтра."{enter}
+SendInput, /do На листовке написано: "EREN FILATOV - свобода и равенство для всех{!} Уже завтра."{enter}
 return
 
 :?:..чтонаписано::
