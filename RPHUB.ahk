@@ -1,4 +1,4 @@
-﻿version := 1.265
+﻿version := 1.266
 
 RunWait, cmd /c Ver > %A_Temp%\OsVer,, Hide
 FileRead, OsVer, %A_Temp%\OsVer
@@ -1435,6 +1435,13 @@ return
 :?:..трусы::
 SendMessage, 0x50,, 0x4190419,, A
 SendInput, /mark 10-20 [Рвут трусы]
+return
+
+:?:..лида::
+SendMessage, 0x50,, 0x4190419,, A
+SendInput, /me взял%gender% в руки листову и клей, приклеил%gender% листовку на стену{enter}
+ChatOpen()
+SendInput, /do На листовке написано: "Голосуй завтра за EREN FILATOV - свобода и равенство для всех!"{enter}
 return
 
 :?:..чтонаписано::
