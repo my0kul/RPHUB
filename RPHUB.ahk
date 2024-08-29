@@ -1444,6 +1444,13 @@ ChatOpen()
 SendInput, /do На листовке написано: "EREN FILATOV - свобода и равенство для всех{!} Уже завтра."{enter}
 return
 
+:?:..лида2::
+SendMessage, 0x50,, 0x4190419,, A
+SendInput, /me взял%gender% в руки листовку, начал%gender% внимательно её рассматривать{enter}
+ChatOpen()
+SendInput, /do На листовке написано: "EREN FILATOV - свобода и равенство для всех{!} Уже завтра."{enter}
+return
+
 :?:..чтонаписано::
 SendMessage, 0x50,, 0x4190419,, A
 SendInput, /do Что написано в ориентировке у @?{left 1}
