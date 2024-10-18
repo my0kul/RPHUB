@@ -1,4 +1,4 @@
-﻿version := 1.27
+﻿version := 1.271
 
 RunWait, cmd /c Ver > %A_Temp%\OsVer,, Hide
 FileRead, OsVer, %A_Temp%\OsVer
@@ -315,8 +315,6 @@ Gui, Настройки: Add, Text, x2 y36 w70 h18 +0x200 +0x1, Ваш пол:
 Gui, Настройки: Add, Radio, x70 y33 w80 h23 Group vRadio1 Checked%Radio1%, Мужчина
 Gui, Настройки: Add, Radio, x150 y33 w80 h23 vRadio2 Checked%Radio2%, Женщина
 Gui, Настройки: Add, Checkbox, x240 y33 w100 h23 gHighResolution Checked%resolution%, 4К Монитор
-;Gui, Настройки: Add, Text, x345 y36 w230 h18, Задержка(мс):
-;Gui, Настройки: Add, Edit, x435 y33 w70 h21 vrtime, %rtime%
 Gui, Настройки: Add, Button, x12 y56 w70 h20 gSave, Сохранить
 Gui, Настройки: submit
 
