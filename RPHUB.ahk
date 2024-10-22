@@ -387,7 +387,6 @@ IfWinExist, RPHUB %version%
 return
 
 Discord:
-Run, https://discord.gg/h2XQhFVDeM
 return
 
 MakeScreenshot:
