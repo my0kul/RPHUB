@@ -1,4 +1,4 @@
-﻿version := 1.272
+﻿version := 1.273
 
 RunWait, cmd /c Ver > %A_Temp%\OsVer,, Hide
 FileRead, OsVer, %A_Temp%\OsVer
@@ -387,6 +387,7 @@ IfWinExist, RPHUB %version%
 return
 
 Discord:
+Run, https://discord.gg/gyY28sdrc7
 return
 
 MakeScreenshot:
