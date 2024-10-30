@@ -1,4 +1,4 @@
-﻿version := 1.3
+﻿version := 1.31
 
 RunWait, cmd /c Ver > %A_Temp%\OsVer,, Hide
 FileRead, OsVer, %A_Temp%\OsVer
@@ -638,6 +638,28 @@ if frac = LSCSD
 		default: rank_text = Должность
 	}
 }
+if frac = FIB
+	{
+		switch sid
+		{
+			case 1: rank_text = Trainee
+			case 2: rank_text = Agent Assistant
+			case 3: rank_text = Jr. Agent
+			case 4: rank_text = Agent
+			case 5: rank_text = Special Agent
+			case 6: rank_text = Secret Agent
+			case 7: rank_text = Analytics Agent
+			case 8: rank_text = Intelligence Agent
+			case 9: rank_text = Free Agent
+			case 10: rank_text = Instructor of Department
+			case 11: rank_text = Deputy of Department
+			case 12: rank_text = Head of Department
+			case 13: rank_text = Assistant Sheriff
+			case 14: rank_text = Deputy of Director
+			case 15: rank_text = Director
+			default: rank_text = Должность
+		}
+	}
 
 temp_msg = /do На %place% находится %type%: [%frac% | %otdel% | %rank_text%].
 FastSend(temp_msg)
