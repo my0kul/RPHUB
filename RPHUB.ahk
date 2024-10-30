@@ -1,4 +1,4 @@
-﻿version := 1.31
+﻿version := 1.32
 
 RunWait, cmd /c Ver > %A_Temp%\OsVer,, Hide
 FileRead, OsVer, %A_Temp%\OsVer
@@ -657,6 +657,29 @@ if frac = FIB
 			case 13: rank_text = Assistant Sheriff
 			case 14: rank_text = Deputy of Director
 			case 15: rank_text = Director
+			default: rank_text = Должность
+		}
+	}
+
+if frac = LSPD
+	{
+		switch sid
+		{
+			case 1: rank_text = PA Cadet
+			case 2: rank_text = PA Cadet II
+			case 3: rank_text = Officer
+			case 4: rank_text = Officer II
+			case 5: rank_text = Officer III
+			case 6: rank_text = Officer IV
+			case 7: rank_text = Sergeant
+			case 8: rank_text = Senior Sergeant
+			case 9: rank_text = Lieutenant
+			case 10: rank_text = Academy Instructor
+			case 11: rank_text = D.Head of Department
+			case 12: rank_text = Head of Department
+			case 13: rank_text = Assistant Chief
+			case 14: rank_text = Deputy Chief
+			case 15: rank_text = Chief
 			default: rank_text = Должность
 		}
 	}
