@@ -1,4 +1,4 @@
-﻿version := 1.273
+﻿version := 1.3
 
 RunWait, cmd /c Ver > %A_Temp%\OsVer,, Hide
 FileRead, OsVer, %A_Temp%\OsVer
@@ -247,7 +247,7 @@ Gui, Add, Text, x130 y342 w330 h30 +BackgroundTrans, Похищения
 Gui, Add, Text, x130 y382 w330 h30 +BackgroundTrans, Адвокаты
 ;=Gui, Add, Text, x130 y422 w330 h30 +BackgroundTrans, .
 
-;Gui, Add, Text, x580 y82 w500 h30 +BackgroundTrans,  .
+Gui, Add, Text, x380 y62 w500 h30 +BackgroundTrans,  CODE-7
 ;=Gui, Add, Text, x580 y122 w240 h30 +BackgroundTrans, .
 ;=Gui, Add, Text, x580 y162 w240 h30 +BackgroundTrans, .
 ;=Gui, Add, Text, x580 y202 w330 h30 +BackgroundTrans, .
@@ -284,7 +284,7 @@ Gui, Add, Hotkey, x22 y340 w95 h30 vKey8, %Key8%
 Gui, Add, Hotkey, x22 y380 w95 h30 vKey9, %Key9%
 ;=Gui, Add, Hotkey, x22 y440 w95 h30 vKey10, %Key10%
 
-;Gui, Add, Hotkey, x472 y80 w95 h30 vKey11, %Key11%
+Gui, Add, Hotkey, x272 y60 w95 h30 vKey11, %Key11%
 ;=Gui, Add, Hotkey, x472 y120 w95 h30 vKey12, %Key12%
 ;=Gui, Add, Hotkey, x472 y160 w95 h30 vKey13, %Key13%
 ;=Gui, Add, Hotkey, x472 y200 w95 h30 vKey14, %Key14%
@@ -306,7 +306,7 @@ Gui, Настройки: Add, Text, x2 y10 w70 h18 +0x200 +0x1, Фракция:
 Gui, Настройки: Add, Edit, x65 y10 w50 h21 vfrac, %frac%
 Gui, Настройки: Add, Text, x120 y10 w50 h18 +0x200 +0x1, Отдел:
 Gui, Настройки: Add, Edit, x165 y10 w50 h21 votdel, %otdel%
-Gui, Настройки: Add, Text, x220 y10 w50 h18 +0x200 +0x1, Статик:
+Gui, Настройки: Add, Text, x230 y10 w50 h18 +0x200 +0x1, Ранг:
 Gui, Настройки: Add, Edit, x275 y10 w70 h21 vsid, %sid%
 Gui, Настройки: Add, Edit, x370 y10 w70 h21 vtype, %type%
 Gui, Настройки: Add, Text, x443 y12 w20 h18, на
@@ -596,9 +596,16 @@ return
 ;======================================================================================================================Хоткии
 ChatOpen()
 {
-sleep 400
-SendInput, {t}
 sleep 200
+SendInput, {t}
+sleep 150
+}
+FastSend(msg)
+{
+	Clipboard = %msg%
+	sleep 150
+	Send ^v
+	sleep 150
 }
 
 Key1:
@@ -609,7 +616,33 @@ IniRead, sid, assets/Settings.ini, USER, sid
 IniRead, place, assets/Settings.ini, USER, place
 
 ChatOpen()
-SendInput, /do На %place% находится %type%: [%frac% | %otdel% | %sid%].{Enter}
+if frac = LSCSD
+{
+	switch sid
+	{
+		case 1: rank_text = Cadet I
+		case 2: rank_text = Cadet II
+		case 3: rank_text = Sergeant
+		case 4: rank_text = Senior Sergeant
+		case 5: rank_text = Junior Lieutenant
+		case 6: rank_text = Lieutenant
+		case 7: rank_text = Senior Lieutenant
+		case 8: rank_text = Commissar
+		case 9: rank_text = Captain
+		case 10: rank_text = Major
+		case 11: rank_text = Dep. Head of Department
+		case 12: rank_text = Head of Department
+		case 13: rank_text = Assistant Sheriff
+		case 14: rank_text = Undersheriff
+		case 15: rank_text = Sheriff
+		default: rank_text = Должность
+	}
+}
+
+temp_msg = /do На %place% находится %type%: [%frac% | %otdel% | %rank_text%].
+FastSend(temp_msg)
+SendInput {Enter}
+
 return
 
 GuiManager(GuiNum, PictureFile, Height, Width) {
@@ -659,6 +692,13 @@ return
 
 Key9: 
 GuiManager(9, "assets/help6.png", (resolution = 0 ? 679 : 1018), (resolution = 0 ? 578 : 867))
+return
+
+Key11: 
+ChatOpen()
+temp_msg = /mark CODE-7
+FastSend(temp_msg)
+SendInput {Enter}
 return
 
 ;======================================================================================================================Команды
@@ -1426,27 +1466,6 @@ return
 :?:..трусы::
 SendMessage, 0x50,, 0x4190419,, A
 SendInput, /mark 10-20 [Рвут трусы]
-return
-
-:?:..лида::
-SendMessage, 0x50,, 0x4190419,, A
-SendInput, /me взял%gender% в руки листовку и клей, приклеил%gender% её на стену{enter}
-ChatOpen()
-SendInput, /do На листовке написано: "EREN FILATOV - свобода и равенство для всех{!} Выборы губернатора штата уже завтра."{enter}
-return
-
-:?:..лида2::
-SendMessage, 0x50,, 0x4190419,, A
-SendInput, /me взял%gender% в руки листовку, начал%gender% внимательно её рассматривать{enter}
-ChatOpen()
-SendInput, /do На листовке написано: "EREN FILATOV - свобода и равенство для всех{!} Выборы губернатора штата уже завтра."{enter}
-return
-
-:?:..лида3::
-SendMessage, 0x50,, 0x4190419,, A
-SendInput, /me взял%gender% в руки листовку, начал%gender% внимательно её рассматривать{enter}
-ChatOpen()
-SendInput, /do На листовке написано: "Встреча кандидата социально-демократической партии American Unity с избирателями. 20:00 - Мэрия"{enter}
 return
 
 :?:..чтонаписано::
