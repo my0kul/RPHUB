@@ -214,7 +214,7 @@ gender = а
 ;======================================================================================================================Основное GUI
 Gui, Color, 191919
 Gui, Font, S20 CWhite, Calibri
-Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, Бинды памяток
+Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, Бинды
 Gui, Add, Picture, x885 y-5 w170 h170 +BackgroundTrans, assets\logo.png
 Gui, Add, Picture, x480 y-65 w359 h566 gDiscord, assets\ourfamily.png
 Gui, Font, S10 CWhite, Calibri
