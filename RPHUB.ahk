@@ -1,23 +1,9 @@
-﻿version := 1.32
-
-RunWait, cmd /c Ver > %A_Temp%\OsVer,, Hide
-FileRead, OsVer, %A_Temp%\OsVer
-FileDelete, %A_Temp%\OsVer
-DllCall("OemToChar", "Str", OsVer, "Str", OsVer)
-ver := SubStr(OsVer, 29, 7)
-Needle := "10.0.2"
-If InStr(ver, Needle)
-    windows_version = win11
-Else
-    windows_version = other
-
+﻿version := 1.33
 SetWorkingDir %A_ScriptDir%
-
 IfnotExist, %A_ScriptDir%\assets
 {
 FileCreateDir, %A_ScriptDir%\assets
 }
-
 IniRead, v, assets/Settings.ini, USER, v
 if v != %version%
 {
@@ -28,7 +14,7 @@ URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help4.png?ra
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help5.png?raw=true, %A_ScriptDir%\assets\help5.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help6.png?raw=true, %A_ScriptDir%\assets\help6.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/tencode.png?raw=true, %A_ScriptDir%\assets\tencode.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/filatov.png?raw=true, %A_ScriptDir%\assets\filatov.png
+URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/ourfamily.png?raw=true, %A_ScriptDir%\assets\ourfamily.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cidhelp.png?raw=true, %A_ScriptDir%\assets\cidhelp.png
 URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
 IniWrite, %version%, assets/Settings.ini, USER, v
@@ -55,8 +41,8 @@ IfnotExist, %A_ScriptDir%\assets\help5.png
 IfnotExist, %A_ScriptDir%\assets\help6.png
 	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help6.png?raw=true, %A_ScriptDir%\assets\help6.png
 
-IfnotExist, %A_ScriptDir%\assets\filatov.png
-	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/filatov.png?raw=true, %A_ScriptDir%\assets\filatov.png
+IfnotExist, %A_ScriptDir%\assets\ourfamily.png
+	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/ourfamily.png?raw=true, %A_ScriptDir%\assets\ourfamily.png
 
 IfnotExist, %A_ScriptDir%\assets\tencode.png
 	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/tencode.png?raw=true, %A_ScriptDir%\assets\tencode.png
@@ -69,13 +55,12 @@ IfnotExist, %A_ScriptDir%\assets\logo.png
 
 IniRead, frac, assets/Settings.ini, USER, frac, Фракция
 IniRead, otdel, assets/Settings.ini, USER, otdel, Отдел
-IniRead, sid, assets/Settings.ini, USER, sid, Статик
+IniRead, rank, assets/Settings.ini, USER, rank, Ранг
 IniRead, place, assets/Settings.ini, USER, place, поясе
 IniRead, type, assets/Settings.ini, USER, type, бейджик
 IniRead, resolution, assets/Settings.ini, USER, resolution, 0
-IniRead, rtime, assets/Settings.ini, USER, rtime, 200
 
-;======================================================================================================================Кнопки
+;Кнопки
 
 IniRead, Key1, assets/Settings.ini, USER, Key1, % A_Space
 Gui, Submit, NoHide
@@ -231,7 +216,7 @@ Gui, Color, 191919
 Gui, Font, S20 CWhite, Calibri
 Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, Бинды памяток
 Gui, Add, Picture, x885 y-5 w170 h170 +BackgroundTrans, assets\logo.png
-Gui, Add, Picture, x480 y-65 w359 h566 gDiscord, assets\filatov.png
+Gui, Add, Picture, x480 y-65 w359 h566 gDiscord, assets\ourfamily.png
 Gui, Font, S10 CWhite, Calibri
 Gui, Add, Text, x902 y445 w250 h30 +BackgroundTrans, by #110378 | San Diego
 Gui, Font, S15 CWhite, Calibri
@@ -307,7 +292,7 @@ Gui, Настройки: Add, Edit, x65 y10 w50 h21 vfrac, %frac%
 Gui, Настройки: Add, Text, x120 y10 w50 h18 +0x200 +0x1, Отдел:
 Gui, Настройки: Add, Edit, x165 y10 w50 h21 votdel, %otdel%
 Gui, Настройки: Add, Text, x230 y10 w50 h18 +0x200 +0x1, Ранг:
-Gui, Настройки: Add, Edit, x275 y10 w70 h21 vsid, %sid%
+Gui, Настройки: Add, Edit, x275 y10 w70 h21 vrank, %rank%
 Gui, Настройки: Add, Edit, x370 y10 w70 h21 vtype, %type%
 Gui, Настройки: Add, Text, x443 y12 w20 h18, на
 Gui, Настройки: Add, Edit, x465 y10 w70 h21 vplace, %place%
@@ -559,8 +544,7 @@ IniWrite, %frac%, assets/Settings.ini, USER, frac
 IniWrite, %type%, assets/Settings.ini, USER, type
 IniWrite, %place%, assets/Settings.ini, USER, place
 IniWrite, %otdel%, assets/Settings.ini, USER, otdel
-IniWrite, %sid%, assets/Settings.ini, USER, sid
-IniWrite, %rtime%, assets/Settings.ini, USER, rtime
+IniWrite, %rank%, assets/Settings.ini, USER, rank
 
 IniWrite, %Key1%, assets/Settings.ini, USER, Key1
 IniWrite, %Key2%, assets/Settings.ini, USER, Key2
@@ -608,82 +592,87 @@ FastSend(msg)
 	sleep 150
 }
 
+TransformRank(f, r)
+{
+	if f = LSCSD
+		{
+			switch r
+			{
+				case 1: return "Cadet I"
+				case 2: return "Cadet II"
+				case 3: return "Sergeant"
+				case 4: return "Senior Sergeant"
+				case 5: return "Junior Lieutenant"
+				case 6: return "Lieutenant"
+				case 7: return "Senior Lieutenant"
+				case 8: return "Commissar"
+				case 9: return "Captain"
+				case 10: return "Major"
+				case 11: return "Deputy Head of Department"
+				case 12: return "Head of Department"
+				case 13: return "Assistant Sheriff"
+				case 14: return "Undersheriff"
+				case 15: return "Sheriff"
+				default: return "Должность"
+			}
+		}
+		if f = FIB
+			{
+				switch r
+				{
+					case 1: return "Trainee"
+					case 2: return "Agent Assistant"
+					case 3: return "Junior Agent"
+					case 4: return "Agent"
+					case 5: return "Special Agent"
+					case 6: return "Secret Agent"
+					case 7: return "Analytics Agent"
+					case 8: return "Intelligence Agent"
+					case 9: return "Free Agent"
+					case 10: return "Instructor of Department"
+					case 11: return "Deputy of Department"
+					case 12: return "Head of Department"
+					case 13: return "Assistant Sheriff"
+					case 14: return "Deputy of Director"
+					case 15: return "Director"
+					default: return "Должность"
+				}
+			}
+		
+		if f = LSPD
+			{
+				switch r
+				{
+					case 1: return "PA Cadet"
+					case 2: return "PA Cadet II"
+					case 3: return "Officer"
+					case 4: return "Officer II"
+					case 5: return "Officer III"
+					case 6: return "Officer IV"
+					case 7: return "Sergeant"
+					case 8: return "Senior Sergeant"
+					case 9: return "Lieutenant"
+					case 10: return "Academy Instructor"
+					case 11: return "Deputy Head of Department"
+					case 12: return "Head of Department"
+					case 13: return "Assistant Chief"
+					case 14: return "Deputy Chief"
+					case 15: return "Chief"
+					default: return "Должность"
+				}
+			}
+			return "Должность"
+}
+
 Key1:
 SendMessage, 0x50,, 0x4190419,, A
 IniRead, frac, assets/Settings.ini, USER, frac
 IniRead, otdel, assets/Settings.ini, USER, otdel
-IniRead, sid, assets/Settings.ini, USER, sid
+IniRead, rank, assets/Settings.ini, USER, rank
 IniRead, place, assets/Settings.ini, USER, place
 
 ChatOpen()
-if frac = LSCSD
-{
-	switch sid
-	{
-		case 1: rank_text = Cadet I
-		case 2: rank_text = Cadet II
-		case 3: rank_text = Sergeant
-		case 4: rank_text = Senior Sergeant
-		case 5: rank_text = Junior Lieutenant
-		case 6: rank_text = Lieutenant
-		case 7: rank_text = Senior Lieutenant
-		case 8: rank_text = Commissar
-		case 9: rank_text = Captain
-		case 10: rank_text = Major
-		case 11: rank_text = Dep. Head of Department
-		case 12: rank_text = Head of Department
-		case 13: rank_text = Assistant Sheriff
-		case 14: rank_text = Undersheriff
-		case 15: rank_text = Sheriff
-		default: rank_text = Должность
-	}
-}
-if frac = FIB
-	{
-		switch sid
-		{
-			case 1: rank_text = Trainee
-			case 2: rank_text = Agent Assistant
-			case 3: rank_text = Jr. Agent
-			case 4: rank_text = Agent
-			case 5: rank_text = Special Agent
-			case 6: rank_text = Secret Agent
-			case 7: rank_text = Analytics Agent
-			case 8: rank_text = Intelligence Agent
-			case 9: rank_text = Free Agent
-			case 10: rank_text = Instructor of Department
-			case 11: rank_text = Deputy of Department
-			case 12: rank_text = Head of Department
-			case 13: rank_text = Assistant Sheriff
-			case 14: rank_text = Deputy of Director
-			case 15: rank_text = Director
-			default: rank_text = Должность
-		}
-	}
-
-if frac = LSPD
-	{
-		switch sid
-		{
-			case 1: rank_text = PA Cadet
-			case 2: rank_text = PA Cadet II
-			case 3: rank_text = Officer
-			case 4: rank_text = Officer II
-			case 5: rank_text = Officer III
-			case 6: rank_text = Officer IV
-			case 7: rank_text = Sergeant
-			case 8: rank_text = Senior Sergeant
-			case 9: rank_text = Lieutenant
-			case 10: rank_text = Academy Instructor
-			case 11: rank_text = D.Head of Department
-			case 12: rank_text = Head of Department
-			case 13: rank_text = Assistant Chief
-			case 14: rank_text = Deputy Chief
-			case 15: rank_text = Chief
-			default: rank_text = Должность
-		}
-	}
-
+rank_text:= TransformRank(frac, rank)
 temp_msg = /do На %place% находится %type%: [%frac% | %otdel% | %rank_text%].
 FastSend(temp_msg)
 SendInput {Enter}
@@ -1303,13 +1292,14 @@ return
 :?:..пред::
 IniRead, frac, assets/Settings.ini, USER, frac
 IniRead, otdel, assets/Settings.ini, USER, otdel
-IniRead, sid, assets/Settings.ini, USER, sid
+IniRead, rank, assets/Settings.ini, USER, rank
 IniRead, place, assets/Settings.ini, USER, place
 
 SendMessage, 0x50,, 0x4190419,, A
 SendInput, Здравствуйте, являюсь сотрудником %frac%, опознавательный знак на мне находится{enter}
 ChatOpen()
-SendInput, /do На %place% находится %type%: [%frac% | %otdel% | %sid%]{Enter}.{enter}
+rank_text:= TransformRank(frac, rank)
+SendInput, /do На %place% находится %type%: [%frac% | %otdel% | %rank_text%]{Enter}.{enter}
 return
 
 :?:..вавто::
