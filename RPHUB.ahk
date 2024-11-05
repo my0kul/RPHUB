@@ -1,4 +1,4 @@
-﻿version := 1.33
+﻿version := 1.34
 SetWorkingDir %A_ScriptDir%
 IfnotExist, %A_ScriptDir%\assets
 {
@@ -343,7 +343,7 @@ Gui, ГенераторИсков: Add, Edit, x455 y125 w120 h21 vi_phone, %i_ph
 Gui, ГенераторИсков: Add, Text, x295 y155 w160 h18 +0x200 +0x1, Паспорт (imgur):
 Gui, ГенераторИсков: Add, Edit, x455 y155 w120 h21 vi_pass, %i_pass%
 
-Gui, ГенераторИсков: Add, Button, x305 y175 w140 h20 gMakeScreenshot, Скриншот экрана
+;Gui, ГенераторИсков: Add, Button, x305 y175 w140 h20 gMakeScreenshot, Скриншот экрана
 
 Gui, ГенераторИсков: Add, Text, x295 y200 w160 h18 +0x200 +0x1, Док-ва (imgur/youtube):
 Gui, ГенераторИсков: Add, Edit, x455 y200 w120 h21 vi_proof, %i_proof%
