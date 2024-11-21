@@ -1,4 +1,4 @@
-﻿version := 1.35
+﻿version := 1.36
 SetWorkingDir %A_ScriptDir%
 IfnotExist, %A_ScriptDir%\assets
 {
@@ -1236,7 +1236,7 @@ return
 SendMessage, 0x50,, 0x4190419,, A
 SendInput, /me посмотрел%gender% на опознавательный знак человека{enter}
 ChatOpen()
-SendInput, /do Какая государственная структура, отдел и номер удостоверения указан на опознавательном знаке у @?{left 1}
+SendInput, /do Какая государственная структура, отдел и должность указаны на опознавательном знаке у @?{left 1}
 return
 
 :?:..сел::
