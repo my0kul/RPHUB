@@ -1256,6 +1256,14 @@ ChatOpen()
 SendInput, /do Имеются ли у @ наркотические или взрывчатые вещества?{left 39}
 return
 
+:?:..ошейник::
+SendMessage, 0x50,, 0x4190419,, A
+IniRead, frac, assets/Settings.ini, USER, frac
+IniRead, otdel, assets/Settings.ini, USER, otdel
+
+SendInput, /do На ошейнике закреплён жетон: [%frac% | %otdel%].
+return
+
 :?:..нарко::
 SendMessage, 0x50,, 0x4190419,, A
 SendInput, /do На столе лежит сумка с мед. приборами.{enter}
