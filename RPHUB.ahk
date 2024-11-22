@@ -1,4 +1,4 @@
-﻿version := 1.36
+﻿version := 1.37
 SetWorkingDir %A_ScriptDir%
 IfnotExist, %A_ScriptDir%\assets
 {
@@ -1247,6 +1247,13 @@ return
 :?:..вылез::
 SendMessage, 0x50,, 0x4190419,, A
 SendInput, /me выпрыгнул%gender% из автомобиля через открытое окно{enter}
+return
+
+:?:..дог::
+SendMessage, 0x50,, 0x4190419,, A
+SendInput, /me обнюхал%gender% человека напротив.{enter}
+ChatOpen()
+SendInput, /do Имеются ли у @ наркотические или взрывчатые вещества?{left 39}
 return
 
 :?:..нарко::
