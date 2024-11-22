@@ -1251,7 +1251,7 @@ return
 
 :?:..дог::
 SendMessage, 0x50,, 0x4190419,, A
-SendInput, /me обнюхал%gender% человека напротив.{enter}
+SendInput, /me обнюхал%gender% человека напротив{enter}
 ChatOpen()
 SendInput, /do Имеются ли у @ наркотические или взрывчатые вещества?{left 39}
 return
