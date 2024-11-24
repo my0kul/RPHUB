@@ -1,4 +1,4 @@
-﻿version := 1.37
+﻿version := 1.38
 SetWorkingDir %A_ScriptDir%
 IfnotExist, %A_ScriptDir%\assets
 {
@@ -644,20 +644,16 @@ TransformRank(f, r)
 				switch r
 				{
 					case 1: return "PA Cadet"
-					case 2: return "PA Cadet II"
-					case 3: return "Officer"
-					case 4: return "Officer II"
-					case 5: return "Officer III"
-					case 6: return "Officer IV"
-					case 7: return "Sergeant"
-					case 8: return "Senior Sergeant"
-					case 9: return "Lieutenant"
-					case 10: return "Academy Instructor"
-					case 11: return "Deputy Head of Department"
-					case 12: return "Head of Department"
-					case 13: return "Assistant Chief"
-					case 14: return "Deputy Chief"
-					case 15: return "Chief"
+					case 2: return "Officer"
+					case 3: return "Officer II"
+					case 4: return "Officer III"
+					case 5: return "Sergeant"
+					case 6: return "Academy Instructor"
+					case 7: return "Deputy Head of Department"
+					case 8: return "Head of Department"
+					case 9: return "Assistant Chief"
+					case 10: return "Deputy Chief"
+					case 11: return "Chief"
 					default: return "Должность"
 				}
 			}
