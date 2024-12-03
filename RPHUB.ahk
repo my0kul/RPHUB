@@ -1,4 +1,4 @@
-﻿version := 1.38
+﻿version := 1.39
 SetWorkingDir %A_ScriptDir%
 IfnotExist, %A_ScriptDir%\assets
 {
@@ -669,7 +669,7 @@ IniRead, place, assets/Settings.ini, USER, place
 
 ChatOpen()
 rank_text:= TransformRank(frac, rank)
-temp_msg = /do На %place% находится %type%: [%frac% | %otdel% | %rank_text%].
+temp_msg = /do На %place% находится %type%: [%frac% | %otdel%].
 FastSend(temp_msg)
 SendInput {Enter}
 
