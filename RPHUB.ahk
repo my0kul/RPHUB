@@ -1,4 +1,4 @@
-﻿version := 1.39
+﻿version := 1.40
 SetWorkingDir %A_ScriptDir%
 IfnotExist, %A_ScriptDir%\assets
 {
@@ -291,8 +291,8 @@ Gui, Настройки: Add, Text, x2 y10 w70 h18 +0x200 +0x1, Фракция:
 Gui, Настройки: Add, Edit, x65 y10 w50 h21 vfrac, %frac%
 Gui, Настройки: Add, Text, x120 y10 w50 h18 +0x200 +0x1, Отдел:
 Gui, Настройки: Add, Edit, x165 y10 w50 h21 votdel, %otdel%
-Gui, Настройки: Add, Text, x230 y10 w50 h18 +0x200 +0x1, Ранг:
-Gui, Настройки: Add, Edit, x275 y10 w70 h21 vrank, %rank%
+;Gui, Настройки: Add, Text, x230 y10 w50 h18 +0x200 +0x1, Ранг:
+;Gui, Настройки: Add, Edit, x275 y10 w70 h21 vrank, %rank%
 Gui, Настройки: Add, Edit, x370 y10 w70 h21 vtype, %type%
 Gui, Настройки: Add, Text, x443 y12 w20 h18, на
 Gui, Настройки: Add, Edit, x465 y10 w70 h21 vplace, %place%
@@ -696,7 +696,7 @@ GuiManager(2, "assets/help.png", (resolution = 0 ? 574 : 861), (resolution = 0 ?
 return
 
 Key3: 
-GuiManager(3, "assets/help2.png", (resolution = 0 ? 212 : 318), (resolution = 0 ? 550 : 825))
+GuiManager(3, "assets/help2.png", (resolution = 0 ? 188 : 611), (resolution = 0 ? 376 : 1222))
 return
 
 
