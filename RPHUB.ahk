@@ -696,7 +696,7 @@ GuiManager(2, "assets/help.png", (resolution = 0 ? 574 : 861), (resolution = 0 ?
 return
 
 Key3: 
-GuiManager(3, "assets/help2.png", (resolution = 0 ? 188 : 611), (resolution = 0 ? 376 : 1222))
+GuiManager(3, "assets/help2.png", (resolution = 0 ? 188 : 376), (resolution = 0 ? 611 : 1222))
 return
 
 
