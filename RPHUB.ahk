@@ -587,9 +587,9 @@ sleep 250
 FastSend(msg)
 {
 	Clipboard = %msg%
-	sleep 150
+	sleep 300
 	Send ^v
-	sleep 150
+	sleep 300
 }
 
 TransformRank(f, r)
