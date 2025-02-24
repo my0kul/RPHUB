@@ -1,4 +1,4 @@
-﻿version := 1.41
+﻿version := 1.42
 SetWorkingDir %A_ScriptDir%
 IfnotExist, %A_ScriptDir%\assets
 {
@@ -1310,7 +1310,7 @@ SendMessage, 0x50,, 0x4190419,, A
 SendInput, Здравствуйте, являюсь сотрудником %frac%, опознавательный знак на мне находится{enter}
 ChatOpen()
 rank_text:= TransformRank(frac, rank)
-SendInput, /do На %place% находится %type%: [%frac% | %otdel% | %rank_text%]{Enter}.{enter}
+SendInput, /do На %place% находится %type%: [%frac% | %otdel% ].{enter}
 return
 
 :?:..вавто::
@@ -1529,6 +1529,7 @@ return
 :?:.банан::🍌
 :?:.пуп::💩
 :?:.лайк::❤️
+:?:.фрик::🤡
 
 :?:.умуте::/event
 :?:.ивент::/event
