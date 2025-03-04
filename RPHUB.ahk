@@ -1154,6 +1154,12 @@ SendMessage, 0x50,, 0x4190419,, A
 SendInput, /dep to ALL: %frac% займётся похищением.
 return
 
+:?:..банк::
+IniRead, frac, assets/Settings.ini, USER, frac
+SendMessage, 0x50,, 0x4190419,, A
+SendInput, /dep to ALL: %frac% займётся банком.
+return
+
 :?:..адекват::
 SendMessage, 0x50,, 0x4190419,, A
 SendInput, /dep to ALL: Требования похитителей адекватные.
@@ -1174,7 +1180,7 @@ SendMessage, 0x50,, 0x4190419,, A
 SendInput, /dep to ALL: Заложники в безопасности.
 return
 
-:?:..банк::
+:?:..снятьденьги::
 SendMessage, 0x50,, 0x4190419,, A
 SendInput, /me открыл%gender% сумку, положил%gender% в неё деньги, закрыл%gender% её и закинул%gender% на плечо{enter}
 ChatOpen()
