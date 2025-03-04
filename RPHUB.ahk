@@ -1,4 +1,4 @@
-﻿version := 1.42
+﻿version := 1.43
 SetWorkingDir %A_ScriptDir%
 IfnotExist, %A_ScriptDir%\assets
 {
@@ -291,11 +291,11 @@ Gui, Настройки: Add, Text, x2 y10 w70 h18 +0x200 +0x1, Фракция:
 Gui, Настройки: Add, Edit, x65 y10 w50 h21 vfrac, %frac%
 Gui, Настройки: Add, Text, x120 y10 w50 h18 +0x200 +0x1, Отдел:
 Gui, Настройки: Add, Edit, x165 y10 w50 h21 votdel, %otdel%
-;Gui, Настройки: Add, Text, x230 y10 w50 h18 +0x200 +0x1, Ранг:
-;Gui, Настройки: Add, Edit, x275 y10 w70 h21 vrank, %rank%
-Gui, Настройки: Add, Edit, x370 y10 w70 h21 vtype, %type%
-Gui, Настройки: Add, Text, x443 y12 w20 h18, на
-Gui, Настройки: Add, Edit, x465 y10 w70 h21 vplace, %place%
+Gui, Настройки: Add, Text, x230 y10 w50 h18 +0x200 +0x1, Ранг:
+Gui, Настройки: Add, Edit, x275 y10 w40 h21 vrank, %rank%
+;Gui, Настройки: Add, Edit, x370 y10 w70 h21 vtype, %type%
+;Gui, Настройки: Add, Text, x443 y12 w20 h18, на
+;Gui, Настройки: Add, Edit, x465 y10 w70 h21 vplace, %place%
 Gui, Настройки: Add, Text, x2 y36 w70 h18 +0x200 +0x1, Ваш пол:
 Gui, Настройки: Add, Radio, x70 y33 w80 h23 Group vRadio1 Checked%Radio1%, Мужчина
 Gui, Настройки: Add, Radio, x150 y33 w80 h23 vRadio2 Checked%Radio2%, Женщина
@@ -362,7 +362,7 @@ GuiClose:
 ExitApp
 
 settings:
-Gui, Настройки: Show, w615 h80, Настройки
+Gui, Настройки: Show, w365 h80, Настройки
 return
 
 Update:
@@ -598,18 +598,6 @@ TransformRank(f, r)
 		{
 			switch r
 			{
-				case 1: return "Cadet I"
-				case 2: return "Cadet II"
-				case 3: return "Sergeant"
-				case 4: return "Senior Sergeant"
-				case 5: return "Junior Lieutenant"
-				case 6: return "Lieutenant"
-				case 7: return "Senior Lieutenant"
-				case 8: return "Commissar"
-				case 9: return "Captain"
-				case 10: return "Major"
-				case 11: return "Deputy Head of Department"
-				case 12: return "Head of Department"
 				case 13: return "Assistant Sheriff"
 				case 14: return "Undersheriff"
 				case 15: return "Sheriff"
@@ -620,19 +608,7 @@ TransformRank(f, r)
 			{
 				switch r
 				{
-					case 1: return "Trainee"
-					case 2: return "Agent Assistant"
-					case 3: return "Junior Agent"
-					case 4: return "Agent"
-					case 5: return "Special Agent"
-					case 6: return "Secret Agent"
-					case 7: return "Analytics Agent"
-					case 8: return "Intelligence Agent"
-					case 9: return "Free Agent"
-					case 10: return "Instructor of Department"
-					case 11: return "Deputy of Department"
-					case 12: return "Head of Department"
-					case 13: return "Assistant Sheriff"
+					case 13: return "Assistant Director"
 					case 14: return "Deputy of Director"
 					case 15: return "Director"
 					default: return "Должность"
@@ -643,17 +619,9 @@ TransformRank(f, r)
 			{
 				switch r
 				{
-					case 1: return "PA Cadet"
-					case 2: return "Officer"
-					case 3: return "Officer II"
-					case 4: return "Officer III"
-					case 5: return "Sergeant"
-					case 6: return "Academy Instructor"
-					case 7: return "Deputy Head of Department"
-					case 8: return "Head of Department"
-					case 9: return "Assistant Chief"
-					case 10: return "Deputy Chief"
-					case 11: return "Chief"
+					case 13: return "Assistant Chief"
+					case 14: return "Deputy Chief"
+					case 15: return "Chief"
 					default: return "Должность"
 				}
 			}
@@ -668,8 +636,11 @@ IniRead, rank, assets/Settings.ini, USER, rank
 IniRead, place, assets/Settings.ini, USER, place
 
 ChatOpen()
-rank_text:= TransformRank(frac, rank)
-temp_msg = /do На %place% находится %type%: [%frac% | %otdel%].
+if rank > 12
+{
+otdel:= TransformRank(frac, rank)
+}
+temp_msg = /do [%frac% | %otdel%].
 FastSend(temp_msg)
 SendInput {Enter}
 
