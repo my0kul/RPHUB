@@ -1,4 +1,4 @@
-﻿version := 1.44
+﻿version := 1.45
 SetWorkingDir %A_ScriptDir%
 IfnotExist, %A_ScriptDir%\assets
 {
@@ -1494,6 +1494,11 @@ return
 :?:..чтонаписано::
 SendMessage, 0x50,, 0x4190419,, A
 SendInput, /do Что написано в ориентировке у @?{left 1}
+return
+
+:?:..фрей::
+SendMessage, 0x50,, 0x4190419,, A
+SendInput, /me наклеил%gender% на поверхность листовку: "Государственная семья FREY ищет тигров! Почта для связи: mansela, myokul"
 return
 
 :?:.да::👍
