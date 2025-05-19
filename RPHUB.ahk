@@ -1,4 +1,4 @@
-﻿version := 1.46
+﻿version := 1.47
 SetWorkingDir %A_ScriptDir%
 IfnotExist, %A_ScriptDir%\assets
 {
@@ -7,51 +7,74 @@ FileCreateDir, %A_ScriptDir%\assets
 IniRead, v, assets/Settings.ini, USER, v
 if v != %version%
 {
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help4.png?raw=true, %A_ScriptDir%\assets\help4.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help5.png?raw=true, %A_ScriptDir%\assets\help5.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help6.png?raw=true, %A_ScriptDir%\assets\help6.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/tencode.png?raw=true, %A_ScriptDir%\assets\tencode.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/ourfamily.png?raw=true, %A_ScriptDir%\assets\ourfamily.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cidhelp.png?raw=true, %A_ScriptDir%\assets\cidhelp.png
-URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
+DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/update.ahk", "update.ahk")
+DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help.png", "assets\help.png")
+DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help2.png", "assets\help2.png")
+DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help3.png", "assets\help3.png")
+DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help4.png", "assets\help4.png")
+DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help5.png", "assets\help5.png")
+DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help6.png", "assets\help6.png")
+DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/ourfamily.png", "assets\ourfamily.png")
+DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/tencode.png", "assets\tenocode.png")
+DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/cidhelp.png", "assets\cidhelp.png")
+DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/logo.png", "assets\logo.png")
 IniWrite, %version%, assets/Settings.ini, USER, v
 }
 
 IfnotExist, %A_ScriptDir%\update.ahk
-	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/update.ahk?raw=true, %A_ScriptDir%\update.ahk
+	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/update.ahk", "update.ahk")
 
 IfnotExist, %A_ScriptDir%\assets\help.png
-	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help.png?raw=true, %A_ScriptDir%\assets\help.png
+	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help.png", "assets\help.png")
 
 IfnotExist, %A_ScriptDir%\assets\help2.png
-	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help2.png?raw=true, %A_ScriptDir%\assets\help2.png
+	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help2.png", "assets\help2.png")
 
 IfnotExist, %A_ScriptDir%\assets\help3.png
-	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help3.png?raw=true, %A_ScriptDir%\assets\help3.png
+	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help.png", "assets\help3.png")
 
 IfnotExist, %A_ScriptDir%\assets\help4.png
-	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help4.png?raw=true, %A_ScriptDir%\assets\help4.png
+	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help.png", "assets\help4.png")
 
 IfnotExist, %A_ScriptDir%\assets\help5.png
-	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help5.png?raw=true, %A_ScriptDir%\assets\help5.png
+	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help.png", "assets\help5.png")
 
 IfnotExist, %A_ScriptDir%\assets\help6.png
-	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/help6.png?raw=true, %A_ScriptDir%\assets\help6.png
+	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help.png", "assets\help6.png")
 
 IfnotExist, %A_ScriptDir%\assets\ourfamily.png
-	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/ourfamily.png?raw=true, %A_ScriptDir%\assets\ourfamily.png
+	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/ourfamily.png", "assets\ourfamily.png")
 
 IfnotExist, %A_ScriptDir%\assets\tencode.png
-	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/tencode.png?raw=true, %A_ScriptDir%\assets\tencode.png
+	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/tencode.png", "assets\tenocode.png")
 
 IfnotExist, %A_ScriptDir%\assets\cidhelp.png
-	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/cidhelp.png?raw=true, %A_ScriptDir%\assets\cidhelp.png
+	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/cidhelp.png", "assets\cidhelp.png")
 
 IfnotExist, %A_ScriptDir%\assets\logo.png
-	URLDownloadToFile, https://github.com/my0kul/RPHUB/blob/main/assets/logo.png?raw=true, %A_ScriptDir%\assets\logo.png
+	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/logo.png", "assets\logo.png")
+
+
+DownloadFile(Url, FilePath)
+{
+    static WinHttp := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+    WinHttp.Open("GET", Url, false) ; Синхронный запрос
+    WinHttp.SetRequestHeader("User-Agent", "AutoHotkey v1")
+    WinHttp.Send()
+    
+    ; Сохраняем статус в переменную
+    Status := WinHttp.Status
+    
+    ; Удаляем старый файл, если он существует
+    FileDelete, %FilePath%
+    
+    ; Создаём поток для записи файла
+    oStream := ComObjCreate("ADODB.Stream")
+    oStream.Type := 1 ; adTypeBinary
+    oStream.Open()
+    oStream.Write(WinHttp.ResponseBody)
+    oStream.SaveToFile(FilePath, 2) ; adSaveCreateOverWrite
+}
 
 IniRead, frac, assets/Settings.ini, USER, frac, Фракция
 IniRead, otdel, assets/Settings.ini, USER, otdel, Отдел
