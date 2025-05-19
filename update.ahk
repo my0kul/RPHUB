@@ -15,6 +15,8 @@ ExitApp
 DownloadFile(Url, FilePath)
 {
     static WinHttp := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+
+    WinHttp.SetTimeouts(10000, 30000, 30000, 30000)
     WinHttp.Open("GET", Url, false) ; Синхронный запрос
     WinHttp.SetRequestHeader("User-Agent", "AutoHotkey v1")
     WinHttp.Send()
