@@ -7,7 +7,7 @@ FileCreateDir, %A_ScriptDir%\assets
 IniRead, v, assets/Settings.ini, USER, v
 if v != %version%
 {
-DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/update.ahk", "update.ahk")
+DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/update.ahk", "update.ahk")
 DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help.png", "assets\help.png")
 DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help2.png", "assets\help2.png")
 DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help3.png", "assets\help3.png")
@@ -22,7 +22,7 @@ IniWrite, %version%, assets/Settings.ini, USER, v
 }
 
 IfnotExist, %A_ScriptDir%\update.ahk
-	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/update.ahk", "update.ahk")
+	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/update.ahk", "update.ahk")
 
 IfnotExist, %A_ScriptDir%\assets\help.png
 	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help.png", "assets\help.png")
@@ -395,7 +395,7 @@ IfWinExist, RPHUB %version%
 return
 
 Discord:
-Run, https://discord.gg/gyY28sdrc7
+Run, https://discord.gg/2f4CdAFuYV
 return
 
 MakeScreenshot:
