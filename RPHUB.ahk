@@ -1112,7 +1112,7 @@ return
 
 :?:..адвокат::
 SendMessage, 0x50,, 0x4190419,, A
-SendMsgFast("dep to GOV: Требуется адвокат в допросную ", False)
+SendMsgFast("/dep to GOV: Требуется адвокат в допросную ", False)
 return
 
 :?:..рация::
