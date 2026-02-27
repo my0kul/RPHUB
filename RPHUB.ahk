@@ -1,4 +1,4 @@
-﻿version := 1.50
+﻿version := 2.0
 SetWorkingDir %A_ScriptDir%
 IfnotExist, %A_ScriptDir%\assets
 {
@@ -218,7 +218,7 @@ Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, Бинды
 Gui, Add, Picture, x885 y-5 w170 h170 +BackgroundTrans, assets\logo.png
 Gui, Add, Picture, x480 y-65 w359 h566 gDiscord, assets\ourfamily.png
 Gui, Font, S10 CWhite, Calibri
-Gui, Add, Text, x902 y445 w250 h30 +BackgroundTrans, by #110378 | San Diego
+Gui, Add, Text, x902 y445 w250 h30 +BackgroundTrans, by myokul
 Gui, Font, S15 CWhite, Calibri
 
 Gui, Add, Text, x130 y62 w500 h30 +BackgroundTrans, Бейджик
@@ -291,7 +291,7 @@ Gui, Настройки: Add, Text, x2 y10 w70 h18 +0x200 +0x1, Фракция:
 Gui, Настройки: Add, Edit, x65 y10 w50 h21 vfrac, %frac%
 Gui, Настройки: Add, Text, x120 y10 w50 h18 +0x200 +0x1, Отдел:
 Gui, Настройки: Add, Edit, x165 y10 w50 h21 votdel, %otdel%
-Gui, Настройки: Add, Text, x230 y10 w50 h18 +0x200 +0x1, Ранг:
+Gui, Настройки: Add, Text, x230 y10 w50 h18 +0x200 +0x1, Статик:
 Gui, Настройки: Add, Edit, x275 y10 w40 h21 vrank, %rank%
 Gui, Настройки: Add, Text, x2 y36 w70 h18 +0x200 +0x1, Ваш пол:
 Gui, Настройки: Add, Radio, x70 y33 w80 h23 Group vRadio1 Checked%Radio1%, Мужчина
