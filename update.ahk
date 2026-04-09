@@ -1,14 +1,14 @@
 ﻿; Удаляем старый файл, если он существует
-FileDelete, RPHUB.ahk
+FileDelete, M5RP.RU StateTool.ahk
 
 ; Проверяем, существует ли файл после удаления
-IfNotExist, RPHUB.ahk
+IfNotExist, M5RP.RU StateTool.ahk
 {
-    DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/main/RPHUB.ahk", "RPHUB.ahk")
+    DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/main/RPHUB.ahk", "M5RP.RU StateTool.ahk")
 }
 
 ; Запускаем скачанный скрипт
-Run, "%A_ScriptDir%\RPHUB.ahk"
+Run, "%A_ScriptDir%\M5RP.RU StateTool.ahk"
 
 ExitApp
 

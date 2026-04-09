@@ -212,27 +212,27 @@ Hotkey, % PrKey21 := Key21, Key21, on, UseErrorLevel
 IniWrite, %Key21%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key21
 
 ;======================================================================================================================Основное GUI
-Gui, Color, 191919
+Gui, Color, 141414
 Gui, Font, S20 CWhite, Calibri
 Gui, Add, Text, x20 y20 w820 h40 +BackgroundTrans, Бинды
 Gui, Add, Picture, x885 y-5 w170 h170 +BackgroundTrans, assets\logo.png
 Gui, Add, Picture, x480 y-65 w359 h566 gDiscord, assets\ourfamily.png
 Gui, Font, S10 CWhite, Calibri
-Gui, Add, Text, x902 y445 w250 h30 +BackgroundTrans, by myokul
+Gui, Add, Text, x902 y445 w250 h30 +BackgroundTrans, by m5rp.ru
 Gui, Font, S15 CWhite, Calibri
 
 Gui, Add, Text, x130 y62 w500 h30 +BackgroundTrans, Бейджик
-Gui, Add, Text, x130 y102 w240 h30 +BackgroundTrans, Общая
-Gui, Add, Text, x130 y142 w240 h30 +BackgroundTrans, Угонки
-Gui, Add, Text, x130 y182 w330 h30 +BackgroundTrans, Установка личности
-Gui, Add, Text, x130 y222 w330 h30 +BackgroundTrans, Команды и Тен-Коды
-Gui, Add, Text, x130 y262 w330 h30 +BackgroundTrans, Задержание Госника
-Gui, Add, Text, x130 y302 w330 h30 +BackgroundTrans, CID/DB
-Gui, Add, Text, x130 y342 w330 h30 +BackgroundTrans, Похищения
-Gui, Add, Text, x130 y382 w330 h30 +BackgroundTrans, Адвокаты
+Gui, Add, Text, x130 y102 w240 h30 +BackgroundTrans, Общая памятка
+;Gui, Add, Text, x130 y142 w240 h30 +BackgroundTrans, Угонки
+;Gui, Add, Text, x130 y182 w330 h30 +BackgroundTrans, Установка личности
+;Gui, Add, Text, x130 y222 w330 h30 +BackgroundTrans, Команды и Тен-Коды
+;Gui, Add, Text, x130 y262 w330 h30 +BackgroundTrans, Задержание Госника
+;Gui, Add, Text, x130 y302 w330 h30 +BackgroundTrans, CID/DB
+;Gui, Add, Text, x130 y342 w330 h30 +BackgroundTrans, Похищения
+;Gui, Add, Text, x130 y382 w330 h30 +BackgroundTrans, Адвокаты
 ;=Gui, Add, Text, x130 y422 w330 h30 +BackgroundTrans, .
 
-Gui, Add, Text, x380 y62 w500 h30 +BackgroundTrans,  CODE-7
+;Gui, Add, Text, x380 y62 w500 h30 +BackgroundTrans,  CODE-7
 ;=Gui, Add, Text, x580 y122 w240 h30 +BackgroundTrans, .
 ;=Gui, Add, Text, x580 y162 w240 h30 +BackgroundTrans, .
 ;=Gui, Add, Text, x580 y202 w330 h30 +BackgroundTrans, .
@@ -247,7 +247,7 @@ Gui, Font, S13 CBlack, Calibri
 
 Gui, Add, Button, x902 y149 w150 h30 gWIKI, WIKI
 Gui, Add, Button, x902 y189 w150 h30 gSettings, Настройки
-Gui, Add, Button, x902 y229 w150 h30 gLawsuit, Генератор исков
+;Gui, Add, Button, x902 y229 w150 h30 gLawsuit, Генератор исков
 Gui, Add, Button, x22 y430 w150 h30 gSave, Сохранить
 Gui, Add, Button, x902 y409 w150 h30 gUpdate, Последняя версия
 
@@ -256,20 +256,20 @@ Gui, Add, Hotkey, x22 y60 w95 h30 vKey1, %Key1%
 ;==== Памятка общая ==== 
 Gui, Add, Hotkey, x22 y100 w95 h30 vKey2, %Key2%
 ;==== Памятка угонки ==== 
-Gui, Add, Hotkey, x22 y140 w95 h30 vKey3, %Key3%
+;Gui, Add, Hotkey, x22 y140 w95 h30 vKey3, %Key3%
 ;==== Памятка установки личности ==== 
-Gui, Add, Hotkey, x22 y180 w95 h30 vKey4, %Key4%
+;Gui, Add, Hotkey, x22 y180 w95 h30 vKey4, %Key4%
 ;==== ТЕН-КОДЫ ==== 
-Gui, Add, Hotkey, x22 y220 w95 h30 vKey5, %Key5%
+;Gui, Add, Hotkey, x22 y220 w95 h30 vKey5, %Key5%
 
-Gui, Add, Hotkey, x22 y260 w95 h30 vKey6, %Key6%
-Gui, Add, Hotkey, x22 y300 w95 h30 vKey7, %Key7%
+;Gui, Add, Hotkey, x22 y260 w95 h30 vKey6, %Key6%
+;Gui, Add, Hotkey, x22 y300 w95 h30 vKey7, %Key7%
 
-Gui, Add, Hotkey, x22 y340 w95 h30 vKey8, %Key8%
-Gui, Add, Hotkey, x22 y380 w95 h30 vKey9, %Key9%
+;Gui, Add, Hotkey, x22 y340 w95 h30 vKey8, %Key8%
+;Gui, Add, Hotkey, x22 y380 w95 h30 vKey9, %Key9%
 ;=Gui, Add, Hotkey, x22 y440 w95 h30 vKey10, %Key10%
 
-Gui, Add, Hotkey, x272 y60 w95 h30 vKey11, %Key11%
+;Gui, Add, Hotkey, x272 y60 w95 h30 vKey11, %Key11%
 ;=Gui, Add, Hotkey, x472 y120 w95 h30 vKey12, %Key12%
 ;=Gui, Add, Hotkey, x472 y160 w95 h30 vKey13, %Key13%
 ;=Gui, Add, Hotkey, x472 y200 w95 h30 vKey14, %Key14%
@@ -280,7 +280,7 @@ Gui, Add, Hotkey, x272 y60 w95 h30 vKey11, %Key11%
 ;=Gui, Add, Hotkey, x472 y400 w95 h30 vKey19, %Key19%
 ;=Gui, Add, Hotkey, x472 y440 w95 h30 vKey20, %Key20%
 
-Gui, Show, w1080 h489, RPHUB %version%
+Gui, Show, w1080 h489, M5RP.RU StateTool %version%
 
 Gui, Настройки: -MaximizeBox
 Gui, Настройки: -SysMenu
@@ -362,7 +362,7 @@ return
 
 Update:
 Run,%A_ScriptDir%\update.ahk
-IfWinExist, RPHUB %version%
+IfWinExist, M5RP.RU StateTool %version%
     WinClose
 return
 
