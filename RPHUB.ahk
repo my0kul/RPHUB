@@ -210,7 +210,27 @@ Gui, Submit, NoHide
 Hotkey, % PrKey21, off, UseErrorLevel
 Hotkey, % PrKey21 := Key21, Key21, on, UseErrorLevel
 IniWrite, %Key21%, %A_ScriptDir%\ assets\Settings.ini, Hotkey, Key21
-
+;=================================================================================== гендер
+IniRead, Radio1, assets/Settings.ini, User, Gender1
+IniRead, Radio2, assets/Settings.ini, User, Gender2
+if (Radio1 = "ERROR")
+{
+    if (Radio2 = "ERROR")
+    {
+        Radio1 = 1
+        gender = 
+    }
+}
+if (Radio1 = "1")
+{
+Radio2= 0
+gender = 
+}
+if (Radio2 = "1")
+{
+Radio1 = 0
+gender = а
+}
 ;======================================================================================================================Основное GUI
 Gui, Color, 141414
 Gui, Font, S20 CWhite, Calibri
@@ -532,7 +552,7 @@ if rank > 12
 {
 otdel:= TransformRank(frac, rank)
 }
-temp_msg = /do [%frac% | %otdel%].
+temp_msg = /do На тактическом поясе закреплен жетон %frac% номер PD-%rank%.
 FastSend(temp_msg)
 SendInput {Enter}
 
