@@ -387,9 +387,7 @@ IfWinExist, M5RP.RU StateTool %version%
 return
 
 Discord:
-Run, https://discord.gg/2t8twWgfZJ
-Run, https://www.youtube.com/@myokulx
-Run, https://www.youtube.com/@mansela
+Run, https://m5rp.ru/state
 return
 
 WIKI:
@@ -481,9 +479,9 @@ sleep 250
 FastSend(msg)
 {
     clipboard := msg
-    Sleep 100
+    Sleep 75
     Send, ^v
-    Sleep 100
+    Sleep 75
 }
 
 SendMsgFast(text, goEnter = True) {
@@ -620,7 +618,7 @@ RunScenario(messages) {
         if (messages.Length() > 1)
 			{
 			ChatOpen()
-			Sleep, 300 ; Необязательная пауза между действиями
+			Sleep, 200 ; Необязательная пауза между действиями
 		}
     }
 }
