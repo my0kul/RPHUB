@@ -1,5 +1,53 @@
 ﻿version := 2.0
+
+
 SetWorkingDir %A_ScriptDir%
+
+; --- ИНИЦИАЛИЗАЦИЯ ПОЛЬЗОВАТЕЛЬСКИХ КОМАНД ---
+LoadAliases() {
+    ; Если файла нет, создаем его с примерами по умолчанию
+    IfNotExist, aliases.txt
+    {
+        FileAppend, 
+        (LTrim
+        `; Пользовательские быстрые команды State Tool
+        `; ВАЖНО: Пользовательские команды не могут заменить предустановленные.
+		`; ВАЖНО 2: После добавления команды, перезапустите приложение.
+		`; Формат: триггер=Текст для замены
+        `; --------------------------------------------
+        ..ку=Привет, друг!
+		..плакать=/me заплакал от грусти
+        ), aliases.txt, UTF-8
+    }
+
+    ; Читаем файл построчно
+    Loop, Read, aliases.txt
+    {
+        line := Trim(A_LoopReadLine)
+        
+        ; Пропускаем пустые строки и комментарии (начинающиеся с точки с запятой)
+        if (line = "" or SubStr(line, 1, 1) = ";")
+            continue
+
+        ; Ищем знак "равно", чтобы разделить триггер и текст
+        splitPos := InStr(line, "=")
+        if (splitPos > 0)
+        {
+            trigger := Trim(SubStr(line, 1, splitPos - 1))
+            replacement := Trim(SubStr(line, splitPos + 1))
+            
+            ; Регистрируем автозамену
+            ; Опция ":O:" (Omit) означает, что символ пробела или Enter, 
+            ; которым пользователь активирует команду, не будет напечатан в чат.
+            ; Опция "X" (Execute) - для продвинутых скриптов, но для текста нам хватит O.
+            Hotstring(":O:" . trigger, replacement)
+        }
+    }
+}
+
+; Вызываем функцию при запуске скрипта
+LoadAliases()
+
 IfnotExist, %A_ScriptDir%\assets
 {
 FileCreateDir, %A_ScriptDir%\assets
@@ -387,7 +435,7 @@ IfWinExist, M5RP.RU StateTool %version%
 return
 
 Discord:
-Run, https://m5rp.ru/state
+Run, https://m5rp.ru/statetool
 return
 
 WIKI:
@@ -1003,7 +1051,7 @@ msg = Здравствуйте, являюсь сотрудником %frac%, о
 SendMsgFast(msg, True)
 ChatOpen()
 rank_text:= TransformRank(frac, rank)
-msg = /do На %place% находится %type%: [%frac% | %otdel% ]
+msg = /do На тактическом поясе закреплен жетон %frac% номер PD-%rank%.
 SendMsgFast(msg, True)
 return
 
