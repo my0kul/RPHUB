@@ -126,7 +126,7 @@ DownloadFile(Url, FilePath)
 
 IniRead, frac, assets/Settings.ini, USER, frac, Фракция
 IniRead, otdel, assets/Settings.ini, USER, otdel, Отдел
-IniRead, rank, assets/Settings.ini, USER, rank, Ранг
+IniRead, rank, assets/Settings.ini, USER, rank, Статик
 IniRead, place, assets/Settings.ini, USER, place, поясе
 IniRead, type, assets/Settings.ini, USER, type, бейджик
 IniRead, resolution, assets/Settings.ini, USER, resolution, 0
