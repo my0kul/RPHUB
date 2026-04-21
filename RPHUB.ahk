@@ -1,4 +1,4 @@
-﻿version := 2.0
+﻿version := 2.01
 
 
 SetWorkingDir %A_ScriptDir%
@@ -57,14 +57,8 @@ if v != %version%
 {
 DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/update.ahk", "update.ahk")
 DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help.png", "assets\help.png")
-DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help2.png", "assets\help2.png")
-DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help3.png", "assets\help3.png")
-DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help4.png", "assets\help4.png")
-DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help5.png", "assets\help5.png")
-DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help6.png", "assets\help6.png")
+DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/10code.png", "assets\10code.png")
 DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/ourfamily.png", "assets\ourfamily.png")
-DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/tencode.png", "assets\tenocode.png")
-DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/cidhelp.png", "assets\cidhelp.png")
 DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/logo.png", "assets\logo.png")
 IniWrite, %version%, assets/Settings.ini, USER, v
 }
@@ -75,29 +69,11 @@ IfnotExist, %A_ScriptDir%\update.ahk
 IfnotExist, %A_ScriptDir%\assets\help.png
 	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help.png", "assets\help.png")
 
-IfnotExist, %A_ScriptDir%\assets\help2.png
-	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help2.png", "assets\help2.png")
-
-IfnotExist, %A_ScriptDir%\assets\help3.png
-	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help.png", "assets\help3.png")
-
-IfnotExist, %A_ScriptDir%\assets\help4.png
-	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help.png", "assets\help4.png")
-
-IfnotExist, %A_ScriptDir%\assets\help5.png
-	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help.png", "assets\help5.png")
-
-IfnotExist, %A_ScriptDir%\assets\help6.png
-	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/help.png", "assets\help6.png")
+IfnotExist, %A_ScriptDir%\assets\10code.png
+	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/10code.png", "assets\10code.png")
 
 IfnotExist, %A_ScriptDir%\assets\ourfamily.png
 	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/ourfamily.png", "assets\ourfamily.png")
-
-IfnotExist, %A_ScriptDir%\assets\tencode.png
-	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/tencode.png", "assets\tenocode.png")
-
-IfnotExist, %A_ScriptDir%\assets\cidhelp.png
-	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/cidhelp.png", "assets\cidhelp.png")
 
 IfnotExist, %A_ScriptDir%\assets\logo.png
 	DownloadFile("https://raw.githubusercontent.com/my0kul/RPHUB/refs/heads/main/assets/logo.png", "assets\logo.png")
@@ -291,7 +267,7 @@ Gui, Font, S15 CWhite, Calibri
 
 Gui, Add, Text, x130 y62 w500 h30 +BackgroundTrans, Бейджик
 Gui, Add, Text, x130 y102 w240 h30 +BackgroundTrans, Общая памятка
-;Gui, Add, Text, x130 y142 w240 h30 +BackgroundTrans, Угонки
+Gui, Add, Text, x130 y142 w240 h30 +BackgroundTrans, Тен-коды
 ;Gui, Add, Text, x130 y182 w330 h30 +BackgroundTrans, Установка личности
 ;Gui, Add, Text, x130 y222 w330 h30 +BackgroundTrans, Команды и Тен-Коды
 ;Gui, Add, Text, x130 y262 w330 h30 +BackgroundTrans, Задержание Госника
@@ -324,7 +300,7 @@ Gui, Add, Hotkey, x22 y60 w95 h30 vKey1, %Key1%
 ;==== Памятка общая ==== 
 Gui, Add, Hotkey, x22 y100 w95 h30 vKey2, %Key2%
 ;==== Памятка угонки ==== 
-;Gui, Add, Hotkey, x22 y140 w95 h30 vKey3, %Key3%
+Gui, Add, Hotkey, x22 y140 w95 h30 vKey3, %Key3%
 ;==== Памятка установки личности ==== 
 ;Gui, Add, Hotkey, x22 y180 w95 h30 vKey4, %Key4%
 ;==== ТЕН-КОДЫ ==== 
@@ -625,7 +601,7 @@ GuiManager(2, "assets/help.png", (resolution = 0 ? 574 : 861), (resolution = 0 ?
 return
 
 Key3: 
-GuiManager(3, "assets/help2.png", (resolution = 0 ? 188 : 376), (resolution = 0 ? 611 : 1222))
+GuiManager(3, "assets/10code.png", (resolution = 0 ? 574 : 861), (resolution = 0 ? 306 : 459))
 return
 
 
