@@ -1,4 +1,4 @@
-﻿version := 2.03
+﻿version := 2.04
 
 
 SetWorkingDir %A_ScriptDir%
@@ -419,11 +419,11 @@ Run, https://m5rp.ru/statetool/wiki
 return
 
 ForumSud:
-Run, 
+Run, https://m5rp.ru/statetool/wiki
 return
 
 ForumProc:
-Run, 
+Run, https://m5rp.ru/statetool/wiki
 return
 
 Lawsuit:
