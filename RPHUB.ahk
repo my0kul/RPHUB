@@ -1,4 +1,4 @@
-﻿version := 2.02
+﻿version := 2.03
 
 
 SetWorkingDir %A_ScriptDir%
@@ -415,15 +415,15 @@ Run, https://m5rp.ru/statetool
 return
 
 WIKI:
-Run, https://maximealexeev.gitbook.io/rphub
+Run, https://m5rp.ru/statetool/wiki
 return
 
 ForumSud:
-Run, https://forum.majestic-rp.ru/forums/okruzhnoj-sud.557/
+Run, 
 return
 
 ForumProc:
-Run, https://forum.majestic-rp.ru/forums/prokuratura.631/
+Run, 
 return
 
 Lawsuit:
@@ -574,7 +574,7 @@ if rank > 12
 {
 otdel:= TransformRank(frac, rank)
 }
-temp_msg = /do На тактическом поясе закреплен жетон %frac% номер PD-%rank%.
+temp_msg = /do На тактическом поясе закреплен жетон %frac% номер %otdel%-%rank%.
 FastSend(temp_msg)
 SendInput {Enter}
 
@@ -1027,7 +1027,7 @@ msg = Здравствуйте, являюсь сотрудником %frac%, о
 SendMsgFast(msg, True)
 ChatOpen()
 rank_text:= TransformRank(frac, rank)
-msg = /do На тактическом поясе закреплен жетон %frac% номер PD-%rank%.
+msg = /do На тактическом поясе закреплен жетон %frac% номер %otdel%-%rank%.
 SendMsgFast(msg, True)
 return
 
