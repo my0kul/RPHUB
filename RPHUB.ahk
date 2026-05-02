@@ -1,4 +1,4 @@
-﻿version := 2.04
+﻿version := 2.05
 
 
 SetWorkingDir %A_ScriptDir%
@@ -570,10 +570,6 @@ IniRead, rank, assets/Settings.ini, USER, rank
 IniRead, place, assets/Settings.ini, USER, place
 
 ChatOpen()
-if rank > 12
-{
-otdel:= TransformRank(frac, rank)
-}
 temp_msg = /do На тактическом поясе закреплен жетон %frac% номер %otdel%-%rank%.
 FastSend(temp_msg)
 SendInput {Enter}
